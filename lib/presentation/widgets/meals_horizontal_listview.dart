@@ -11,7 +11,7 @@ class MealsHorizontalListview extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         itemCount: 3,
-        padding: EdgeInsets.only(left: AppDimensions.normalize(12)),
+        padding: EdgeInsets.only(left: AppDimensions.normalize(8)),
         itemBuilder: (context, index) {
           return const MealItem();
         });

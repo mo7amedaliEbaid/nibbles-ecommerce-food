@@ -20,6 +20,9 @@ dependencies:
   firebase_core:
   smooth_page_indicator:
   buttons_tabbar:
+  equatable:
+  flutter_bloc:
+  carousel_slider:
 
 dev_dependencies:
   flutter_test:

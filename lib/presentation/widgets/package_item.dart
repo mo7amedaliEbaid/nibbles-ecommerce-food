@@ -51,7 +51,7 @@ class PackageItem extends StatelessWidget {
                         children: [
                           Text(
                             "Package 1".toUpperCase(),
-                            style: AppText.h3,
+                            style: AppText.h3?.copyWith(letterSpacing: 1.7),
                           ),
                           Space.yf(.4),
                           Text("2 lunch, 1 Breakfast, 1 Drink",

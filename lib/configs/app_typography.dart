@@ -28,7 +28,7 @@ class AppText {
 
   static init() {
     const b = FontWeight.bold;
-    const baseStyle = TextStyle(fontFamily: AppStrings.fontFamily);
+    const baseStyle = TextStyle(fontFamily: AppStrings.fontFamily,letterSpacing: 1);
 
     h1 = baseStyle.copyWith(fontSize: AppDimensions.font(12.0));
     h1b = h1!.copyWith(fontWeight: b);

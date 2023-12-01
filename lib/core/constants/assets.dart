@@ -17,12 +17,17 @@ sealed class AppAssets {
   static const String cartWhite = "assets/svg/cartwhite.svg";
   static const String favWhiteOut = "assets/svg/favwhiteout.svg";
   static const String back = "assets/svg/back.svg";
+  static const String splash = "assets/svg/splash.svg";
 
   static const List<String> navbarIcons = [home, meal, qrcode, box, more];
+
 
   //png
   static const String nibblesPng = "assets/png/nibbles.png";
   static const String packagesPng = "assets/png/package.png";
   static const String favPng = "assets/png/favpng1.png";
   static const String mealPng = "assets/png/mealpng.png";
+  static const String splashPng = "assets/png/splash.png";
+  static const String adsPng = "assets/png/ads.png";
+  static const String introPng = "assets/png/into.png";
 }

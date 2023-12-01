@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     _nibblesPageController = PageController(initialPage: currentPage);
     _packagesPageController =
-        PageController(initialPage: packagesCurrentPage, viewportFraction: .8);
+        PageController(initialPage: packagesCurrentPage, viewportFraction: .87);
     super.initState();
   }
 
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Text(
                             "Good food for\nYour Loved ones".toUpperCase(),
                             style: AppText.h2
-                                ?.copyWith(color: Colors.white, height: 1.5),
+                                ?.copyWith(color: Colors.white, height: 1.5,letterSpacing: 1.8),
                           ),
                         )
                       ],
@@ -185,17 +185,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Text(
                         "Packages".toUpperCase(),
-                        style: AppText.h2b,
+                        style: AppText.h2b?.copyWith(letterSpacing: 2),
                       ),
                       const TextButton(onPressed: null, child: Text("View All"))
                     ],
                   ),
                 ),
                 Space.yf(),
-                SizedBox(
+                Container(
                   height: AppDimensions.normalize(135),
+                  margin: EdgeInsets.only(left: AppDimensions.normalize(8)),
                   // width: AppDimensions.normalize(150),
                   child: PageView.builder(
+                    padEnds: false,
+
                       controller: _packagesPageController,
                       onPageChanged: (pos) {
                         setState(() {
@@ -204,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return PackageItem();
+                        return const PackageItem();
                       }),
                 ),
                 // Space.yf(2),
@@ -225,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Text(
                         "Meals".toUpperCase(),
-                        style: AppText.h2b,
+                        style: AppText.h2b?.copyWith(letterSpacing: 2),
                       ),
                       const TextButton(onPressed: null, child: Text("View All"))
                     ],

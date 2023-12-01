@@ -8,8 +8,10 @@ import 'package:nibbles_ecommerce/presentation/screens/home.dart';
 import '../widgets/notched_navbar.dart';
 
 class RootScreen extends StatelessWidget {
-  final _pageController = PageController(initialPage: 0);
-  int maxCount = 5;
+  RootScreen({super.key});
+
+  final PageController _pageController = PageController(initialPage: 0);
+  final int maxCount = 5;
   final List<Widget> bottomBarPages = [
     const HomeScreen(),
     const HomeScreen(),
@@ -17,7 +19,7 @@ class RootScreen extends StatelessWidget {
     const HomeScreen(),
     const HomeScreen(),
   ];
-  List<MyBottomBarItem> bottomBarItems = List.generate(
+  final List<MyBottomBarItem> bottomBarItems = List.generate(
     AppAssets.navbarIcons.length,
     (index) => MyBottomBarItem(
       inActiveItem: SvgPicture.asset(
@@ -49,57 +51,7 @@ class RootScreen extends StatelessWidget {
               color: AppColors.antiqueRuby,
               showShadow: true,
               showLabel: false,
-              bottomBarItems: /* [
-                const MyBottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.category,
-                      color: Colors.white,
-                    ),
-                    activeItem: Icon(
-                      Icons.category,
-                      color: Colors.white,
-                    )),
-                const MyBottomBarItem(
-                  inActiveItem: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                  activeItem: Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                ),
-                const MyBottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.home_filled,
-                      color: Colors.white,
-                    ),
-                    activeItem: Icon(
-                      Icons.home_filled,
-                      color: Colors.white,
-                    )),
-                const MyBottomBarItem(
-                  inActiveItem: Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                  activeItem: Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                ),
-                const MyBottomBarItem(
-                  inActiveItem: Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                  activeItem: Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                ),
-              ],*/
-                  bottomBarItems,
+              bottomBarItems: bottomBarItems,
               onTap: (index) {
                 _pageController.animateToPage(
                   index,

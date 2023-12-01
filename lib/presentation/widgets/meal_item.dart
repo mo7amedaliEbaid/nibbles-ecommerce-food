@@ -15,7 +15,7 @@ class MealItem extends StatelessWidget {
       children: [
         Container(
           height: AppDimensions.normalize(90),
-          width: AppDimensions.normalize(119),
+          width: AppDimensions.normalize(122),
           margin: EdgeInsets.only(right: AppDimensions.normalize(8)),
           padding: EdgeInsets.only(
             right: AppDimensions.normalize(8),
@@ -27,7 +27,7 @@ class MealItem extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(AppDimensions.normalize(10)),
                   topRight: Radius.circular(AppDimensions.normalize(20)),
-                  bottomLeft: Radius.circular(AppDimensions.normalize(35)),
+                  bottomLeft: Radius.circular(AppDimensions.normalize(30)),
                   bottomRight: Radius.circular(AppDimensions.normalize(8)))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -57,18 +57,18 @@ class MealItem extends StatelessWidget {
                     ),
                     Space.yf(.15),
                     SizedBox(
-                        width: AppDimensions.normalize(55),
+                        width: AppDimensions.normalize(65),
                         child: Text(
                           "Lorem Ipsum is simply\ndummy text of the printing and….",
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                           style: AppText.b1?.copyWith(
-                              color: AppColors.greyText, height: 1.5),
+                              color: AppColors.greyText, height: 1.5,letterSpacing: 0.5),
                         )),
                     Space.yf(.3),
                     Text(
                       "Sugar Free, Veggie, ...",
-                      style: AppText.b1?.copyWith(color: AppColors.tabColor),
+                      style: AppText.b1?.copyWith(color: AppColors.tabColor,letterSpacing: 0),
                     ),
                   ],
                 ),
