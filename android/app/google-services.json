@@ -1,0 +1,206 @@
+{
+  "project_info": {
+    "project_number": "883610348769",
+    "project_id": "eccomerce-af8a1",
+    "storage_bucket": "eccomerce-af8a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883610348769:android:81186110aec5fa739c1ba0",
+        "android_client_info": {
+          "package_name": "com.codexveer.whatsapp_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883610348769-p13h32kcct3glolml71ecu5b7lmi3t41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGiECi2Wgb4PJtVPDbLWD65zZCfcTEY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883610348769-bs6a6imk1hgbv4pm793hojk798n7is4p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883610348769-3oeggc0smv2973if5ta8q1ulidd4oirr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teachers.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883610348769:android:20e2dca2788568b29c1ba0",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_firebase_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883610348769-eti55tmvip0h7uia9evs6n590ttmr3jh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecommerce_firebase_flutter",
+            "certificate_hash": "efa15394dd00623087593eb67efdf2428850924c"
+          }
+        },
+        {
+          "client_id": "883610348769-p13h32kcct3glolml71ecu5b7lmi3t41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGiECi2Wgb4PJtVPDbLWD65zZCfcTEY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883610348769-bs6a6imk1hgbv4pm793hojk798n7is4p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883610348769-3oeggc0smv2973if5ta8q1ulidd4oirr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teachers.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883610348769:android:2d9344a10a1ed1b49c1ba0",
+        "android_client_info": {
+          "package_name": "com.example.news_wire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883610348769-p13h32kcct3glolml71ecu5b7lmi3t41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGiECi2Wgb4PJtVPDbLWD65zZCfcTEY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883610348769-bs6a6imk1hgbv4pm793hojk798n7is4p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883610348769-3oeggc0smv2973if5ta8q1ulidd4oirr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teachers.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883610348769:android:50464351d312d8ac9c1ba0",
+        "android_client_info": {
+          "package_name": "com.example.nibbles_ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883610348769-p13h32kcct3glolml71ecu5b7lmi3t41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGiECi2Wgb4PJtVPDbLWD65zZCfcTEY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883610348769-bs6a6imk1hgbv4pm793hojk798n7is4p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883610348769-3oeggc0smv2973if5ta8q1ulidd4oirr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teachers.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883610348769:android:5a1906216f4ab2019c1ba0",
+        "android_client_info": {
+          "package_name": "com.example.teachers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883610348769-cb44jf2slhn47ptvij9fp1e107f04jlf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teachers",
+            "certificate_hash": "efa15394dd00623087593eb67efdf2428850924c"
+          }
+        },
+        {
+          "client_id": "883610348769-p13h32kcct3glolml71ecu5b7lmi3t41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGiECi2Wgb4PJtVPDbLWD65zZCfcTEY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883610348769-bs6a6imk1hgbv4pm793hojk798n7is4p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883610348769-3oeggc0smv2973if5ta8q1ulidd4oirr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teachers.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
