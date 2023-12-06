@@ -34,7 +34,7 @@ class CategoriesScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(
-                              "https://raw.githubusercontent.com/mo7amedaliEbaid/furniture-app-riverpod/master/screenshots/details1.jpg?token=GHSAT0AAAAAACHHWU7LPMXPPHDQRP4IZM7SZLKNS7Q"
+                              ""
                                 /*state.categories[index].categoryimage*/),
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.circular(20.0)),
