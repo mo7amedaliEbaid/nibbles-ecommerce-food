@@ -6,6 +6,7 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
+import 'package:nibbles_ecommerce/presentation/screens/categories.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -79,8 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           left: AppDimensions.normalize(14),
                           child: Text(
                             "Good food for\nYour Loved ones".toUpperCase(),
-                            style: AppText.h2
-                                ?.copyWith(color: Colors.white, height: 1.5,letterSpacing: 1.8),
+                            style: AppText.h2?.copyWith(
+                                color: Colors.white,
+                                height: 1.5,
+                                letterSpacing: 1.8),
                           ),
                         )
                       ],
@@ -187,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Packages".toUpperCase(),
                         style: AppText.h2b?.copyWith(letterSpacing: 2),
                       ),
-                      const TextButton(onPressed: null, child: Text("View All"))
+                       TextButton(onPressed: null, child: Text("View All",style: AppText.b2b?.copyWith(color: AppColors.greyText),))
                     ],
                   ),
                 ),
@@ -197,8 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: EdgeInsets.only(left: AppDimensions.normalize(8)),
                   // width: AppDimensions.normalize(150),
                   child: PageView.builder(
-                    padEnds: false,
-
+                      padEnds: false,
                       controller: _packagesPageController,
                       onPageChanged: (pos) {
                         setState(() {
@@ -230,7 +232,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Meals".toUpperCase(),
                         style: AppText.h2b?.copyWith(letterSpacing: 2),
                       ),
-                      const TextButton(onPressed: null, child: Text("View All"))
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CategoriesScreen()));
+                          },
+                          child: Text("View All",style: AppText.b2b?.copyWith(color: AppColors.greyText),))
                     ],
                   ),
                 ),

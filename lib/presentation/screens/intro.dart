@@ -90,7 +90,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 customElevatedButton(
                   onTap: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                      AppRouter.root,
+                      AppRouter.signin,
                       (route) => false,
                     );
                   },

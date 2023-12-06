@@ -1,6 +1,6 @@
 sealed class AppAssets {
-  //svg
 
+  //svg
   static const String curvedRec = "assets/svg/curvedrec.svg";
   static const String nibblesLogo = "assets/svg/logo.svg";
   static const String bell = "assets/svg/bell.svg";
@@ -18,6 +18,7 @@ sealed class AppAssets {
   static const String favWhiteOut = "assets/svg/favwhiteout.svg";
   static const String back = "assets/svg/back.svg";
   static const String splash = "assets/svg/splash.svg";
+  static const String logoRuby = "assets/svg/logoruby.svg";
 
   static const List<String> navbarIcons = [home, meal, qrcode, box, more];
 
