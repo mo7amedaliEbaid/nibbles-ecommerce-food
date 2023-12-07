@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/configs/app.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/presentation/screens/categories.dart';
 import 'package:nibbles_ecommerce/presentation/screens/home.dart';
 
+import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../widgets/notched_navbar.dart';
 
 class RootScreen extends StatelessWidget {
@@ -14,7 +17,7 @@ class RootScreen extends StatelessWidget {
   final int maxCount = 5;
   final List<Widget> bottomBarPages = [
     const HomeScreen(),
-    const HomeScreen(),
+    const CategoriesScreen(),
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
@@ -36,30 +39,38 @@ class RootScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     App.init(context);
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: List.generate(
-            bottomBarPages.length, (index) => bottomBarPages[index]),
+    return BlocListener<NavigationCubit, NavigationState>(
+      listener: (context, state) {
+        if (state is NavigationPageChangedState) {
+          // Handle page change logic here
+          _pageController.animateToPage(
+            state.pageIndex,
+            duration: const Duration(milliseconds: 10),
+            curve: Curves.easeIn,
+          );
+        }
+      },
+      child: Scaffold(
+        body: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: List.generate(
+              bottomBarPages.length, (index) => bottomBarPages[index]),
+        ),
+        extendBody: true,
+        bottomNavigationBar: (bottomBarPages.length <= maxCount)
+            ? MyAnimatedNotchBottomBar(
+                pageController: _pageController,
+                showBlurBottomBar: false,
+                color: AppColors.antiqueRuby,
+                showShadow: true,
+                showLabel: false,
+                bottomBarItems: bottomBarItems,
+                onTap: (index) {
+                  context.read<NavigationCubit>().navigateToPage(index);
+                })
+            : null,
       ),
-      extendBody: true,
-      bottomNavigationBar: (bottomBarPages.length <= maxCount)
-          ? MyAnimatedNotchBottomBar(
-              pageController: _pageController,
-              showBlurBottomBar: false,
-              color: AppColors.antiqueRuby,
-              showShadow: true,
-              showLabel: false,
-              bottomBarItems: bottomBarItems,
-              onTap: (index) {
-                _pageController.animateToPage(
-                  index,
-                  duration: const Duration(milliseconds: 10),
-                  curve: Curves.easeIn,
-                );
-              })
-          : null,
     );
   }
 }

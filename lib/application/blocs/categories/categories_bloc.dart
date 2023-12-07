@@ -4,7 +4,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
 
-import '../../models/meal_category.dart';
+import '../../../models/meal_category.dart';
+
 
 part 'categories_event.dart';
 

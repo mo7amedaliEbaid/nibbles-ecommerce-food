@@ -13,7 +13,7 @@ class CategoriesRepos extends BaseCategoriesRepository {
   @override
   Stream<List<MealCategory>> getAllmealcates() {
     return _firebaseFirestore
-        .collection('mealscats')
+        .collection('categories')
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {
