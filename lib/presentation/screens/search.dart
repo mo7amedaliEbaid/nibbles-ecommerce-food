@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    TextEditingController _searchController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -30,7 +35,7 @@ class SearchScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios,
                     color: Colors.white,
                   ),
@@ -72,7 +77,17 @@ class SearchScreen extends StatelessWidget {
                     ),
                   ),
                   child: Center(
-                    child: TextField(
+                    child: TextFormField(
+                      controller: _searchController,
+
+                      onSaved: (value) {
+                       /* context.read<MealsBloc>().add(SearchMeals(
+                            mealName:
+                                _searchController.text.trim().toLowerCase()));*/
+
+                        context.read<MealsBloc>().add(SearchAllMeals(
+                            mealName: _searchController.text.trim().toLowerCase()));
+                      },
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         labelText: "Search Here",
@@ -89,6 +104,11 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+            height: AppDimensions.normalize(350),
+            margin: EdgeInsets.only(top: AppDimensions.normalize(100)),
+            child: const MealsVerticalListview(),
+          )
         ],
       ),
     );

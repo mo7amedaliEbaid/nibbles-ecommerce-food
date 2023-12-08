@@ -10,11 +10,15 @@ abstract class MealsState extends Equatable{
 
 class MealsLoading extends MealsState {}
 
+@immutable
 class MealsLoaded extends MealsState {
   final List<MealModel> meals;
 
-  MealsLoaded({this.meals = const <MealModel>[]});
+  const MealsLoaded({this.meals = const <MealModel>[]});
 
   @override
   List<Object> get props => [meals];
+
+  @override
+  bool get stringify => true;
 }

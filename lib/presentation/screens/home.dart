@@ -108,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: GestureDetector(
                           onTap: () {
+                            context.read<MealsBloc>().add(LoadAllMeals());
                             Navigator.of(context).pushNamed(AppRouter.search);
                           },
                           child: Container(
@@ -131,21 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ?.copyWith(color: AppColors.greyText),
                                   )
                                 ],
-                              )
-                              /*Center(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    labelText: "Search Here",
-                                    labelStyle: AppText.b2
-                                        ?.copyWith(color: AppColors.greyText),
-                                    prefixIcon: Padding(
-                                      padding: Space.all(.5, .8),
-                                      child: SvgPicture.asset(AppAssets.search),
-                                    )),
-                              ),
-                            ),*/
-                              ),
+                              )),
                         ),
                       ),
                     ),
@@ -258,8 +245,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       TextButton(
                           onPressed: () {
                             context.read<NavigationCubit>().navigateToPage(1);
-                            /* Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CategoriesScreen()));*/
                           },
                           child: Text(
                             "View All",
@@ -280,14 +265,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               .toUpperCase(),
                         ),
                       );
+
                       List<Widget> tabViews = List.generate(
                         state.categories.length,
-                        (index) => BlocProvider(
-                          create: (context) => MealsBloc(
-                            mealsRepo: MealsRepo(),
-                            categoryId: state.categories[index].categoryid,
-                          )..add(LoadMeals()),
-                          child: const MealsHorizontalListview(),
+                        (index) => Builder(
+                          builder: (context) {
+                            final mealsBloc = context.read<MealsBloc>();
+                            // Use mealsBloc to update category ID dynamically
+                            mealsBloc.updateCategoryId(
+                                state.categories[index].categoryid);
+
+                            return const MealsHorizontalListview();
+                          },
                         ),
                       );
 

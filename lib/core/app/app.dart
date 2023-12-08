@@ -22,11 +22,9 @@ class MyApp extends StatelessWidget {
               CategoriesBloc(categoriesRepos: CategoriesRepos())
                 ..add(LoadCategories()),
         ),
-       /* BlocProvider(
-          create: (context) =>
-              MealsBloc(mealsRepo: MealsRepo(), categoryId: '')
-                ..add(LoadMeals()),
-        ),*/
+        BlocProvider(
+          create: (context) => MealsBloc(mealsRepo: MealsRepo()),
+        ),
         BlocProvider(create: (context) => NavigationCubit()),
       ],
       child: MaterialApp(

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -13,16 +14,17 @@ part 'meals_state.dart';
 class MealsBloc extends Bloc<MealsEvent, MealsState> {
   final MealsRepo _mealsRepo;
 
-   final String categoryId;
   StreamSubscription? _mealsSubscription;
 
   MealsBloc({
     required MealsRepo mealsRepo,
-    required this.categoryId
   })  : _mealsRepo = mealsRepo,
         super(MealsLoading()) {
     on<LoadMeals>(_mapLoadMealsToState);
     on<UpdateMeals>(_mapUpdateMealsToState);
+    on<LoadAllMeals>(_mapLoadAllMealsToState);
+   // on<SearchMeals>(_mapSearchMealsToState);
+    on<SearchAllMeals>(_mapSearchAllMealsToState);
   }
 
   FutureOr<void> _mapUpdateMealsToState(
@@ -30,10 +32,22 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
     emit(MealsLoaded(meals: event.meals));
   }
 
+  FutureOr<void> _mapLoadAllMealsToState(
+      LoadAllMeals event, Emitter<MealsState> emit) async {
+    _mealsSubscription?.cancel();
+    _mealsSubscription = _mealsRepo.getAllMeals().listen(
+          (meals) {
+        add(
+          UpdateMeals(meals),
+        );
+      },
+    );
+  }
+
   FutureOr<void> _mapLoadMealsToState(
       LoadMeals event, Emitter<MealsState> emit) async {
     _mealsSubscription?.cancel();
-    _mealsSubscription = _mealsRepo.getMealsByCategory(categoryId).listen(
+    _mealsSubscription = _mealsRepo.getMealsByCategory(event.categoryId).listen(
       (meals) {
         add(
           UpdateMeals(meals),
@@ -41,4 +55,35 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
       },
     );
   }
+
+  void updateCategoryId(String newCategoryId) {
+    add(LoadMeals(categoryId: newCategoryId));
+  }
+  FutureOr<void> _mapSearchAllMealsToState(
+      SearchAllMeals event, Emitter<MealsState> emit) async {
+    _mealsSubscription?.cancel();
+    _mealsSubscription = _mealsRepo.getAllMeals().listen(
+          (meals) {
+        final filteredMeals = meals.where((meal) =>
+            meal.name.toLowerCase().contains(event.mealName.toLowerCase()));
+        emit(MealsLoaded(meals: filteredMeals.toList()));
+      },
+    );
+  }
 }
+ /* FutureOr<void> _mapSearchMealsToState(
+      SearchMeals event, Emitter<MealsState> emit) async {
+    _mealsSubscription?.cancel();
+    _mealsSubscription = _mealsRepo.getMealsByName(event.mealName).listen(
+          (meals) {
+        log('Received meals from search: $meals');
+        if (meals.isNotEmpty) {
+          add(UpdateMeals(meals));
+        } else {
+          log('No meals found for search term: ${event.mealName}');
+          // Handle the case where no meals are found, emit an appropriate state if needed
+        }
+      },
+    );
+  }*/
+//}
