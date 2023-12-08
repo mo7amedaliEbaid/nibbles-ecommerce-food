@@ -9,6 +9,8 @@ import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'dart:math' as math;
 
+import 'package:nibbles_ecommerce/presentation/widgets/filled_favicon_stack.dart';
+
 class MealItem extends StatelessWidget {
   const MealItem(
       {super.key, required this.mealModel, required this.isInVerticalList});
@@ -118,28 +120,9 @@ class MealItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0,
-            right: AppDimensions.normalize(8),
-            child: Stack(
-              children: [
-                SvgPicture.asset(
-                  AppAssets.cart,
-                  colorFilter: const ColorFilter.mode(
-                      AppColors.deepTeal, BlendMode.srcIn),
-                ),
-                Positioned(
-                  right: AppDimensions.normalize(4),
-                  top: AppDimensions.normalize(1),
-                  bottom: 0,
-                  child: SvgPicture.asset(
-                    AppAssets.favWhite,
-                    colorFilter:
-                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                  ),
-                ),
-              ],
-            ),
-          ),
+              bottom: 0,
+              right: AppDimensions.normalize(8),
+              child: filledFavIconSrack()),
         ],
       ),
     );

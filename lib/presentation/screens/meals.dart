@@ -7,6 +7,7 @@ import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
@@ -31,37 +32,7 @@ class _MealsScreenState extends State<MealsScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Stack(
-            children: [
-              Image.asset(
-                AppAssets.mealsByCat,
-                width: double.infinity,
-                fit: BoxFit.fill,
-              ),
-              Positioned(
-                top: 0,
-                child: Container(
-                  color: AppColors.transparentColor.withOpacity(.24),
-                  height: AppDimensions.normalize(19),
-                  width: MediaQuery.sizeOf(context).width,
-                  padding: EdgeInsets.only(left: AppDimensions.normalize(5)),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                        size: AppDimensions.normalize(10),
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+          mealTopStack(context),
           Padding(
             padding: EdgeInsets.only(
               top: AppDimensions.normalize(8),

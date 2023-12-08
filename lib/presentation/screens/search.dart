@@ -10,7 +10,6 @@ import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.d
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     TextEditingController _searchController = TextEditingController();
@@ -79,14 +78,14 @@ class SearchScreen extends StatelessWidget {
                   child: Center(
                     child: TextFormField(
                       controller: _searchController,
-
                       onSaved: (value) {
-                       /* context.read<MealsBloc>().add(SearchMeals(
+                        /* context.read<MealsBloc>().add(SearchMeals(
                             mealName:
                                 _searchController.text.trim().toLowerCase()));*/
 
                         context.read<MealsBloc>().add(SearchAllMeals(
-                            mealName: _searchController.text.trim().toLowerCase()));
+                            mealName:
+                                _searchController.text.trim().toLowerCase()));
                       },
                       decoration: InputDecoration(
                         border: InputBorder.none,
