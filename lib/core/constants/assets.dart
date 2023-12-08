@@ -18,6 +18,7 @@ sealed class AppAssets {
   static const String back = "assets/svg/back.svg";
   static const String splash = "assets/svg/splash.svg";
   static const String logoRuby = "assets/svg/logoruby.svg";
+  static const String filter = "assets/svg/filtern.svg";
 
   static const List<String> navbarIcons = [
     home,

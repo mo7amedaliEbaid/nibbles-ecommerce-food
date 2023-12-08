@@ -29,7 +29,7 @@ class MealModel extends Equatable {
   });
 
   static MealModel fromSnapShot(DocumentSnapshot snap) {
-    MealModel product = MealModel(
+    MealModel meal = MealModel(
       name: snap['name'],
       id: snap['id'],
       categoryId: snap['categoryid'],
@@ -42,7 +42,7 @@ class MealModel extends Equatable {
       proteins: snap['proteins'],
       ingredients: snap['ingredients'],
     );
-    return product;
+    return meal;
   }
 
   @override

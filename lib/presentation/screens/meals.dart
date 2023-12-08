@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/configs/app_typography.dart';
+import 'package:nibbles_ecommerce/configs/space.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
@@ -48,17 +51,37 @@ class _MealsScreenState extends State<MealsScreen> {
                     color: AppColors.transparentColor.withOpacity(.24),
                     height: AppDimensions.normalize(19),
                     width: MediaQuery.sizeOf(context).width,
-                    padding: EdgeInsets.only(left: AppDimensions.normalize(8)),
+                    padding: EdgeInsets.only(left: AppDimensions.normalize(5)),
                     child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: AppDimensions.normalize(12),
-                          color: Colors.white,
+                        child: IconButton(
+                          onPressed:(){
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                            size: AppDimensions.normalize(10),
+                            color: Colors.white,
+                          ),
                         )),
                   ),
                 )
               ],
+            ),
+            Padding(
+              padding: Space.all(1.1, 1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.mealCategory.categoryname.toUpperCase(),
+                      style: AppText.h2b),
+                  SvgPicture.asset(
+                    AppAssets.filter,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.deepTeal, BlendMode.srcIn),
+                  )
+                ],
+              ),
             ),
             BlocBuilder<MealsBloc, MealsState>(
               builder: (context, state) {

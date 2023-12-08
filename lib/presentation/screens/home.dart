@@ -2,6 +2,8 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nibbles_ecommerce/application/blocs/categories/categories_bloc.dart';
+import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
@@ -9,9 +11,11 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
+import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../application/cubits/navigation/navigation_cubit.dart';
+import '../widgets/categories_tabBar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,15 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  List<Tab> tabBarItems = List.generate(
-    AppStrings.tabStrings.length,
-    (index) => Tab(
-      text: AppStrings.tabStrings[index].toUpperCase(),
-    ),
-  );
-
+/*
   List<Widget> tabViews = List.generate(
-      AppStrings.tabStrings.length, (index) => const MealsHorizontalListview());
+      AppStrings.tabStrings.length, (index) => const MealsHorizontalListview());*/
 
   @override
   Widget build(BuildContext context) {
@@ -255,39 +253,80 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Space.yf(.15),
-                DefaultTabController(
-                  length: 6,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: AppDimensions.normalize(15),
-                        child: Align(
-                          alignment: Alignment.bottomLeft,
-                          child: ButtonsTabBar(
-                              buttonMargin: EdgeInsets.only(
-                                  right: AppDimensions.normalize(6),
-                                  left: AppDimensions.normalize(4)),
-                              contentPadding: Space.hf(.5),
-                              backgroundColor: AppColors.tabColor,
-                              labelStyle:
-                                  AppText.b1?.copyWith(color: Colors.white),
-                              unselectedBackgroundColor: Colors.transparent,
-                              unselectedLabelStyle: AppText.b2
-                                  ?.copyWith(color: AppColors.greyText),
-                              tabs: tabBarItems),
+                BlocBuilder<CategoriesBloc, CategoriesState>(
+                  builder: (context, state) {
+                    if (state is CategoriesLoaded) {
+                      List<Tab> tabBarItems = List.generate(
+                        state.categories.length,
+                        (index) => Tab(
+                          text: state.categories[index].categoryname
+                              .toUpperCase(),
                         ),
-                      ),
-                      Space.y1!,
-                      SizedBox(
-                        height: AppDimensions.normalize(70),
-                        child: TabBarView(children: tabViews),
-                      ),
-                    ],
-                  ),
-                ),
-                Space.yf(6),
+                      );
+                      List<Widget> tabViews = List.generate(
+                        state.categories.length,
+                        (index) => BlocProvider(
+                          create: (context) => MealsBloc(
+                            mealsRepo: MealsRepo(),
+                            categoryId: state.categories[index].categoryid,
+                          )..add(LoadMeals()),
+                          child: const MealsHorizontalListview(),
+                        ),
+                      );
+
+                      // Check if the number of tabs and tabViews match
+                      if (tabBarItems.length == tabViews.length) {
+                        return DefaultTabController(
+                          length: tabBarItems.length,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: AppDimensions.normalize(15),
+                                child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: ButtonsTabBar(
+                                    buttonMargin: EdgeInsets.only(
+                                      right: AppDimensions.normalize(6),
+                                      left: AppDimensions.normalize(4),
+                                    ),
+                                    contentPadding: Space.hf(.5),
+                                    backgroundColor: AppColors.tabColor,
+                                    labelStyle: AppText.b1
+                                        ?.copyWith(color: Colors.white),
+                                    unselectedBackgroundColor:
+                                        Colors.transparent,
+                                    unselectedLabelStyle: AppText.b2
+                                        ?.copyWith(color: AppColors.greyText),
+                                    tabs: tabBarItems,
+                                  ),
+                                ),
+                              ),
+                              Space.y1!,
+                              //  Space.yf(6),
+                              SizedBox(
+                                height: AppDimensions.normalize(70),
+                                child: TabBarView(children: tabViews),
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        // Handle the case where the lengths don't match
+                        return const Center(
+                          child:
+                              Text("Error: Tabs and TabViews count mismatch"),
+                        );
+                      }
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                )
               ],
-            )
+            ),
+            Space.yf(6),
           ],
         ),
       ),
