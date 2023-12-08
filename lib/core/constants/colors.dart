@@ -8,4 +8,5 @@ sealed class AppColors {
   static const Color lightGrey = Color(0xffC7C7C7);
   static const Color tabColor = Color(0xffF5732A);
   static const Color commonAmber = Color(0xffFFCC50);
+  static const Color transparentColor = Color(0xff484848); //with opacity 24%
 }

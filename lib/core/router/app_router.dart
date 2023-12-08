@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/models/meal_category.dart';
 import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
+import 'package:nibbles_ecommerce/presentation/screens/meals.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signin.dart';
 
 import '../../presentation/screens/ads.dart';
 import '../../presentation/screens/root.dart';
 import '../../presentation/screens/splash.dart';
 import '../error/exceptions.dart';
-
 
 sealed class AppRouter {
   static const String splash = '/';
@@ -15,7 +16,7 @@ sealed class AppRouter {
   static const String intro = '/intro';
   static const String productDetails = '/product-details';
   static const String search = '/search';
-  static const String filter = '/filter';
+  static const String meals = '/meals';
   static const String signup = '/signup';
   static const String signin = '/signin';
   static const String adress = '/adress';
@@ -33,12 +34,16 @@ sealed class AppRouter {
       case ads:
         return MaterialPageRoute(builder: (_) => const AdsScreen());
       case root:
-        return MaterialPageRoute(builder: (_) =>  RootScreen());
+        return MaterialPageRoute(builder: (_) => RootScreen());
       case signin:
         return MaterialPageRoute(builder: (_) => const SignInScreen());
       case intro:
-        return MaterialPageRoute(builder: (_) =>  IntroScreen());
-    /*case search:
+        return MaterialPageRoute(builder: (_) => IntroScreen());
+      case meals:
+        MealCategory mealCategory = routeSettings.arguments as MealCategory;
+        return MaterialPageRoute(
+            builder: (_) => MealsScreen(mealCategory: mealCategory));
+      /*case search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
       case filter:
         return MaterialPageRoute(builder: (_) => const FilterScreen());

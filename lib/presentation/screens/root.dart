@@ -10,11 +10,26 @@ import 'package:nibbles_ecommerce/presentation/screens/home.dart';
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../widgets/notched_navbar.dart';
 
-class RootScreen extends StatelessWidget {
-  RootScreen({super.key});
+class RootScreen extends StatefulWidget {
+  const RootScreen({super.key});
+
+  @override
+  State<RootScreen> createState() => _RootScreenState();
+}
+
+class _RootScreenState extends State<RootScreen>
+    with AutomaticKeepAliveClientMixin {
+//  Ensure that your NavigationCubit state is persisted across hot reloads.
+//  To do this, you can make use of the AutomaticKeepAliveClientMixin
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 
   final PageController _pageController = PageController(initialPage: 0);
+
   final int maxCount = 5;
+
   final List<Widget> bottomBarPages = [
     const HomeScreen(),
     const CategoriesScreen(),
@@ -22,6 +37,7 @@ class RootScreen extends StatelessWidget {
     const HomeScreen(),
     const HomeScreen(),
   ];
+
   final List<MyBottomBarItem> bottomBarItems = List.generate(
     AppAssets.navbarIcons.length,
     (index) => MyBottomBarItem(
@@ -38,6 +54,7 @@ class RootScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     App.init(context);
     return BlocListener<NavigationCubit, NavigationState>(
       listener: (context, state) {
@@ -45,7 +62,7 @@ class RootScreen extends StatelessWidget {
           // Handle page change logic here
           _pageController.animateToPage(
             state.pageIndex,
-            duration: const Duration(milliseconds: 10),
+            duration: const Duration(milliseconds: 400),
             curve: Curves.easeIn,
           );
         }

@@ -35,6 +35,7 @@ sealed class AppAssets {
   static const String splashPng = "assets/png/splash.png";
   static const String adsPng = "assets/png/ads.png";
   static const String introPng = "assets/png/into.png";
+  static const String mealsByCat = "assets/png/mealsbyCat.png";
 
   //categories
   static const String category1 = "assets/png/categories/1.png";
