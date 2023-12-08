@@ -21,7 +21,7 @@ class MealsHorizontalListview extends StatelessWidget {
               padding: EdgeInsets.only(left: AppDimensions.normalize(8)),
               itemBuilder: (context, index) {
                 return MealItem(
-                  mealModel: state.meals[index],
+                  mealModel: state.meals[index], isInVerticalList: false,
                 );
               });
         } else {

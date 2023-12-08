@@ -71,7 +71,11 @@ class _MealsScreenState extends State<MealsScreen> {
               ],
             ),
             Padding(
-              padding: Space.all(1.1, 1),
+              padding: EdgeInsets.only(
+                top: AppDimensions.normalize(8),
+                left: AppDimensions.normalize(8),
+                right: AppDimensions.normalize(8),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -92,23 +96,6 @@ class _MealsScreenState extends State<MealsScreen> {
                 ..add(LoadMeals()),
               child: const MealsVerticalListview(),
             ),
-            /*BlocBuilder<MealsBloc, MealsState>(
-              builder: (context, state) {
-                if (state is MealsLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is MealsLoaded) {
-                  return Center(
-                    child: Text(state.meals.first.description),
-                  );
-                } else {
-                  return const Center(
-                    child: Text("error"),
-                  );
-                }
-              },
-            ),*/
           ],
         ),
       ),

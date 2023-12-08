@@ -8,6 +8,7 @@ import 'package:nibbles_ecommerce/configs/app.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
@@ -105,28 +106,46 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(
                           AppDimensions.normalize(7),
                         ),
-                        child: Container(
-                          height: AppDimensions.normalize(22),
-                          width: AppDimensions.normalize(130),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(
-                              AppDimensions.normalize(7),
-                            ),
-                          ),
-                          child: Center(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  labelText: "Search Here",
-                                  labelStyle: AppText.b2
-                                      ?.copyWith(color: AppColors.greyText),
-                                  prefixIcon: Padding(
-                                    padding: Space.all(.5, .8),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(AppRouter.search);
+                          },
+                          child: Container(
+                              height: AppDimensions.normalize(22),
+                              width: AppDimensions.normalize(130),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(
+                                  AppDimensions.normalize(7),
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: Space.all(.8, .8),
                                     child: SvgPicture.asset(AppAssets.search),
-                                  )),
-                            ),
-                          ),
+                                  ),
+                                  Text(
+                                    "Search Here",
+                                    style: AppText.b2
+                                        ?.copyWith(color: AppColors.greyText),
+                                  )
+                                ],
+                              )
+                              /*Center(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: "Search Here",
+                                    labelStyle: AppText.b2
+                                        ?.copyWith(color: AppColors.greyText),
+                                    prefixIcon: Padding(
+                                      padding: Space.all(.5, .8),
+                                      child: SvgPicture.asset(AppAssets.search),
+                                    )),
+                              ),
+                            ),*/
+                              ),
                         ),
                       ),
                     ),

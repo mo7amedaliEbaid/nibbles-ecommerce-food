@@ -32,7 +32,6 @@ sealed class AppAssets {
   static const String nibblesPng = "assets/png/nibbles.png";
   static const String packagesPng = "assets/png/package.png";
   static const String favPng = "assets/png/favpng1.png";
-  static const String mealPng = "assets/png/mealpng.png";
   static const String splashPng = "assets/png/splash.png";
   static const String adsPng = "assets/png/ads.png";
   static const String introPng = "assets/png/into.png";
@@ -45,11 +44,26 @@ sealed class AppAssets {
   static const String category4 = "assets/png/categories/4.png";
   static const String category5 = "assets/png/categories/5.png";
 
+  //meals
+  static const String mealPng = "assets/png/meals/mealpng.png";
+  static const String meal1 = "assets/png/meals/1.png";
+  static const String meal2 = "assets/png/meals/2.png";
+  static const String meal3 = "assets/png/meals/3.png";
+
+
+
   static const List<String> categoriesImages = [
     category1,
     category2,
     category3,
     category4,
     category5
+  ];
+
+  static const List<String> mealsPng = [
+    mealPng,
+    meal1,
+    meal2,
+    meal3,
   ];
 }

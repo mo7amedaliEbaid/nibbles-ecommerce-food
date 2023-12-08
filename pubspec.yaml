@@ -43,6 +43,7 @@ flutter:
    - assets/svg/
    - assets/png/
    - assets/png/categories/
+   - assets/png/meals/
 
 
   fonts:
