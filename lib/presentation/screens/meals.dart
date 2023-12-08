@@ -8,6 +8,7 @@ import 'package:nibbles_ecommerce/configs/space.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
 class MealsScreen extends StatefulWidget {
@@ -53,17 +54,18 @@ class _MealsScreenState extends State<MealsScreen> {
                     width: MediaQuery.sizeOf(context).width,
                     padding: EdgeInsets.only(left: AppDimensions.normalize(5)),
                     child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: IconButton(
-                          onPressed:(){
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.arrow_back_ios,
-                            size: AppDimensions.normalize(10),
-                            color: Colors.white,
-                          ),
-                        )),
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          size: AppDimensions.normalize(10),
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 )
               ],
@@ -83,7 +85,14 @@ class _MealsScreenState extends State<MealsScreen> {
                 ],
               ),
             ),
-            BlocBuilder<MealsBloc, MealsState>(
+            BlocProvider(
+              create: (context) => MealsBloc(
+                  mealsRepo: MealsRepo(),
+                  categoryId: widget.mealCategory.categoryid)
+                ..add(LoadMeals()),
+              child: const MealsVerticalListview(),
+            ),
+            /*BlocBuilder<MealsBloc, MealsState>(
               builder: (context, state) {
                 if (state is MealsLoading) {
                   return const Center(
@@ -99,7 +108,7 @@ class _MealsScreenState extends State<MealsScreen> {
                   );
                 }
               },
-            ),
+            ),*/
           ],
         ),
       ),

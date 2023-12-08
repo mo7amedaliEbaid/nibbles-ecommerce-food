@@ -8,14 +8,12 @@ import 'package:nibbles_ecommerce/configs/app.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../application/cubits/navigation/navigation_cubit.dart';
-import '../widgets/categories_tabBar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
