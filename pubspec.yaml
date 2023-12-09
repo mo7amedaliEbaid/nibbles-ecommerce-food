@@ -44,6 +44,7 @@ flutter:
    - assets/png/
    - assets/png/categories/
    - assets/png/meals/
+   - assets/png/offers/
 
 
   fonts:

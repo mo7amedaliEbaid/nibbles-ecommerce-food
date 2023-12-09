@@ -6,6 +6,7 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/screens/categories.dart';
 import 'package:nibbles_ecommerce/presentation/screens/home.dart';
+import 'package:nibbles_ecommerce/presentation/screens/more.dart';
 
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../widgets/notched_navbar.dart';
@@ -35,7 +36,7 @@ class _RootScreenState extends State<RootScreen>
     const CategoriesScreen(),
     const HomeScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const MoreScreen(),
   ];
 
   final List<MyBottomBarItem> bottomBarItems = List.generate(
@@ -62,7 +63,7 @@ class _RootScreenState extends State<RootScreen>
           // Handle page change logic here
           _pageController.animateToPage(
             state.pageIndex,
-            duration: const Duration(milliseconds: 400),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeIn,
           );
         }

@@ -283,6 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       // Check if the number of tabs and tabViews match
                       if (tabBarItems.length == tabViews.length) {
                         return DefaultTabController(
+
                           length: tabBarItems.length,
                           child: Column(
                             children: [
@@ -291,6 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Align(
                                   alignment: Alignment.bottomLeft,
                                   child: ButtonsTabBar(
+
                                     buttonMargin: EdgeInsets.only(
                                       right: AppDimensions.normalize(6),
                                       left: AppDimensions.normalize(4),

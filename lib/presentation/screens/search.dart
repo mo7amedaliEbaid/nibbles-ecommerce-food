@@ -6,6 +6,7 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/top_teal_rec_components.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -16,46 +17,9 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            child: SvgPicture.asset(
-              AppAssets.curvedRec,
-              colorFilter:
-                  const ColorFilter.mode(AppColors.deepTeal, BlendMode.srcIn),
-            ),
-          ),
-          Positioned(
-            top: AppDimensions.normalize(13),
-            left: AppDimensions.normalize(4.5),
-            child: Row(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                  ),
-                ),
-                Space.xf(5),
-                SvgPicture.asset(
-                  AppAssets.nibblesLogo,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            top: AppDimensions.normalize(43),
-            left: AppDimensions.normalize(10),
-            child: Text(
-              "SEARCH",
-              style: AppText.h2b?.copyWith(color: Colors.white),
-            ),
-          ),
+          curvedRecSvg(),
+          positionedRow(context),
+          positionedTitle("SEARCH"),
           Positioned(
             top: AppDimensions.normalize(67),
             left: AppDimensions.normalize(2),
@@ -76,9 +40,9 @@ class SearchScreen extends StatelessWidget {
                     ),
                   ),
                   child: Center(
-                    child: TextFormField(
+                    child: TextField(
                       controller: _searchController,
-                      onSaved: (value) {
+                      onSubmitted: (value) {
                         /* context.read<MealsBloc>().add(SearchMeals(
                             mealName:
                                 _searchController.text.trim().toLowerCase()));*/

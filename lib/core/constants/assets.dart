@@ -12,7 +12,7 @@ sealed class AppAssets {
   static const String cart = "assets/svg/cart.svg";
   static const String favOutlined = "assets/svg/favoutlined.svg";
   static const String favWhite = "assets/svg/favwhite.svg";
-  static const String favWhite1 = "assets/svg/favwhite1.svg";
+  static const String favWhite1 = "assets/svg/favwhite1.svg"; //Not Used
   static const String cartWhite = "assets/svg/cartwhite.svg";
   static const String favWhiteOut = "assets/svg/favwhiteout.svg";
   static const String back = "assets/svg/back.svg";
@@ -20,6 +20,30 @@ sealed class AppAssets {
   static const String logoRuby = "assets/svg/logoruby.svg";
   static const String filter = "assets/svg/filtern.svg";
   static const String star = "assets/svg/star.svg";
+  static const String about = "assets/svg/about.svg";
+  static const String contact = "assets/svg/contact.svg";
+  static const String invite = "assets/svg/invite.svg";
+  static const String offers = "assets/svg/offers.svg";
+  static const String privacy = "assets/svg/privacy.svg";
+  static const String profile = "assets/svg/profile.svg";
+  static const String settings = "assets/svg/settings.svg";
+  static const String subscription = "assets/svg/subscription.svg";
+  static const String tealfav = "assets/svg/tealfav.svg";
+  static const String terms = "assets/svg/terms.svg";
+  static const String whiteRec = "assets/svg/whiterec.svg"; //Not Used
+
+  static const List<String> moreScreenItems = [
+    subscription,
+    profile,
+    tealfav,
+    offers,
+    settings,
+    invite,
+    about,
+    terms,
+    privacy,
+    contact,
+  ];
 
   static const List<String> navbarIcons = [
     home,
@@ -37,6 +61,7 @@ sealed class AppAssets {
   static const String adsPng = "assets/png/ads.png";
   static const String introPng = "assets/png/into.png";
   static const String mealsByCat = "assets/png/mealsbyCat.png";
+  static const String whiteRecPng = "assets/png/whiterecpng.png"; //Not Used
 
   //categories
   static const String category1 = "assets/png/categories/1.png";
@@ -51,7 +76,9 @@ sealed class AppAssets {
   static const String meal2 = "assets/png/meals/2.png";
   static const String meal3 = "assets/png/meals/3.png";
 
-
+  //offers
+  static const String offer = "assets/png/offers/offer.png";
+  static const String offer1 = "assets/png/offers/offer1.png";
 
   static const List<String> categoriesImages = [
     category1,
@@ -66,5 +93,10 @@ sealed class AppAssets {
     meal1,
     meal2,
     meal3,
+  ];
+
+  static const List<String> offersPng = [
+    offer,
+    offer1,
   ];
 }
