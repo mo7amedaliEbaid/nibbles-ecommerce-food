@@ -6,7 +6,9 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
 class PackageItem extends StatelessWidget {
-  const PackageItem({super.key});
+  const PackageItem({super.key, required this.isFromVerticalList});
+
+  final bool isFromVerticalList;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,9 @@ class PackageItem extends StatelessWidget {
       /*height: AppDimensions.normalize(100),*/
       width: AppDimensions.normalize(120),
       child: Padding(
-        padding: EdgeInsets.only(right: AppDimensions.normalize(7)),
+        padding: isFromVerticalList
+            ? EdgeInsets.only(bottom: AppDimensions.normalize(9))
+            : EdgeInsets.only(right: AppDimensions.normalize(7)),
         child: Stack(
           children: [
             Column(

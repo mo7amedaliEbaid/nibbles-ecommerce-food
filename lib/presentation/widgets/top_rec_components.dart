@@ -5,21 +5,39 @@ import '../../configs/app_dimensions.dart';
 import '../../configs/app_typography.dart';
 import '../../configs/space.dart';
 import '../../core/constants/assets.dart';
-import '../../core/constants/colors.dart';
 
-Widget curvedRecSvg(){
+Widget curvedlRecSvg(Color color) {
   return Positioned(
     top: 0,
     left: 0,
     child: SvgPicture.asset(
       AppAssets.curvedRec,
-      colorFilter:
-      const ColorFilter.mode(AppColors.deepTeal, BlendMode.srcIn),
+      colorFilter:  ColorFilter.mode(color, BlendMode.srcIn),
     ),
   );
 }
 
-Widget positionedRow(BuildContext context){
+
+
+Widget whiteLogoSvg() {
+  return SvgPicture.asset(
+    AppAssets.nibblesLogo,
+    colorFilter: const ColorFilter.mode(
+      Colors.white,
+      BlendMode.srcIn,
+    ),
+  );
+}
+
+Widget positionedWhiteLogo() {
+  return Positioned(
+    top: AppDimensions.normalize(20),
+    left: AppDimensions.normalize(60),
+    child: whiteLogoSvg(),
+  );
+}
+
+Widget positionedRow(BuildContext context) {
   return Positioned(
     top: AppDimensions.normalize(13),
     left: AppDimensions.normalize(4.5),
@@ -37,15 +55,14 @@ Widget positionedRow(BuildContext context){
         Space.xf(5),
         SvgPicture.asset(
           AppAssets.nibblesLogo,
-          colorFilter:
-          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
         ),
       ],
     ),
   );
 }
 
-Widget positionedTitle(String title){
+Widget positionedTitle(String title) {
   return Positioned(
     top: AppDimensions.normalize(43),
     left: AppDimensions.normalize(10),

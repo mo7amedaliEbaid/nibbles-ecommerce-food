@@ -23,7 +23,9 @@ class MealsScreen extends StatefulWidget {
 class _MealsScreenState extends State<MealsScreen> {
   @override
   void initState() {
-    context.read<MealsBloc>().updateCategoryId(widget.mealCategory.categoryid);
+    context.read<MealsBloc>().add(LoadMealsByCategory(
+        categoryId: widget.mealCategory
+            .categoryid)) /*updateCategoryId(widget.mealCategory.categoryid)*/;
     super.initState();
   }
 
@@ -55,7 +57,8 @@ class _MealsScreenState extends State<MealsScreen> {
           Expanded(
             child: BlocProvider(
               create: (context) => MealsBloc(mealsRepo: MealsRepo())
-                ..add(LoadMeals(categoryId: widget.mealCategory.categoryid)),
+                ..add(LoadMealsByCategory(
+                    categoryId: widget.mealCategory.categoryid)),
               child: const MealsVerticalListview(),
             ),
           ),

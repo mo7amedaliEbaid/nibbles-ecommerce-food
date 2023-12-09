@@ -7,6 +7,7 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/screens/categories.dart';
 import 'package:nibbles_ecommerce/presentation/screens/home.dart';
 import 'package:nibbles_ecommerce/presentation/screens/more.dart';
+import 'package:nibbles_ecommerce/presentation/screens/packages.dart';
 
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../widgets/notched_navbar.dart';
@@ -35,7 +36,7 @@ class _RootScreenState extends State<RootScreen>
     const HomeScreen(),
     const CategoriesScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const PackagesScreen(),
     const MoreScreen(),
   ];
 

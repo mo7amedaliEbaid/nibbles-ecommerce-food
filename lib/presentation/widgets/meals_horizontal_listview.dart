@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
+import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/loading_ticker.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
 
-import '../../models/meal_category.dart';
 
 class MealsHorizontalListview extends StatelessWidget {
   const MealsHorizontalListview({super.key});
@@ -21,11 +23,14 @@ class MealsHorizontalListview extends StatelessWidget {
               padding: EdgeInsets.only(left: AppDimensions.normalize(8)),
               itemBuilder: (context, index) {
                 return MealItem(
-                  mealModel: state.meals[index], isInVerticalList: false,
+                  mealModel: state.meals[index],
+                  isInVerticalList: false,
                 );
               });
         } else {
-          return const CircularProgressIndicator();
+          return const Center(
+            child: LoadingTicker()
+          );
         }
       },
     );

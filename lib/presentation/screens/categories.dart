@@ -5,8 +5,10 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/loading_ticker.dart';
 
 import '../../application/blocs/categories/categories_bloc.dart';
+import '../widgets/top_rec_components.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -19,7 +21,7 @@ class CategoriesScreen extends StatelessWidget {
           height: AppDimensions.normalize(560),
           child: Stack(
             children: [
-              Positioned(
+              /*Positioned(
                 top: 0,
                 left: 0,
                 child: Stack(
@@ -50,9 +52,12 @@ class CategoriesScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              ),*/
+              curvedlRecSvg(AppColors.antiqueRuby),
+              positionedWhiteLogo(),
+              positionedTitle("Meals".toUpperCase()),
               Positioned(
-                top: AppDimensions.normalize(65),
+                top: AppDimensions.normalize(60),
                 bottom: -AppDimensions.normalize(8),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
@@ -61,7 +66,7 @@ class CategoriesScreen extends StatelessWidget {
                     builder: (context, state) {
                       if (state is CategoriesLoading) {
                         return const Center(
-                          child: CircularProgressIndicator(),
+                          child: LoadingTicker(),
                         );
                       }
                       if (state is CategoriesLoaded) {

@@ -6,7 +6,7 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_teal_rec_components.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -17,7 +17,7 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          curvedRecSvg(),
+          curvedlRecSvg(AppColors.deepTeal),
           positionedRow(context),
           positionedTitle("SEARCH"),
           Positioned(

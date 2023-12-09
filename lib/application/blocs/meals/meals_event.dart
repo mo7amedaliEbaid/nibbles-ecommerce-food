@@ -10,10 +10,10 @@ abstract class MealsEvent extends Equatable {
 
 class LoadAllMeals extends MealsEvent {}
 
-class LoadMeals extends MealsEvent {
-  final String categoryId; // Add this line
+class LoadMealsByCategory extends MealsEvent {
+  final String categoryId;
 
-  const LoadMeals({required this.categoryId});
+  const LoadMealsByCategory({required this.categoryId});
 
   @override
   List<Object> get props => [categoryId];
@@ -38,13 +38,3 @@ class SearchAllMeals extends MealsEvent {
   @override
   List<Object> get props => [mealName];
 }
-/*class SearchMeals extends MealsEvent {
-  final String mealName;
-
-  const SearchMeals({
-    required this.mealName,
-  });
-
-  @override
-  List<Object> get props => [mealName];
-}*/

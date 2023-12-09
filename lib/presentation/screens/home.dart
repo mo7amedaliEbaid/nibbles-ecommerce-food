@@ -9,8 +9,10 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/loading_ticker.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -53,39 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
               height: AppDimensions.normalize(255),
               child: Stack(
                 children: [
+                  curvedlRecSvg(AppColors.antiqueRuby),
+                  positionedWhiteLogo(),
                   Positioned(
-                    top: 0,
-                    left: 0,
-                    child: Stack(
-                      children: [
-                        SvgPicture.asset(
-                          AppAssets.curvedRec,
-                          colorFilter: const ColorFilter.mode(
-                              AppColors.antiqueRuby, BlendMode.srcIn),
-                          height: AppDimensions.normalize(145),
-                          width: AppDimensions.normalize(170),
-                        ),
-                        Positioned(
-                          top: AppDimensions.normalize(20),
-                          left: AppDimensions.normalize(60),
-                          child: SvgPicture.asset(
-                            AppAssets.nibblesLogo,
-                            colorFilter: const ColorFilter.mode(
-                                Colors.white, BlendMode.srcIn),
-                          ),
-                        ),
-                        Positioned(
-                          top: AppDimensions.normalize(45),
-                          left: AppDimensions.normalize(14),
-                          child: Text(
-                            "Good food for\nYour Loved ones".toUpperCase(),
-                            style: AppText.h2?.copyWith(
-                                color: Colors.white,
-                                height: 1.5,
-                                letterSpacing: 1.8),
-                          ),
-                        )
-                      ],
+                    top: AppDimensions.normalize(45),
+                    left: AppDimensions.normalize(14),
+                    child: Text(
+                      "Good food for\nYour Loved ones".toUpperCase(),
+                      style: AppText.h2?.copyWith(
+                          color: Colors.white, height: 1.5, letterSpacing: 1.8),
                     ),
                   ),
                   Positioned(
@@ -219,7 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return const PackageItem();
+                        return const PackageItem(
+                          isFromVerticalList: false,
+                        );
                       }),
                 ),
                 // Space.yf(2),
@@ -272,8 +252,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           builder: (context) {
                             final mealsBloc = context.read<MealsBloc>();
                             // Use mealsBloc to update category ID dynamically
-                            mealsBloc.updateCategoryId(
-                                state.categories[index].categoryid);
+                            mealsBloc.add(LoadMealsByCategory(
+                                categoryId:
+                                    state.categories[index].categoryid));
 
                             return const MealsHorizontalListview();
                           },
@@ -283,7 +264,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       // Check if the number of tabs and tabViews match
                       if (tabBarItems.length == tabViews.length) {
                         return DefaultTabController(
-
                           length: tabBarItems.length,
                           child: Column(
                             children: [
@@ -292,7 +272,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Align(
                                   alignment: Alignment.bottomLeft,
                                   child: ButtonsTabBar(
-
                                     buttonMargin: EdgeInsets.only(
                                       right: AppDimensions.normalize(6),
                                       left: AppDimensions.normalize(4),
@@ -327,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     } else {
                       return const Center(
-                        child: CircularProgressIndicator(),
+                        child: LoadingTicker(),
                       );
                     }
                   },

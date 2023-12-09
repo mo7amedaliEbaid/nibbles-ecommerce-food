@@ -20,10 +20,9 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
     required MealsRepo mealsRepo,
   })  : _mealsRepo = mealsRepo,
         super(MealsLoading()) {
-    on<LoadMeals>(_mapLoadMealsToState);
+    on<LoadMealsByCategory>(_mapLoadMealsToState);
     on<UpdateMeals>(_mapUpdateMealsToState);
     on<LoadAllMeals>(_mapLoadAllMealsToState);
-   // on<SearchMeals>(_mapSearchMealsToState);
     on<SearchAllMeals>(_mapSearchAllMealsToState);
   }
 
@@ -45,7 +44,7 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
   }
 
   FutureOr<void> _mapLoadMealsToState(
-      LoadMeals event, Emitter<MealsState> emit) async {
+      LoadMealsByCategory event, Emitter<MealsState> emit) async {
     _mealsSubscription?.cancel();
     _mealsSubscription = _mealsRepo.getMealsByCategory(event.categoryId).listen(
       (meals) {
@@ -56,9 +55,6 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
     );
   }
 
-  void updateCategoryId(String newCategoryId) {
-    add(LoadMeals(categoryId: newCategoryId));
-  }
   FutureOr<void> _mapSearchAllMealsToState(
       SearchAllMeals event, Emitter<MealsState> emit) async {
     _mealsSubscription?.cancel();
@@ -66,24 +62,10 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
           (meals) {
         final filteredMeals = meals.where((meal) =>
             meal.name.toLowerCase().contains(event.mealName.toLowerCase()));
-        emit(MealsLoaded(meals: filteredMeals.toList()));
+        add(
+          UpdateMeals(filteredMeals.toList()),
+        );
       },
     );
   }
 }
- /* FutureOr<void> _mapSearchMealsToState(
-      SearchMeals event, Emitter<MealsState> emit) async {
-    _mealsSubscription?.cancel();
-    _mealsSubscription = _mealsRepo.getMealsByName(event.mealName).listen(
-          (meals) {
-        log('Received meals from search: $meals');
-        if (meals.isNotEmpty) {
-          add(UpdateMeals(meals));
-        } else {
-          log('No meals found for search term: ${event.mealName}');
-          // Handle the case where no meals are found, emit an appropriate state if needed
-        }
-      },
-    );
-  }*/
-//}
