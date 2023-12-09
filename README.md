@@ -3,8 +3,10 @@
 # nibbles_ecommerce
 
 - Ecommerce.
-- Complex UI
-- Food App
+- Complex UI.
+- Food App.
+- Firebase Firestore.
+- Bloc Pattern.
 
 <p float="left">
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/844b3b0633deca88a4bb3e1f5388aeb1cd7963b0/screenshots/3.jpg" width="180"/>
