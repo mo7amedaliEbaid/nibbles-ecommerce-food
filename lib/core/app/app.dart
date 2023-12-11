@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(create: (context) => NavigationCubit()),
         BlocProvider(
-          create: (context) => SearchCubit(mealsRepo: MealsRepo()),
+          create: (context) => SearchCubit(
+              mealsRepo: MealsRepo(), packagesRepos: PackagesRepos()),
         ),
       ],
       child: MaterialApp(

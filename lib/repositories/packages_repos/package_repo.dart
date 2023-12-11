@@ -19,4 +19,17 @@ class PackagesRepos extends BasePackagesRepository {
       }).toList();
     });
   }
+  @override
+  Stream<List<PackageModel>> getPackagesByName(String name) {
+    return _firebaseFirestore
+        .collection('packages')
+        .where('name', isGreaterThanOrEqualTo: name)
+        .where('name', isLessThan: '${name}z')
+        .snapshots()
+        .map((snapshot) {
+      return snapshot.docs.map((doc) {
+        return PackageModel.fromSnapShot(doc);
+      }).toList();
+    });
+  }
 }

@@ -4,6 +4,7 @@ import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart'
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/packages_list.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 import '../../configs/app_dimensions.dart';
@@ -20,7 +21,7 @@ class PackagesScreen extends StatelessWidget {
         // width: 400,
         child: SingleChildScrollView(
           child: SizedBox(
-            height: MediaQuery.sizeOf(context).height / .64,
+            height: MediaQuery.sizeOf(context).height / .49,
             //width: 400,
             child: Stack(
               children: [
@@ -30,24 +31,7 @@ class PackagesScreen extends StatelessWidget {
                 Positioned(
                     top: AppDimensions.normalize(62),
                     left: AppDimensions.normalize(16),
-                    child: BlocBuilder<PackagesBloc, PackagesState>(
-                      builder: (context, state) {
-                        if (state is PackagesLoaded) {
-                          return Column(
-                            children: List.generate(
-                              state.packages.length,
-                              // Number of PackageItem widgets
-                              (index) => PackageItem(
-                                isFromVerticalList: true,
-                                packageModel: state.packages[index],
-                              ),
-                            ),
-                          );
-                        }else{
-                          return const LoadingTicker();
-                        }
-                      }
-                    ))
+                    child: packagesList())
               ],
             ),
           ),
