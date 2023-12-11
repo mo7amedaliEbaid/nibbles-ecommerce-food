@@ -9,6 +9,7 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/loading_ticker.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
@@ -19,8 +20,7 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen>
-    with AutomaticKeepAliveClientMixin {
+class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -31,10 +31,9 @@ class _SearchScreenState extends State<SearchScreen>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return Scaffold(
       body: SizedBox(
-        height: MediaQuery.sizeOf(context).height/.8,
+        height: MediaQuery.sizeOf(context).height / .7,
         child: Stack(
           children: [
             curvedlRecSvg(AppColors.deepTeal),
@@ -62,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen>
                     child: Center(
                       child: TextField(
                         controller: _searchController,
-                        onChanged: (value) {
+                        onSubmitted: (value) {
                           final searchQuery =
                               _searchController.text.trim().toLowerCase();
                           context.read<SearchCubit>().searchMeals(searchQuery);
@@ -83,17 +82,37 @@ class _SearchScreenState extends State<SearchScreen>
                 ),
               ),
             ),
-            Container(
-              height: AppDimensions.normalize(350),
-              margin: EdgeInsets.only(top: AppDimensions.normalize(100)),
+            Positioned(
+              top: AppDimensions.normalize(110),
+              // left: AppDimensions.normalize(10),
               child: BlocBuilder<SearchCubit, SearchState>(
                 builder: (context, state) {
-                  if (state is SearchLoading) {
-                    return const LoadingTicker();
-                  } else if (state is SearchSuccess) {
-                    return Text(state.meals.first.name);
+                  if (state is SearchSuccess) {
+                    return state.meals.isEmpty
+                        ? Padding(
+                            padding: Space.all(6, 8),
+                            child: Text(
+                              "No Items Found".toUpperCase(),
+                              style: AppText.h2b
+                                  ?.copyWith(color: AppColors.antiqueRuby),
+                            ),
+                          )
+                        : Container(
+                            width: MediaQuery.sizeOf(context).width / 1.07,
+                            margin: EdgeInsets.only(
+                                left: AppDimensions.normalize(9)),
+                            child: MealItem(
+                              mealModel: state.meals[0],
+                              isInVerticalList: true,
+                            ),
+                          );
+                  } else if (state is SearchLoading) {
+                    return const SizedBox();
                   } else {
-                    return const MealsVerticalListview();
+                    return SizedBox(
+                        height: MediaQuery.sizeOf(context).height,
+                        width: MediaQuery.sizeOf(context).width,
+                        child: const MealsVerticalListview());
                   }
                 },
               ),
@@ -103,8 +122,4 @@ class _SearchScreenState extends State<SearchScreen>
       ),
     );
   }
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 }

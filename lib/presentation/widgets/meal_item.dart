@@ -20,7 +20,7 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _random = math.Random();
+    final random = math.Random();
     return GestureDetector(
       onTap: () {
         Navigator.of(context)
@@ -66,7 +66,7 @@ class MealItem extends StatelessWidget {
                 Align(
                     alignment: Alignment.topLeft,
                     child: Image.asset(
-                      AppAssets.mealsPng[_random.nextInt(4)],
+                      AppAssets.mealsPng[random.nextInt(4)],
                       height: AppDimensions.normalize(40),
                       width: AppDimensions.normalize(35),
                     )),

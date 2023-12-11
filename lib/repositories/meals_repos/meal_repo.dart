@@ -37,7 +37,7 @@ class MealsRepo extends BaseMealRepository {
     return _firebaseFirestore
         .collection('meals')
         .where('name', isGreaterThanOrEqualTo: name)
-        //  .where('name', isLessThan: '${name}z') // Assuming you want a range query for the meal name
+        .where('name', isLessThan: '${name}z')
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {
