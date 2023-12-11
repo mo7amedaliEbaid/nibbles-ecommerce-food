@@ -28,13 +28,3 @@ class UpdateMeals extends MealsEvent {
   List<Object> get props => [meals];
 }
 
-class SearchAllMeals extends MealsEvent {
-  final String mealName;
-
-  const SearchAllMeals({
-    required this.mealName,
-  });
-
-  @override
-  List<Object> get props => [mealName];
-}

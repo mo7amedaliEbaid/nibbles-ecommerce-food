@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 sealed class AppStrings {
   static const fontFamily = 'Form';
 
@@ -15,3 +17,5 @@ sealed class AppStrings {
     'Contact Us',
   ];
 }
+
+//final GlobalKey globalKey = GlobalKey();

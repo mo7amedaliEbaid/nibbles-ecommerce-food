@@ -4,10 +4,15 @@ import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/models/package.dart';
 
 class PackageItem extends StatelessWidget {
-  const PackageItem({super.key, required this.isFromVerticalList});
+  const PackageItem(
+      {super.key,
+      required this.isFromVerticalList,
+      required this.packageModel});
 
+  final PackageModel packageModel;
   final bool isFromVerticalList;
 
   @override
@@ -54,18 +59,41 @@ class PackageItem extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "Package 1".toUpperCase(),
+                            packageModel.name.toUpperCase(),
                             style: AppText.h3?.copyWith(letterSpacing: 1.7),
                           ),
                           Space.yf(.4),
-                          Text("2 lunch, 1 Breakfast, 1 Drink",
-                              style: AppText.b1?.copyWith(
-                                color: AppColors.deepTeal,
-                              )),
+                          Text(
+                            packageModel.items,
+                            style: AppText.b1?.copyWith(
+                              color: AppColors.deepTeal,
+                            ),
+                          ),
                           Space.yf(.6),
                           Text(
-                            "120 KWD (1 Month 26 Days)".toUpperCase(),
+                            packageModel.price.toUpperCase(),
                             style: AppText.h3,
+                          ),
+                          Space.yf(.6),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                AppAssets.percent,
+                                colorFilter: const ColorFilter.mode(
+                                    AppColors.antiqueRuby, BlendMode.srcIn),
+                                height: AppDimensions.normalize(10),
+                              ),
+                              Space.xf(.3),
+                              Text(
+                                packageModel.oldPrice.toUpperCase(),
+                                style: AppText.h3?.copyWith(
+                                    color: AppColors.antiqueRuby,
+                                    decoration: TextDecoration.lineThrough,
+                                    decorationThickness:
+                                        AppDimensions.normalize(1.5)),
+                              ),
+                            ],
                           ),
                         ],
                       ),

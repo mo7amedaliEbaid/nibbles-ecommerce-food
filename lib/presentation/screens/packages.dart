@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 import '../../configs/app_dimensions.dart';
+import '../widgets/loading_ticker.dart';
 
 class PackagesScreen extends StatelessWidget {
   const PackagesScreen({super.key});
@@ -26,15 +29,24 @@ class PackagesScreen extends StatelessWidget {
                 positionedTitle("Packages".toUpperCase()),
                 Positioned(
                     top: AppDimensions.normalize(62),
-                     left: AppDimensions.normalize(16),
-                    child: Column(
-
-                      children: List.generate(
-                        3, // Number of PackageItem widgets
-                        (index) => const PackageItem(
-                          isFromVerticalList: true,
-                        ),
-                      ),
+                    left: AppDimensions.normalize(16),
+                    child: BlocBuilder<PackagesBloc, PackagesState>(
+                      builder: (context, state) {
+                        if (state is PackagesLoaded) {
+                          return Column(
+                            children: List.generate(
+                              state.packages.length,
+                              // Number of PackageItem widgets
+                              (index) => PackageItem(
+                                isFromVerticalList: true,
+                                packageModel: state.packages[index],
+                              ),
+                            ),
+                          );
+                        }else{
+                          return const LoadingTicker();
+                        }
+                      }
                     ))
               ],
             ),

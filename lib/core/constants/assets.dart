@@ -31,6 +31,7 @@ sealed class AppAssets {
   static const String tealfav = "assets/svg/tealfav.svg";
   static const String terms = "assets/svg/terms.svg";
   static const String whiteRec = "assets/svg/whiterec.svg"; //Not Used
+  static const String percent = "assets/svg/percent.svg";
 
   static const List<String> moreScreenItems = [
     subscription,

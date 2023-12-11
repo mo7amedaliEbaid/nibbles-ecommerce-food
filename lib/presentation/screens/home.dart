@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/application/blocs/categories/categories_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
+import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
@@ -173,7 +174,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: AppText.h2b?.copyWith(letterSpacing: 2),
                       ),
                       TextButton(
-                          onPressed: null,
+                          onPressed: (){
+                            context.read<NavigationCubit>().navigateToPage(3);
+                          },
                           child: Text(
                             "View All",
                             style: AppText.b2b
@@ -183,24 +186,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Space.yf(),
-                Container(
-                  height: AppDimensions.normalize(135),
-                  margin: EdgeInsets.only(left: AppDimensions.normalize(8)),
-                  // width: AppDimensions.normalize(150),
-                  child: PageView.builder(
-                      padEnds: false,
-                      controller: _packagesPageController,
-                      onPageChanged: (pos) {
-                        setState(() {
-                          packagesCurrentPage = pos;
-                        });
-                      },
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return const PackageItem(
-                          isFromVerticalList: false,
-                        );
-                      }),
+                BlocBuilder<PackagesBloc, PackagesState>(
+                  builder: (context, state) {
+                    if (state is PackagesLoaded) {
+                      return Container(
+                        height: AppDimensions.normalize(135),
+                        margin:
+                            EdgeInsets.only(left: AppDimensions.normalize(8)),
+                        // width: AppDimensions.normalize(150),
+
+                        child: PageView.builder(
+                            padEnds: false,
+                            controller: _packagesPageController,
+                            onPageChanged: (pos) {
+                              setState(() {
+                                packagesCurrentPage = pos;
+                              });
+                            },
+                            itemCount: state.packages.length,
+                            itemBuilder: (context, index) {
+                              return PackageItem(
+                                isFromVerticalList: false,
+                                packageModel: state.packages[index],
+                              );
+                            }),
+                      );
+                    } else {
+                      return const LoadingTicker();
+                    }
+                  },
                 ),
                 // Space.yf(2),
                 SmoothPageIndicator(

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 
+import 'loading_ticker.dart';
 import 'meal_item.dart';
 
 class MealsVerticalListview extends StatelessWidget {
@@ -31,7 +32,7 @@ class MealsVerticalListview extends StatelessWidget {
           );
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: LoadingTicker(),
           );
         }
       },

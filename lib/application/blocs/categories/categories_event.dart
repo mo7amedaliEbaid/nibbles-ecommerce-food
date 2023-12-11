@@ -12,7 +12,7 @@ class LoadCategories extends CategoriesEvent {}
 class UpdateCategories extends CategoriesEvent {
   final List<MealCategory> categories;
 
-  UpdateCategories(this.categories);
+  const UpdateCategories(this.categories);
 
   @override
   List<Object> get props => [categories];

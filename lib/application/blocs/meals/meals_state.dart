@@ -18,4 +18,3 @@ class MealsLoaded extends MealsState {
   @override
   List<Object> get props => [meals];
 }
-

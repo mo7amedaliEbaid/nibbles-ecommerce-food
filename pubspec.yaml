@@ -25,6 +25,9 @@ dependencies:
   equatable:
   flutter_bloc:
   carousel_slider:
+  qr_code_scanner:
+  rxdart:
+#  qr_flutter:
 
 dev_dependencies:
   flutter_test:

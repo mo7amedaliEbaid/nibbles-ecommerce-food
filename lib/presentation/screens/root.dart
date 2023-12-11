@@ -8,6 +8,7 @@ import 'package:nibbles_ecommerce/presentation/screens/categories.dart';
 import 'package:nibbles_ecommerce/presentation/screens/home.dart';
 import 'package:nibbles_ecommerce/presentation/screens/more.dart';
 import 'package:nibbles_ecommerce/presentation/screens/packages.dart';
+import 'package:nibbles_ecommerce/presentation/screens/qrcode.dart';
 
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../widgets/notched_navbar.dart';
@@ -35,7 +36,7 @@ class _RootScreenState extends State<RootScreen>
   final List<Widget> bottomBarPages = [
     const HomeScreen(),
     const CategoriesScreen(),
-    const HomeScreen(),
+     QrCodeScreen(),
     const PackagesScreen(),
     const MoreScreen(),
   ];
@@ -64,7 +65,7 @@ class _RootScreenState extends State<RootScreen>
           // Handle page change logic here
           _pageController.animateToPage(
             state.pageIndex,
-            duration: const Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 1),
             curve: Curves.easeIn,
           );
         }

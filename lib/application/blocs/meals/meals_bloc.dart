@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'meals_event.dart';
 
@@ -20,10 +21,9 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
     required MealsRepo mealsRepo,
   })  : _mealsRepo = mealsRepo,
         super(MealsLoading()) {
-    on<LoadMealsByCategory>(_mapLoadMealsToState);
+    on<LoadMealsByCategory>(_mapLoadMealsByCatToState);
     on<UpdateMeals>(_mapUpdateMealsToState);
     on<LoadAllMeals>(_mapLoadAllMealsToState);
-    on<SearchAllMeals>(_mapSearchAllMealsToState);
   }
 
   FutureOr<void> _mapUpdateMealsToState(
@@ -35,7 +35,7 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
       LoadAllMeals event, Emitter<MealsState> emit) async {
     _mealsSubscription?.cancel();
     _mealsSubscription = _mealsRepo.getAllMeals().listen(
-          (meals) {
+      (meals) {
         add(
           UpdateMeals(meals),
         );
@@ -43,7 +43,7 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
     );
   }
 
-  FutureOr<void> _mapLoadMealsToState(
+  FutureOr<void> _mapLoadMealsByCatToState(
       LoadMealsByCategory event, Emitter<MealsState> emit) async {
     _mealsSubscription?.cancel();
     _mealsSubscription = _mealsRepo.getMealsByCategory(event.categoryId).listen(
@@ -55,17 +55,4 @@ class MealsBloc extends Bloc<MealsEvent, MealsState> {
     );
   }
 
-  FutureOr<void> _mapSearchAllMealsToState(
-      SearchAllMeals event, Emitter<MealsState> emit) async {
-    _mealsSubscription?.cancel();
-    _mealsSubscription = _mealsRepo.getAllMeals().listen(
-          (meals) {
-        final filteredMeals = meals.where((meal) =>
-            meal.name.toLowerCase().contains(event.mealName.toLowerCase()));
-        add(
-          UpdateMeals(filteredMeals.toList()),
-        );
-      },
-    );
-  }
 }
