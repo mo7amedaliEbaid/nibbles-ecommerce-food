@@ -12,6 +12,7 @@ class MealModel extends Equatable {
   final String carbohydrates;
   final String proteins;
   final String ingredients;
+  final String qrhash;
   final List<dynamic> facts;
 
   const MealModel({
@@ -25,6 +26,7 @@ class MealModel extends Equatable {
     required this.carbohydrates,
     required this.proteins,
     required this.ingredients,
+    required this.qrhash,
     required this.facts,
   });
 
@@ -40,6 +42,7 @@ class MealModel extends Equatable {
       calories: snap['calories'],
       carbohydrates: snap['carbohydrates'],
       proteins: snap['proteins'],
+      qrhash: snap['qrhash'],
       ingredients: snap['ingredients'],
     );
     return meal;
@@ -57,6 +60,7 @@ class MealModel extends Equatable {
         facts,
         carbohydrates,
         proteins,
+        qrhash,
         ingredients
       ];
 }

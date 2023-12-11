@@ -18,7 +18,6 @@ class PackageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      /*height: AppDimensions.normalize(100),*/
       width: AppDimensions.normalize(120),
       child: Padding(
         padding: isFromVerticalList

@@ -36,7 +36,7 @@ class _RootScreenState extends State<RootScreen>
   final List<Widget> bottomBarPages = [
     const HomeScreen(),
     const CategoriesScreen(),
-     QrCodeScreen(),
+    const QrCodeScreen(),
     const PackagesScreen(),
     const MoreScreen(),
   ];

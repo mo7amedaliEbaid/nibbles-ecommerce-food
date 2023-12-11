@@ -6,7 +6,7 @@ import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meals.dart';
 import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
-import 'package:nibbles_ecommerce/presentation/screens/signin.dart';
+import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
 
 import '../../presentation/screens/ads.dart';
 import '../../presentation/screens/root.dart';
@@ -31,7 +31,7 @@ sealed class AppRouter {
   static const String terms = '/terms';
   static const String contact = '/contact';
   static const String privacy = '/privacy';
-  static const String signin = '/signin';
+  static const String signup = '/signup';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -54,8 +54,8 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const AdsScreen());
       case root:
         return MaterialPageRoute(builder: (_) => const RootScreen());
-      case signin:
-        return MaterialPageRoute(builder: (_) => const SignInScreen());
+      case signup:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case intro:
         return MaterialPageRoute(builder: (_) => IntroScreen());
       case meals:

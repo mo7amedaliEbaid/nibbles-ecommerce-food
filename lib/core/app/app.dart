@@ -50,6 +50,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: AppStrings.fontFamily,
           scaffoldBackgroundColor: AppColors.scafoldBackground,
+          checkboxTheme: CheckboxThemeData(
+            fillColor: MaterialStateColor.resolveWith(
+              (states) => AppColors.lightGrey,
+            ),
+          ),
         ),
       ),
     );

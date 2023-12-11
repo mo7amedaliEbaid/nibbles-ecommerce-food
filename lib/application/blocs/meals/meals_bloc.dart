@@ -6,7 +6,6 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
-import 'package:rxdart/rxdart.dart';
 
 part 'meals_event.dart';
 

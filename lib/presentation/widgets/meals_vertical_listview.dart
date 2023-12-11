@@ -20,7 +20,8 @@ class MealsVerticalListview extends StatelessWidget {
             shrinkWrap: true,
             itemCount: state.meals.length,
             padding: EdgeInsets.only(
-              left: AppDimensions.normalize(10),
+              left: AppDimensions.normalize(15),
+              right: AppDimensions.normalize(5),
               bottom: AppDimensions.normalize(20),
             ),
             itemBuilder: (context, index) {

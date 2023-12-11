@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,11 +6,13 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/packages_horizontal_list.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
-import '../widgets/packages_list.dart';
+import '../widgets/packages_vertical_list.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -75,7 +75,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 .toLowerCase();
                             context
                                 .read<SearchCubit>()
-                                .searchMeals(searchQuery);
+                                .searchMealsByName(searchQuery);
                           } else {
                             final searchQuery = _packagesSearchController.text
                                 .trim()
@@ -106,9 +106,9 @@ class _SearchScreenState extends State<SearchScreen> {
               left: AppDimensions.normalize(10),
               child: Row(
                 children: [
-                  buildTabButton("Meals", 0),
+                  _buildTabButton("Meals", 0),
                   Space.x1!,
-                  buildTabButton("Packages", 1),
+                  _buildTabButton("Packages", 1),
                 ],
               ),
             ),
@@ -130,9 +130,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                   )
                                 : Container(
                                     width:
-                                        MediaQuery.sizeOf(context).width / 1.07,
+                                        AppDimensions.normalize(142),
                                     margin: EdgeInsets.only(
-                                        left: AppDimensions.normalize(9)),
+                                      left: AppDimensions.normalize(15),
+                                      top: AppDimensions.normalize(8),
+                                    ),
                                     child: MealItem(
                                       mealModel: state.meals[0],
                                       isInVerticalList: true,
@@ -142,12 +144,12 @@ class _SearchScreenState extends State<SearchScreen> {
                             return const SizedBox();
                           } else {
                             return SizedBox(
-                                height: MediaQuery.sizeOf(context).height / 1.6,
+                                height: AppDimensions.normalize(100),
                                 width: MediaQuery.sizeOf(context).width,
                                 child: Padding(
                                   padding: EdgeInsets.only(
-                                      top: AppDimensions.normalize(4)),
-                                  child: const MealsVerticalListview(),
+                                      top: AppDimensions.normalize(34)),
+                                  child: const MealsHorizontalListview(),
                                 ));
                           }
                         },
@@ -178,21 +180,16 @@ class _SearchScreenState extends State<SearchScreen> {
                           } else if (state is SearchLoading) {
                             return const SizedBox();
                           } else {
-                            return SizedBox(
-                                height: MediaQuery.sizeOf(context).height / 1.6,
-                                width: MediaQuery.sizeOf(context).width,
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: AppDimensions.normalize(5)),
-                                  child: SingleChildScrollView(
-                                      child: Column(
-                                    children: [
-                                      Space.yf(1.1),
-                                      packagesList(),
-                                      Space.yf(2.1),
-                                    ],
-                                  )),
-                                ));
+                            return Padding(
+                              padding: EdgeInsets.only(
+                                top: AppDimensions.normalize(15),
+                              ),
+                              child: SizedBox(
+                                  height:
+                                      MediaQuery.sizeOf(context).height / 1.6,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  child: packagesHorizontaList()),
+                            );
                           }
                         },
                       ))
@@ -202,7 +199,7 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget buildTabButton(String text, int index) {
+  Widget _buildTabButton(String text, int index) {
     return GestureDetector(
       onTap: () {
         setState(() {

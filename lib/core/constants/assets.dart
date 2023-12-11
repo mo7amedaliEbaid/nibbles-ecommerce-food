@@ -32,6 +32,17 @@ sealed class AppAssets {
   static const String terms = "assets/svg/terms.svg";
   static const String whiteRec = "assets/svg/whiterec.svg"; //Not Used
   static const String percent = "assets/svg/percent.svg";
+  static const String username = "assets/svg/username.svg";
+  static const String phone = "assets/svg/phone.svg";
+  static const String password = "assets/svg/password.svg";
+  static const String email = "assets/svg/email.svg";
+
+  static const List<String> signupItems = [
+    username,
+    email,
+    phone,
+    password,
+  ];
 
   static const List<String> moreScreenItems = [
     subscription,
@@ -62,6 +73,7 @@ sealed class AppAssets {
   static const String adsPng = "assets/png/ads.png";
   static const String introPng = "assets/png/into.png";
   static const String mealsByCat = "assets/png/mealsbyCat.png";
+  static const String qrPng = "assets/png/qrpng.png";
   static const String whiteRecPng = "assets/png/whiterecpng.png"; //Not Used
 
   //categories

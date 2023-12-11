@@ -25,8 +25,9 @@ dependencies:
   equatable:
   flutter_bloc:
   carousel_slider:
-  qr_code_scanner:
-  rxdart:
+  flutter_barcode_scanner:
+#  qr_code_scanner:
+#  rxdart:
 #  qr_flutter:
 
 dev_dependencies:

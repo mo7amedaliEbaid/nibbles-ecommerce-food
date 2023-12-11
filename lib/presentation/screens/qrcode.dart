@@ -1,221 +1,132 @@
-import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/configs/space.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'dart:developer';
-import 'dart:io';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'dart:async';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
+import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/core/constants/assets.dart';
+import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
+
+import '../../configs/app_dimensions.dart';
+
 class QrCodeScreen extends StatefulWidget {
-  const QrCodeScreen({Key? key}) : super(key: key);
+  const QrCodeScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() => _QrCodeScreenState();
+  QrCodeScreenState createState() => QrCodeScreenState();
 }
 
-class _QrCodeScreenState extends State<QrCodeScreen> {
-  Barcode? result;
-  QRViewController? controller;
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-
-  // In order to get hot reload to work we need to pause the camera if the platform
-  // is android, or resume the camera if the platform is iOS.
-  @override
-  void reassemble() {
-    super.reassemble();
-    if (Platform.isAndroid) {
-      controller!.pauseCamera();
+class QrCodeScreenState extends State<QrCodeScreen> {
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+      debugPrint(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
     }
-    controller!.resumeCamera();
+
+    if (!mounted) return;
+    final _scanQrcode = barcodeScanRes.hashCode.toString();
+    context.read<SearchCubit>().searchMealsByQrCode(_scanQrcode);
+    log(_scanQrcode);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(flex: 4, child: _buildQrView(context)),
-          Expanded(
-            flex: 1,
-            child: FittedBox(
-              fit: BoxFit.contain,
-              child: Column(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: BlocListener<SearchCubit, SearchState>(
+          listener: (context, state) {
+            if (state is MealsSearchSuccess) {
+              showModalBottomSheet(
+                context: context,
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(AppDimensions.normalize(10)),
+                ),
+                backgroundColor: AppColors.lightGrey,
+                constraints: BoxConstraints(
+                    minHeight: AppDimensions.normalize(150),
+                    maxWidth: double.infinity),
+                builder: (BuildContext context) {
+                  return state.meals.isNotEmpty
+                      ? SizedBox(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: AppDimensions.normalize(7),
+                              right: AppDimensions.normalize(3),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Space.yf(1.2),
+                                    IconButton(onPressed: (){
+                                      Navigator.of(context).pop();
+                                    }, icon: const Icon(Icons.clear))
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: AppDimensions.normalize(147),
+                                  child: MealItem(
+                                    mealModel: state.meals.first,
+                                    isInVerticalList: true,
+                                  ),
+                                ),
+                                Space.yf(2),
+                                Padding(
+                                  padding:  EdgeInsets.only(right: AppDimensions.normalize(4)),
+                                  child: customElevatedButton(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    MealDetailsScreen(
+                                                        mealModel:
+                                                            state.meals.first)));
+                                      },
+                                      text: "View Details".toUpperCase(),
+                                      heightFraction: 22,
+                                      width: double.infinity,
+                                      color: AppColors.commonAmber),
+                                ),
+                                Space.yf(6),
+                              ],
+                            ),
+                          ))
+                      : Text("Error");
+                },
+              );
+            }
+          },
+          child: Center(
+            child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  if (result != null)
-                    Text(
-                        'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-                  else
-                    const Text('Scan a code'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        child: ElevatedButton(
-                            onPressed: () async {
-                              await controller?.toggleFlash();
-                              setState(() {});
-                            },
-                            child: FutureBuilder(
-                              future: controller?.getFlashStatus(),
-                              builder: (context, snapshot) {
-                                return Text('Flash: ${snapshot.data}');
-                              },
-                            )),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        child: ElevatedButton(
-                            onPressed: () async {
-                              await controller?.flipCamera();
-                              setState(() {});
-                            },
-                            child: FutureBuilder(
-                              future: controller?.getCameraInfo(),
-                              builder: (context, snapshot) {
-                                if (snapshot.data != null) {
-                                  return Text(
-                                      'Camera facing ${describeEnum(snapshot.data!)}');
-                                } else {
-                                  return const Text('loading');
-                                }
-                              },
-                            )),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            await controller?.pauseCamera();
-                          },
-                          child: const Text('pause',
-                              style: TextStyle(fontSize: 20)),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            await controller?.resumeCamera();
-                          },
-                          child: const Text('resume',
-                              style: TextStyle(fontSize: 20)),
-                        ),
-                      )
-                    ],
-                  ),
-                  Space.yf(15)
-                ],
-
-              ),
-            ),
-          )
-        ],
+                  InkWell(
+                      onTap: () => scanQR(),
+                      child: Image.asset(AppAssets.qrPng)),
+                  /* OutlinedButton(
+                    onPressed: () => scanQR(),
+                    child: const Text('Start QR scan')),*/
+                ]),
+          ),
+        ),
       ),
     );
-  }
-
-  Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
-    var scanArea = (MediaQuery.of(context).size.width < 400 ||
-        MediaQuery.of(context).size.height < 400)
-        ? 150.0
-        : 300.0;
-    // To ensure the Scanner view is properly sizes after rotation
-    // we need to listen for Flutter SizeChanged notification and update controller
-    return QRView(
-      key: qrKey,
-      onQRViewCreated: _onQRViewCreated,
-      overlay: QrScannerOverlayShape(
-          borderColor: Colors.red,
-          borderRadius: 10,
-          borderLength: 30,
-          borderWidth: 10,
-          cutOutSize: scanArea),
-      onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
-    );
-  }
-  void _onQRViewCreated(QRViewController controller) {
-    setState(() {
-      this.controller = controller;
-    });
-
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-
-        // Log the QR code as a string
-        if (result != null) {
-          String qrCodeString = result!.code.hashCode.toString();
-
-          // Show a dialog with the scanned QR code
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-          log(qrCodeString);
-         /* showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text('Scanned QR Code'),
-                content: Text(qrCodeString),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // Close the dialog
-                    },
-                    child: Text('OK'),
-                  ),
-                ],
-              );
-            },
-          );*/
-
-          // You can use 'qrCodeString' as needed, for example, send it to a server, etc.
-        }
-      });
-    });
-  }
-/*  void _onQRViewCreated(QRViewController controller) {
-    setState(() {
-      this.controller = controller;
-    });
-    controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-      });
-      log(result.toString());
-    });
-  }*/
-
-  void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
-    log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
-    if (!p) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('no Permission')),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
   }
 }

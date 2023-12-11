@@ -18,9 +18,21 @@ class SearchCubit extends Cubit<SearchState> {
         _packagesRepos = packagesRepos,
         super(SearchInitial());
 
-  void searchMeals(String query) {
+  void searchMealsByName(String query) {
     emit(SearchLoading());
     _mealsRepo.getMealsByName(query).listen(
+      (meals) {
+        emit(MealsSearchSuccess(meals));
+      },
+      onError: (error) {
+        emit(SearchFailure(error.toString()));
+      },
+    );
+  }
+
+  void searchMealsByQrCode(String qrhash) {
+    emit(SearchLoading());
+    _mealsRepo.getMealsByQrCode(qrhash).listen(
       (meals) {
         emit(MealsSearchSuccess(meals));
       },
