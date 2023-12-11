@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 
-import 'loading_ticker.dart';
+import 'tickers.dart';
 import 'meal_item.dart';
 
 class MealsVerticalListview extends StatelessWidget {

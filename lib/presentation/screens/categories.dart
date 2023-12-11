@@ -5,7 +5,7 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/loading_ticker.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 
 import '../../application/blocs/categories/categories_bloc.dart';
 import '../widgets/top_rec_components.dart';

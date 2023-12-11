@@ -13,8 +13,11 @@ import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/qrscan_result_bottomsheet.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 import '../../configs/app_dimensions.dart';
+import '../widgets/tickers.dart';
 
 class QrCodeScreen extends StatefulWidget {
   const QrCodeScreen({super.key});
@@ -43,90 +46,44 @@ class QrCodeScreenState extends State<QrCodeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // I was using Material app here to make the bottom sheet
+    // behind the bottom navigation bar
+    // but i changed my mind
+    return /*MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: BlocListener<SearchCubit, SearchState>(
-          listener: (context, state) {
-            if (state is MealsSearchSuccess) {
-              showModalBottomSheet(
-                context: context,
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(AppDimensions.normalize(10)),
-                ),
-                backgroundColor: AppColors.lightGrey,
-                constraints: BoxConstraints(
-                    minHeight: AppDimensions.normalize(150),
-                    maxWidth: double.infinity),
-                builder: (BuildContext context) {
-                  return state.meals.isNotEmpty
-                      ? SizedBox(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              left: AppDimensions.normalize(7),
-                              right: AppDimensions.normalize(3),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Space.yf(1.2),
-                                    IconButton(onPressed: (){
-                                      Navigator.of(context).pop();
-                                    }, icon: const Icon(Icons.clear))
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: AppDimensions.normalize(147),
-                                  child: MealItem(
-                                    mealModel: state.meals.first,
-                                    isInVerticalList: true,
-                                  ),
-                                ),
-                                Space.yf(2),
-                                Padding(
-                                  padding:  EdgeInsets.only(right: AppDimensions.normalize(4)),
-                                  child: customElevatedButton(
-                                      onTap: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    MealDetailsScreen(
-                                                        mealModel:
-                                                            state.meals.first)));
-                                      },
-                                      text: "View Details".toUpperCase(),
-                                      heightFraction: 22,
-                                      width: double.infinity,
-                                      color: AppColors.commonAmber),
-                                ),
-                                Space.yf(6),
-                              ],
-                            ),
-                          ))
-                      : Text("Error");
-                },
-              );
-            }
-          },
-          child: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  InkWell(
-                      onTap: () => scanQR(),
-                      child: Image.asset(AppAssets.qrPng)),
-                  /* OutlinedButton(
-                    onPressed: () => scanQR(),
-                    child: const Text('Start QR scan')),*/
-                ]),
+      home: */
+        Scaffold(
+      body: Stack(
+        children: [
+          curvedlRecSvg(AppColors.antiqueRuby),
+          positionedWhiteLogo(),
+          positionedTitle("Scan your code".toUpperCase()),
+          Positioned(
+            top: AppDimensions.normalize(70),
+            left: 0,
+            right: 0,
+            child: BlocListener<SearchCubit, SearchState>(
+              listener: (context, state) {
+                if (state is MealsSearchSuccess) {
+                  showQrScanResultBottomSheet(context, state.meals);
+                } else if (state is SearchFailure) {
+                  showQrScanResultBottomSheet(context, []);
+                }
+              },
+              child: Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                InkWell(
+                    onTap: () => scanQR(), child: Image.asset(AppAssets.qrPng)),
+                Positioned(
+                    top: AppDimensions.normalize(20),
+                    child: TapToScanTicker()),
+              ]),
+            ),
           ),
-        ),
+        ],
       ),
+      //  ),
     );
   }
 }

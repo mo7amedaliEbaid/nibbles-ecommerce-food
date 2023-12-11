@@ -4,7 +4,7 @@ import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 
 import '../../application/blocs/packages/packages_bloc.dart';
-import 'loading_ticker.dart';
+import 'tickers.dart';
 
 Widget packagesHorizontaList() {
   return BlocBuilder<PackagesBloc, PackagesState>(builder: (context, state) {

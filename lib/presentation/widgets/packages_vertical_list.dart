@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 
 import '../../application/blocs/packages/packages_bloc.dart';
-import 'loading_ticker.dart';
+import 'tickers.dart';
 
 Widget packagesList() {
   return BlocBuilder<PackagesBloc, PackagesState>(builder: (context, state) {

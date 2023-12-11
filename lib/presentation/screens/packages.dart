@@ -8,7 +8,7 @@ import 'package:nibbles_ecommerce/presentation/widgets/packages_vertical_list.da
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 import '../../configs/app_dimensions.dart';
-import '../widgets/loading_ticker.dart';
+import '../widgets/tickers.dart';
 
 class PackagesScreen extends StatelessWidget {
   const PackagesScreen({super.key});

@@ -21,7 +21,7 @@ class MealDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.sizeOf(context).height / .83,
+              height: AppDimensions.normalize(385),
               child: Stack(
                 children: [
                   mealTopStack(context),

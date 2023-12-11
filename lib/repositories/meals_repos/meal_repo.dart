@@ -49,8 +49,9 @@ class MealsRepo extends BaseMealRepository {
   Stream<List<MealModel>> getMealsByQrCode(String qrhash) {
     return _firebaseFirestore
         .collection('meals')
-        .where('qrhash', isGreaterThanOrEqualTo: qrhash)
-        //.where('name', isLessThan: '${name}z')
+        .where('qrhash', isEqualTo: qrhash)
+       // .where('qrhash', isGreaterThanOrEqualTo: qrhash)
+       // .where('qrhash', isLessThan: '${qrhash}z')
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {

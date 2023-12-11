@@ -36,6 +36,7 @@ sealed class AppAssets {
   static const String phone = "assets/svg/phone.svg";
   static const String password = "assets/svg/password.svg";
   static const String email = "assets/svg/email.svg";
+  static const String invalidQr = "assets/svg/invalidqr.svg";
 
   static const List<String> signupItems = [
     username,

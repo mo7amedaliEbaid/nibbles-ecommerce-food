@@ -10,7 +10,7 @@ import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/loading_ticker.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
