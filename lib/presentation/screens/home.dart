@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: AppText.h2b?.copyWith(letterSpacing: 2),
                       ),
                       TextButton(
-                          onPressed: (){
+                          onPressed: () {
                             context.read<NavigationCubit>().navigateToPage(3);
                           },
                           child: Text(
@@ -251,7 +251,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Space.yf(.15),
                 BlocBuilder<CategoriesBloc, CategoriesState>(
                   builder: (context, state) {
-                    if (state is CategoriesLoaded) {
+                    if (state is CategoriesLoaded &&
+                        state.categories.isNotEmpty) {
+
                       List<Tab> tabBarItems = List.generate(
                         state.categories.length,
                         (index) => Tab(
