@@ -45,18 +45,44 @@ class MealsRepo extends BaseMealRepository {
       }).toList();
     });
   }
+
   @override
   Stream<List<MealModel>> getMealsByQrCode(String qrhash) {
     return _firebaseFirestore
         .collection('meals')
         .where('qrhash', isEqualTo: qrhash)
-       // .where('qrhash', isGreaterThanOrEqualTo: qrhash)
-       // .where('qrhash', isLessThan: '${qrhash}z')
+        // .where('qrhash', isGreaterThanOrEqualTo: qrhash)
+        // .where('qrhash', isLessThan: '${qrhash}z')
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {
         return MealModel.fromSnapShot(doc);
       }).toList();
     });
+  }
+  @override
+  Stream<List<MealModel>> getFilteredMealsByCalorieRange(
+      int minCalories, int maxCalories) {
+    return _firebaseFirestore
+        .collection('meals')
+        .where('calories',
+            isGreaterThanOrEqualTo: minCalories.toString().padLeft(5, '0'))
+        .where('calories',
+            isLessThanOrEqualTo: maxCalories.toString().padLeft(5, '0'))
+        .snapshots()
+        .map((querySnapshot) => querySnapshot.docs
+            .map((doc) => MealModel.fromSnapShot(doc))
+            .toList());
+  }
+  @override
+  Stream<List<MealModel>> getFilteredMealsByFacts(List<String> selectedFacts) {
+    // Implement the logic to filter meals by facts in your repository
+    // Use FirebaseFirestore and where clause to filter based on selectedFacts
+    return _firebaseFirestore
+        .collection('meals')
+        .where('facts', arrayContainsAny: selectedFacts)
+        .snapshots()
+        .map((querySnapshot) =>
+        querySnapshot.docs.map((doc) => MealModel.fromSnapShot(doc)).toList());
   }
 }
