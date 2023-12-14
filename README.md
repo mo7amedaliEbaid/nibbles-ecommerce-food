@@ -1,4 +1,4 @@
-## In Development.
+## In Development [👀🔄 40% ].
 
 
 https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/assets/131966482/015740aa-b53e-4abf-9de3-9a160e9a4e83
@@ -23,6 +23,51 @@ https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/assets/131966482
 - Meals
 - Food Packages
 
+## Directory Structure
+
+```
+project_root
+│
+├── 📁 application
+│   ├── 📁 feature_blocs
+│   │   └── ...
+│   ├── 📁 global_cubits
+│   │   └── ...
+│   └── ...
+│
+├── 📁 configs
+│   ├── 📄 apptext.dart
+│   ├── 📄 dimesions.dart
+│   └── 📄 spaces.dart
+│
+├── 📁 core
+│   ├── 📄 app.dart
+│   ├── 📄 error.dart
+│   ├── 📄 extensions.dart
+│   ├── 📄 constants.dart
+│   └── ...
+│
+├── 📁 models
+│   ├── 📄 meal_model.dart
+│   ├── 📄 user_model.dart
+│   └── ...
+│
+├── 📁 presentation
+│   ├── 📁 screens
+│   │   ├── 📄 home_screen.dart
+│   │   ├── 📄 search_screen.dart
+│   │   └── ...
+│   └── 📁 widgets
+│       ├── 📄 custom_button.dart
+│       ├── 📄 bottom_navbar.dart
+│       └── ...      
+│
+└── 📁 repositories
+    ├── 📁 meals_repos
+    ├── 📁 packages_repos
+    └── ...
+```
+
 <p float="left">
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/844b3b0633deca88a4bb3e1f5388aeb1cd7963b0/screenshots/3.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/cac9447485e531c6bd9982e36a7194a39435540e/screenshots/homeup.jpg" width="180"/>
@@ -41,3 +86,5 @@ https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/assets/131966482
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails1.jpg" width="180"/>
 
 </p>
+
+
