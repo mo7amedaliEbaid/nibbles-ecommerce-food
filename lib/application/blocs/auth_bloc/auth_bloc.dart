@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
+import '../../../core/enums/enums.dart';
+import '../../../core/error/custom_error.dart';
 import '../../../core/error/failures.dart';
 import '../../../repositories/auth_repos/auth_repos.dart';
 

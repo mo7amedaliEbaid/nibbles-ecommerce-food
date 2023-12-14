@@ -50,11 +50,11 @@ class AuthRepository extends BaseAuthRepository {
 
       await firestore.collection('users').doc(signedUser.uid).set({
         'fullName': user.fullName,
-        'city': user.city,
-        'country': user.country,
+   /*     'city': user.city,
+        'country': user.country,*/
         'phoneNumber': user.phoneNumber,
         'email': user.email,
-        'address': user.address,
+       // 'address': user.address,
       });
     } catch (_) {}
   }
@@ -64,23 +64,7 @@ class AuthRepository extends BaseAuthRepository {
     return currentUser != null;
   }
 
-/*  Future<void> signInWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
-
-      final credential = auth.GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-
-      await auth.FirebaseAuth.instance.signInWithCredential(credential);
-    } catch (e) {
-      throw Exception(e.toString());
-    }
-  }*/
 
   @override
   // TODO: implement user

@@ -5,6 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/core/error/failures.dart';
 
+import '../../../core/enums/enums.dart';
+import '../../../core/error/custom_error.dart';
 import '../../../models/user_model.dart';
 import '../../../repositories/auth_repos/auth_repos.dart';
 
@@ -25,7 +27,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       await authRepository.signUp(user: event.user, password: event.password);
 
       emit(state.copyWith(status: SignUpStatus.success));
-    } on CredentialFailure catch (err) {
+    } on CustomError catch (err) {
       emit(state.copyWith(
         status: SignUpStatus.error,
         error: err,

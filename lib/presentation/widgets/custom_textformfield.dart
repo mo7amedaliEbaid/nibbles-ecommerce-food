@@ -13,6 +13,7 @@ Widget customTextFormField(
     autovalidateMode: AutovalidateMode.onUserInteraction,
     validator: validator,
     controller: controller,
+    style: AppText.b2b,
     decoration: InputDecoration(
         enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.lightGrey)),
@@ -29,6 +30,9 @@ Widget customTextFormField(
           ),
         ),
         labelText: label,
+        errorStyle: AppText.l1b?.copyWith(color: Colors.red),
+        errorMaxLines: 3,
+
         labelStyle: AppText.b1?.copyWith(color: AppColors.greyText)),
   );
 }

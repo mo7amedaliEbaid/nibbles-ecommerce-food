@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nibbles_ecommerce/application/blocs/sign_up_bloc/sign_up_bloc.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
@@ -8,6 +10,9 @@ import 'package:nibbles_ecommerce/core/validator/validator.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_textformfield.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
+
+import '../../core/enums/enums.dart';
+import '../../models/user_model.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -125,13 +130,42 @@ class SignUpScreen extends StatelessWidget {
                     ],
                   ),
                   Space.yf(1.5),
-                  customElevatedButton(
-                      onTap: () {
-                      },
-                      text: "SIGN UP",
-                      heightFraction: 20,
-                      width: double.infinity,
-                      color: AppColors.commonAmber),
+                  BlocConsumer<SignUpBloc, SignUpState>(
+                    listener: (context, state) {
+                      if (state.status == SignUpStatus.error) {
+                        //TODO
+                      }
+                      if (state.status == SignUpStatus.submitting) {
+                        //TODO
+                        print("submitting");
+                      }
+                      if (state.status == SignUpStatus.success) {
+                        // SnackBar(content: Text("login success"));
+                        //TODO
+                        Navigator.of(context).pushNamed(AppRouter.root);
+                      }
+                    },
+                    builder: (context, state) {
+                      return customElevatedButton(
+                          onTap: () {
+                            User user = User(
+                              fullName: _nameController.text,
+                              email: _emailController.text,
+                              phoneNumber: _phoneController.text,
+                            );
+                            state.status == SignUpStatus.submitting
+                                ? null
+                                : context.read<SignUpBloc>().add(
+                                    SignUpWithCredential(
+                                        user: user,
+                                        password: _passwordController.text));
+                          },
+                          text: "SIGN UP",
+                          heightFraction: 20,
+                          width: double.infinity,
+                          color: AppColors.commonAmber);
+                    },
+                  ),
                   Space.yf(2.5),
                 ],
               ),

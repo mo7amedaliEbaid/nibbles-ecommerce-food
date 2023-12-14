@@ -2,7 +2,7 @@ part of 'sign_up_bloc.dart';
 
 class SignUpState extends Equatable {
   final SignUpStatus status;
-  final CredentialFailure error;
+  final CustomError error;
 
   const SignUpState({
     required this.status,
@@ -10,9 +10,9 @@ class SignUpState extends Equatable {
   });
 
   factory SignUpState.initial() {
-    return  SignUpState(
+    return const SignUpState(
       status: SignUpStatus.initial,
-      error: CredentialFailure(),
+      error: CustomError(),
     );
   }
 
@@ -24,7 +24,7 @@ class SignUpState extends Equatable {
 
   SignUpState copyWith({
     SignUpStatus? status,
-    CredentialFailure? error,
+    CustomError? error,
   }) {
     return SignUpState(
       status: status ?? this.status,
@@ -33,9 +33,4 @@ class SignUpState extends Equatable {
   }
 }
 
-enum SignUpStatus {
-  initial,
-  submitting,
-  success,
-  error,
-}
+

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../core/enums/enums.dart';
 import '../../../models/user_model.dart';
 import '../../../repositories/user_repos/user_repos.dart';
 import '../auth_bloc/auth_bloc.dart';

@@ -5,18 +5,18 @@ class User extends Equatable {
   final String? id;
   final String fullName;
   final String email;
-  final String address;
-  final String city;
-  final String country;
+ // final String address;
+ // final String city;
+ // final String country;
   final String phoneNumber;
 
   User({
     this.id,
     this.fullName = '',
     this.email = '',
-    this.address = '',
-    this.city = '',
-    this.country = '',
+   // this.address = '',
+   // this.city = '',
+    //this.country = '',
     this.phoneNumber = '',
   });
 
@@ -24,18 +24,18 @@ class User extends Equatable {
     String? id,
     String? fullName,
     String? email,
-    String? address,
+   /* String? address,
     String? city,
-    String? country,
+    String? country,*/
     String? phoneNumber,
   }) {
     return User(
       id: id ?? this.id,
       fullName: fullName ?? this.fullName,
       email: email ?? this.email,
-      address: address ?? this.address,
+      /*address: address ?? this.address,
       city: city ?? this.city,
-      country: country ?? this.country,
+      country: country ?? this.country,*/
       phoneNumber: phoneNumber ?? this.phoneNumber,
     );
   }
@@ -45,9 +45,9 @@ class User extends Equatable {
       id: snap.id,
       fullName: snap['fullName'],
       email: snap['email'],
-      address: snap['address'],
+     /* address: snap['address'],
       city: snap['city'],
-      country: snap['country'],
+      country: snap['country'],*/
       phoneNumber: snap['phoneNumber'],
     );
   }
@@ -56,14 +56,14 @@ class User extends Equatable {
     return {
       'fullName': fullName,
       'email': email,
-      'address': address,
+    /*  'address': address,
       'city': city,
-      'country': country,
+      'country': country,*/
       'phoneNumber': phoneNumber,
     };
   }
 
   @override
   List<Object?> get props =>
-      [id, fullName, email, address, city, country, phoneNumber];
+      [id, fullName, email,/* address, city, country,*/ phoneNumber];
 }

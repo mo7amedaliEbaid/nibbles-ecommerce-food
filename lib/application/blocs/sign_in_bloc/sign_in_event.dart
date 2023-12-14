@@ -7,14 +7,13 @@ abstract class SignInEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class SignInWithCredentia extends SignInEvent {
+class SignInWithCredential extends SignInEvent {
   final String email;
   final String password;
 
-  SignInWithCredentia({required this.email, required this.password});
+  SignInWithCredential({required this.email, required this.password});
 
   @override
   List<Object> get props => [email, password];
 }
 
-class GoogleSignIn extends SignInEvent {}

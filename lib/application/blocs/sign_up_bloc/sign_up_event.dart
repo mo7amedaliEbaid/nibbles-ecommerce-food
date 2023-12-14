@@ -11,7 +11,7 @@ class SignUpWithCredential extends SignUpEvent {
   final User user;
   final String password;
 
-  SignUpWithCredential({required this.user, required this.password});
+  const SignUpWithCredential({required this.user, required this.password});
 
   @override
   List<Object> get props => [user, password];

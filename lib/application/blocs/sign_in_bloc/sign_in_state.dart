@@ -2,7 +2,7 @@ part of 'sign_in_bloc.dart';
 
 class SignInState extends Equatable {
   final SignInStatus status;
-  final CredentialFailure error;
+  final CustomError error;
 
   const SignInState({
     required this.status,
@@ -10,9 +10,9 @@ class SignInState extends Equatable {
   });
 
   factory SignInState.initial() {
-    return  SignInState(
+    return const SignInState(
       status: SignInStatus.initial,
-      error: CredentialFailure(),
+      error: CustomError(),
     );
   }
 
@@ -24,7 +24,7 @@ class SignInState extends Equatable {
 
   SignInState copyWith({
     SignInStatus? status,
-    CredentialFailure? error,
+    CustomError? error,
   }) {
     return SignInState(
       status: status ?? this.status,
@@ -33,9 +33,3 @@ class SignInState extends Equatable {
   }
 }
 
-enum SignInStatus {
-  initial,
-  submitting,
-  success,
-  error,
-}
