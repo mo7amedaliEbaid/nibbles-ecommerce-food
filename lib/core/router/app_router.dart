@@ -55,7 +55,7 @@ sealed class AppRouter {
       case root:
         return MaterialPageRoute(builder: (_) => const RootScreen());
       case signup:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(builder: (_) =>  SignUpScreen());
       case intro:
         return MaterialPageRoute(builder: (_) => IntroScreen());
       case meals:

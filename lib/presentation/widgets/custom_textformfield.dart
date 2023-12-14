@@ -3,9 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
-Widget customTextFormField({required String label, required String svgUrl}) {
+Widget customTextFormField(
+    {required String label,
+    required String svgUrl,
+    String? Function(String?)? validator,
+    required TextEditingController controller}) {
   return TextFormField(
     cursorColor: AppColors.deepTeal,
+    autovalidateMode: AutovalidateMode.onUserInteraction,
+    validator: validator,
+    controller: controller,
     decoration: InputDecoration(
         enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.lightGrey)),
