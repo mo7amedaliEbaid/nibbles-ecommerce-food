@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
             fit: BoxFit.fitWidth,
           ),
           Positioned(
-            bottom: AppDimensions.normalize(200),
+            bottom: AppDimensions.normalize(205),
             child: const CircularProgressIndicator(
               color: AppColors.deepTeal,
             ),

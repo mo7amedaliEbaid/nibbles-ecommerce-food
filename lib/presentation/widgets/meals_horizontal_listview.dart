@@ -9,7 +9,6 @@ import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
 
 import '../../core/constants/strings.dart';
 
-
 class MealsHorizontalListview extends StatelessWidget {
   const MealsHorizontalListview({super.key});
 
@@ -18,21 +17,29 @@ class MealsHorizontalListview extends StatelessWidget {
     return BlocBuilder<MealsBloc, MealsState>(
       builder: (context, state) {
         if (state is MealsLoaded) {
-          return ListView.builder(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: state.meals.length,
-              padding: EdgeInsets.only(left: AppDimensions.normalize(8)),
-              itemBuilder: (context, index) {
-                return MealItem(
-                  mealModel: state.meals[index],
-                  isInVerticalList: false,
-                );
-              });
+          return ListView.separated(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: state.meals.length,
+            padding: EdgeInsets.only(
+              left: AppDimensions.normalize(8),
+              right: AppDimensions.normalize(11),
+            ),
+            itemBuilder: (context, index) {
+              return MealItem(
+                mealModel: state.meals[index],
+                isInVerticalList: false,
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return Space.xf(.9);
+            },
+          );
         } else {
           return const Center(
-            child: LoadingTicker(text: AppStrings.loading,)
-          );
+              child: LoadingTicker(
+            text: AppStrings.loading,
+          ));
         }
       },
     );

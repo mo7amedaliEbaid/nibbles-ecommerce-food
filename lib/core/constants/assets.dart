@@ -9,7 +9,7 @@ sealed class AppAssets {
   static const String meal = "assets/svg/meal.svg";
   static const String more = "assets/svg/more.svg";
   static const String qrcode = "assets/svg/qrcode.svg";
-  static const String cart = "assets/svg/cart.svg";
+  static const String cart = "assets/svg/cart.svg";// Not Used
   static const String favOutlined = "assets/svg/favoutlined.svg";
   static const String favWhite = "assets/svg/favwhite.svg";
   static const String favWhite1 = "assets/svg/favwhite1.svg"; //Not Used
@@ -41,6 +41,8 @@ sealed class AppAssets {
   static const String correct = "assets/svg/correct.svg";
   static const String notFound = "assets/svg/notfound.svg";
   static const String circle = "assets/svg/circle.svg";
+  static const String rightIconRec = "assets/svg/righticon_rec.svg";
+  static const String pencil = "assets/svg/pencil.svg";
 
   static const List<String> signupItems = [
     username,

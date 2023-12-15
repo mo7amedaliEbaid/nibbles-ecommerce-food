@@ -10,7 +10,7 @@ Widget filledFavIconSrack(){
 
     children: [
       SvgPicture.asset(
-        AppAssets.cart,
+        AppAssets.rightIconRec,
         colorFilter: const ColorFilter.mode(
             AppColors.deepTeal, BlendMode.srcIn),
       ),

@@ -128,7 +128,7 @@ class PackageItem extends StatelessWidget {
                       child: Stack(
                         children: [
                           SvgPicture.asset(
-                            AppAssets.cart,
+                            AppAssets.rightIconRec,
                             colorFilter: const ColorFilter.mode(
                                 AppColors.deepTeal, BlendMode.srcIn),
                           ),

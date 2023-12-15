@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 
-Widget customElevatedButton({
-  required void Function()? onTap,
-  required String text,
-  required double heightFraction,
-  required double width,
-  required Color color,
-  Color textColor=Colors.black,
-  double radiusFraction = 5,
-}) {
+Widget customElevatedButton(
+    {required void Function()? onTap,
+    required String text,
+    required double heightFraction,
+    required double width,
+    required Color color,
+    Color textColor = Colors.black,
+    double radiusFraction = 5,
+    bool withSmallText = false}) {
   return SizedBox(
     height: AppDimensions.normalize(heightFraction),
     width: width,
@@ -24,9 +24,15 @@ Widget customElevatedButton({
               BorderRadius.circular(AppDimensions.normalize(radiusFraction)),
         ),
       ),
-      child: Text(
-        text,
-        style: AppText.h3?.copyWith(color: textColor),
+      child: FittedBox(
+        child: Text(
+          text,
+          style: withSmallText
+              ? AppText.l1b?.copyWith(color: textColor)
+              : AppText.h3?.copyWith(color: textColor),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
       ),
     ),
   );

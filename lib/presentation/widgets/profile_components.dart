@@ -29,3 +29,21 @@ Widget profileSvgStack() {
     ],
   );
 }
+
+Widget editSvg() {
+  return Stack(
+    alignment: Alignment.center,
+    children: [
+      SvgPicture.asset(
+        AppAssets.rightIconRec,
+        colorFilter:
+        const ColorFilter.mode(AppColors.deepTeal, BlendMode.srcIn),
+      ),
+      SvgPicture.asset(
+        AppAssets.pencil,
+        width: AppDimensions.normalize(9),
+        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+      )
+    ],
+  );
+}

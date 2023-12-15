@@ -140,6 +140,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               : Container(
                                   margin: EdgeInsets.only(
                                     left: AppDimensions.normalize(10),
+                                    right: AppDimensions.normalize(10),
                                     top: AppDimensions.normalize(17),
                                   ),
                                   child: MealItem(
