@@ -12,8 +12,9 @@ class AdsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.commonAmber,
       body: Stack(
+        alignment: Alignment.center,
+        fit: StackFit.expand,
         children: [
           Image.asset(
             AppAssets.adsPng,

@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void _nextScreen() {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushNamedAndRemoveUntil(
-        AppRouter.intro,
+        AppRouter.root,
         (route) => false,
       );
     });
@@ -46,7 +46,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Positioned(
             bottom: AppDimensions.normalize(200),
-            left: AppDimensions.normalize(70),
             child: const CircularProgressIndicator(
               color: AppColors.deepTeal,
             ),

@@ -7,6 +7,7 @@ import '../../core/constants/colors.dart';
 
 Widget filledFavIconSrack(){
   return Stack(
+
     children: [
       SvgPicture.asset(
         AppAssets.cart,

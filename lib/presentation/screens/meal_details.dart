@@ -21,7 +21,7 @@ class MealDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: AppDimensions.normalize(385),
+              height: AppDimensions.normalize(410),
               child: Stack(
                 children: [
                   mealTopStack(context),
@@ -93,15 +93,20 @@ class MealDetailsScreen extends StatelessWidget {
                                     top: AppDimensions.normalize(4),
                                     right: AppDimensions.normalize(4),
                                   ),
+                                  padding: Space.hf(.2),
                                   decoration: BoxDecoration(
                                       color: AppColors.tabColor,
                                       borderRadius: BorderRadius.circular(
                                           AppDimensions.normalize(5))),
                                   child: Center(
-                                    child: Text(
-                                      fact,
-                                      style: AppText.b2
-                                          ?.copyWith(color: Colors.white),
+                                    child: FittedBox(
+                                      child: Text(
+                                        fact,
+                                        style: AppText.b2
+                                            ?.copyWith(color: Colors.white),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                   ),
                                 ),

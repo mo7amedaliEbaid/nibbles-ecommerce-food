@@ -21,109 +21,110 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final random = math.Random();
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context)
-            .pushNamed(AppRouter.mealDetails, arguments: mealModel);
-      },
-      child: Stack(
-        children: [
-          Container(
-            height: AppDimensions.normalize(isInVerticalList ? 63 : 90),
-            width: AppDimensions.normalize(isInVerticalList ? 133 : 122),
-            margin: isInVerticalList
-                ? EdgeInsets.only(
-                    top: AppDimensions.normalize(10),
-                  )
-                : EdgeInsets.only(
-                    right: AppDimensions.normalize(8.2),
+    return SizedBox(
+      width: AppDimensions.normalize(130),
+      height: AppDimensions.normalize(73),
+      child: Padding(
+        padding: isInVerticalList
+            ? EdgeInsets.only(bottom: AppDimensions.normalize(9))
+            : EdgeInsets.only(right: AppDimensions.normalize(7)),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed(AppRouter.mealDetails, arguments: mealModel);
+          },
+          child: Stack(
+            children: [
+              Container(
+
+                padding: EdgeInsets.only(
+                  right: AppDimensions.normalize(8),
+                  left: AppDimensions.normalize(5),
+                  top: AppDimensions.normalize(2),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                      AppDimensions.normalize(10),
+                    ),
+                    topRight: Radius.circular(
+                      AppDimensions.normalize(20),
+                    ),
+                    bottomLeft: Radius.circular(
+                      AppDimensions.normalize(30),
+                    ),
+                    bottomRight: Radius.circular(
+                      AppDimensions.normalize(8),
+                    ),
                   ),
-            padding: EdgeInsets.only(
-              right: AppDimensions.normalize(8),
-              left: AppDimensions.normalize(7),
-              top: AppDimensions.normalize(2),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(
-                  AppDimensions.normalize(10),
                 ),
-                topRight: Radius.circular(
-                  AppDimensions.normalize(20),
-                ),
-                bottomLeft: Radius.circular(
-                  AppDimensions.normalize(30),
-                ),
-                bottomRight: Radius.circular(
-                  AppDimensions.normalize(8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: Image.asset(
+                          AppAssets.mealsPng[random.nextInt(4)],
+                          height: AppDimensions.normalize(40),
+                          width: AppDimensions.normalize(35),
+                        )),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: AppDimensions.normalize(8),
+                          left: AppDimensions.normalize(6)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: AppDimensions.normalize(65),
+                            child: Text(
+                              mealModel.name.toUpperCase(),
+                              style: AppText.h3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Space.yf(.15),
+                          Text(
+                            "${mealModel.calories} Calories",
+                            style: AppText.b1
+                                ?.copyWith(color: AppColors.antiqueRuby),
+                          ),
+                          Space.yf(.15),
+                          SizedBox(
+                              width: AppDimensions.normalize(65),
+                              child: Text(
+                                mealModel.description,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                style: AppText.b1?.copyWith(
+                                    color: AppColors.greyText,
+                                    height: 1.5,
+                                    letterSpacing: 0.5),
+                              )),
+                          Space.yf(.3),
+                          SizedBox(
+                            width: AppDimensions.normalize(52),
+                            child: Text(
+                              mealModel.ingredients,
+                              style: AppText.b1?.copyWith(
+                                  color: AppColors.tabColor, letterSpacing: 0),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Image.asset(
-                      AppAssets.mealsPng[random.nextInt(4)],
-                      height: AppDimensions.normalize(40),
-                      width: AppDimensions.normalize(35),
-                    )),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: AppDimensions.normalize(8),
-                      left: AppDimensions.normalize(6)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: AppDimensions.normalize(65),
-                        child: Text(
-                          mealModel.name.toUpperCase(),
-                          style: AppText.h3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      Space.yf(.15),
-                      Text(
-                        "${mealModel.calories} Calories",
-                        style:
-                            AppText.b1?.copyWith(color: AppColors.antiqueRuby),
-                      ),
-                      Space.yf(.15),
-                      SizedBox(
-                          width: AppDimensions.normalize(65),
-                          child: Text(
-                            mealModel.description,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
-                            style: AppText.b1?.copyWith(
-                                color: AppColors.greyText,
-                                height: 1.5,
-                                letterSpacing: 0.5),
-                          )),
-                      Space.yf(.3),
-                      SizedBox(
-                        width: AppDimensions.normalize(52),
-                        child: Text(
-                          mealModel.ingredients,
-                          style: AppText.b1?.copyWith(
-                              color: AppColors.tabColor, letterSpacing: 0),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+              Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: filledFavIconSrack()),
+            ],
           ),
-          Positioned(
-              bottom: 0,
-              right: AppDimensions.normalize(8),
-              child: filledFavIconSrack()),
-        ],
+        ),
       ),
     );
   }
