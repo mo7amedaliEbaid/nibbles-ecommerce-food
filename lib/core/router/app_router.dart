@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
 import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
+import 'package:nibbles_ecommerce/presentation/screens/login.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meals.dart';
 import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
+import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
 
@@ -32,6 +34,7 @@ sealed class AppRouter {
   static const String contact = '/contact';
   static const String privacy = '/privacy';
   static const String signup = '/signup';
+  static const String login = '/login';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -55,9 +58,11 @@ sealed class AppRouter {
       case root:
         return MaterialPageRoute(builder: (_) => const RootScreen());
       case signup:
-        return MaterialPageRoute(builder: (_) =>  SignUpScreen());
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case login:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case intro:
-        return MaterialPageRoute(builder: (_) => IntroScreen());
+        return MaterialPageRoute(builder: (_) => const IntroScreen());
       case meals:
         MealCategory mealCategory = routeSettings.arguments as MealCategory;
         return MaterialPageRoute(
@@ -74,7 +79,7 @@ sealed class AppRouter {
       case subscriptions:
         return MaterialPageRoute(builder: (_) => const OffersScreen());
       case profile:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case favourites:
         return MaterialPageRoute(builder: (_) => const OffersScreen());
       case settings:

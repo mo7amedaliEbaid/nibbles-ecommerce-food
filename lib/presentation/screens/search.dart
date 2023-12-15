@@ -113,24 +113,31 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             Positioned(
-                top: AppDimensions.normalize(120),
-                // left: AppDimensions.normalize(10),
+                top: AppDimensions.normalize(170),
+                left: 0,
+                right: 0,
                 child: selectedIndex == 0
                     ? BlocBuilder<SearchCubit, SearchState>(
                         builder: (context, state) {
                           if (state is MealsSearchSuccess) {
                             return state.meals.isEmpty
-                                ? Padding(
-                                    padding: Space.all(6, 8),
-                                    child: Text(
-                                      "No Items Found".toUpperCase(),
-                                      style: AppText.h2b?.copyWith(
-                                          color: AppColors.antiqueRuby),
-                                    ),
+                                ? Column(
+                                    children: [
+                                      SvgPicture.asset(
+                                        AppAssets.notFound,
+                                        colorFilter: const ColorFilter.mode(
+                                            AppColors.antiqueRuby,
+                                            BlendMode.srcIn),
+                                      ),
+                                      Space.yf(),
+                                      Text(
+                                        "No Result Found!".toUpperCase(),
+                                        style: AppText.h3b,
+                                      ),
+                                    ],
                                   )
                                 : Container(
-                                    width:
-                                        AppDimensions.normalize(142),
+                                    width: AppDimensions.normalize(142),
                                     margin: EdgeInsets.only(
                                       left: AppDimensions.normalize(15),
                                       top: AppDimensions.normalize(8),

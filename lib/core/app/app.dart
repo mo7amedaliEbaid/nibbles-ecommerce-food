@@ -11,6 +11,7 @@ import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart'
 
 import '../../application/blocs/auth_bloc/auth_bloc.dart';
 import '../../application/blocs/categories/categories_bloc.dart';
+import '../../application/blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../application/blocs/sign_up_bloc/sign_up_bloc.dart';
 import '../../application/blocs/user_bloc/user_bloc.dart';
 import '../../application/cubits/navigation/navigation_cubit.dart';
@@ -54,6 +55,10 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 SignUpBloc(authRepository: context.read<AuthRepository>()),
+          ),
+          BlocProvider(
+            create: (context) =>
+                SignInBloc(authRepository: context.read<AuthRepository>()),
           ),
           BlocProvider(
             create: (context) =>

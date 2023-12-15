@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 
 import '../../application/blocs/packages/packages_bloc.dart';
@@ -19,7 +20,7 @@ Widget packagesList() {
         ),
       );
     } else {
-      return const LoadingTicker();
+      return const LoadingTicker(text: AppStrings.loading,);
     }
   });
 }

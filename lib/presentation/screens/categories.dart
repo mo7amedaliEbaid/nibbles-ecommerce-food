@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 
@@ -21,38 +22,7 @@ class CategoriesScreen extends StatelessWidget {
           height: AppDimensions.normalize(560),
           child: Stack(
             children: [
-              /*Positioned(
-                top: 0,
-                left: 0,
-                child: Stack(
-                  children: [
-                    SvgPicture.asset(
-                      AppAssets.curvedRec,
-                      colorFilter: const ColorFilter.mode(
-                          AppColors.antiqueRuby, BlendMode.srcIn),
-                      height: AppDimensions.normalize(145),
-                      width: AppDimensions.normalize(170),
-                    ),
-                    Positioned(
-                      top: AppDimensions.normalize(18),
-                      right: AppDimensions.normalize(15),
-                      child: SvgPicture.asset(
-                        AppAssets.nibblesLogo,
-                        colorFilter: const ColorFilter.mode(
-                            Colors.white, BlendMode.srcIn),
-                      ),
-                    ),
-                    Positioned(
-                      top: AppDimensions.normalize(48),
-                      left: AppDimensions.normalize(10),
-                      child: Text(
-                        "Meals".toUpperCase(),
-                        style: AppText.h2b?.copyWith(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              ),*/
+
               curvedlRecSvg(AppColors.antiqueRuby),
               positionedWhiteLogo(),
               positionedTitle("Meals".toUpperCase()),
@@ -66,7 +36,7 @@ class CategoriesScreen extends StatelessWidget {
                     builder: (context, state) {
                       if (state is CategoriesLoading) {
                         return const Center(
-                          child: LoadingTicker(),
+                          child: LoadingTicker(text: AppStrings.loading,),
                         );
                       }
                       if (state is CategoriesLoaded) {

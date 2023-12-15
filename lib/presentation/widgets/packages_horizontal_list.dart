@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 
 import '../../application/blocs/packages/packages_bloc.dart';
@@ -23,7 +24,7 @@ Widget packagesHorizontaList() {
             );
           });
     } else {
-      return const LoadingTicker();
+      return const LoadingTicker(text: AppStrings.loading,);
     }
   });
 }

@@ -6,7 +6,6 @@ import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import '../../configs/configs.dart';
 import '../../core/constants/colors.dart';
 import '../../models/meal.dart';
-import '../screens/meal_details.dart';
 import 'custom_elevated_button.dart';
 import 'meal_item.dart';
 
@@ -56,9 +55,7 @@ Future<void> showQrScanResultBottomSheet(
                           EdgeInsets.only(right: AppDimensions.normalize(4)),
                       child: customElevatedButton(
                           onTap: () {
-                            /*Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    MealDetailsScreen(mealModel: meals.first)));*/
+
                             Navigator.of(context).pushNamed(
                                 AppRouter.mealDetails,
                                 arguments: meals.first);

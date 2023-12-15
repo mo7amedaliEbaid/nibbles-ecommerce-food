@@ -37,6 +37,10 @@ sealed class AppAssets {
   static const String password = "assets/svg/password.svg";
   static const String email = "assets/svg/email.svg";
   static const String invalidQr = "assets/svg/invalidqr.svg";
+  static const String error = "assets/svg/error.svg"; //Not Used
+  static const String correct = "assets/svg/correct.svg";
+  static const String notFound = "assets/svg/notfound.svg";
+  static const String circle = "assets/svg/circle.svg";
 
   static const List<String> signupItems = [
     username,
@@ -75,6 +79,7 @@ sealed class AppAssets {
   static const String introPng = "assets/png/into.png";
   static const String mealsByCat = "assets/png/mealsbyCat.png";
   static const String qrPng = "assets/png/qrpng.png";
+  static const String errorPng = "assets/png/errorpng.png";
   static const String whiteRecPng = "assets/png/whiterecpng.png"; //Not Used
 
   //categories

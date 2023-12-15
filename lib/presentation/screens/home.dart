@@ -9,7 +9,9 @@ import 'package:nibbles_ecommerce/configs/app.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/auth_bottom_sheets.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
@@ -212,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             }),
                       );
                     } else {
-                      return const LoadingTicker();
+                      return const LoadingTicker(text: AppStrings.loading,);
                     }
                   },
                 ),
@@ -322,7 +324,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     } else {
                       return const Center(
-                        child: LoadingTicker(),
+                        child: LoadingTicker(text: AppStrings.loading,),
                       );
                     }
                   },

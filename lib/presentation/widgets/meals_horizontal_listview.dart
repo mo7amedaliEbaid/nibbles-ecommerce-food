@@ -7,6 +7,8 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
 
+import '../../core/constants/strings.dart';
+
 
 class MealsHorizontalListview extends StatelessWidget {
   const MealsHorizontalListview({super.key});
@@ -29,7 +31,7 @@ class MealsHorizontalListview extends StatelessWidget {
               });
         } else {
           return const Center(
-            child: LoadingTicker()
+            child: LoadingTicker(text: AppStrings.loading,)
           );
         }
       },

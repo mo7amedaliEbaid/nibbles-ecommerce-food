@@ -16,9 +16,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void _nextScreen() {
-    Future.delayed(const Duration(seconds: 0), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushNamedAndRemoveUntil(
-        AppRouter.signup,
+        AppRouter.intro,
         (route) => false,
       );
     });
@@ -36,15 +36,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     App.init(context);
     return Scaffold(
-      backgroundColor: AppColors.commonAmber,
       body: Stack(
+        alignment: Alignment.center,
+        fit: StackFit.expand,
         children: [
           Image.asset(
             AppAssets.splashPng,
             fit: BoxFit.fitWidth,
-
           ),
-
           Positioned(
             bottom: AppDimensions.normalize(200),
             left: AppDimensions.normalize(70),
