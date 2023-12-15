@@ -77,13 +77,15 @@ project_root
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails2.jpg" width="180"/>
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/more.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/mealsbycat.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/844b3b0633deca88a4bb3e1f5388aeb1cd7963b0/screenshots/4.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/signup.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/search.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/offers.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/90fa0050dfa4fe6819ca3058c4ebc6defe1b16cf/screenshots/ads.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a4b9347c8c96574cf629abe17e046c381960da30/screenshots/packages.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/packages.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/search.jpg" width="180"/>
  
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails1.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/login.jpg" width="180"/>
 
 </p>
 
