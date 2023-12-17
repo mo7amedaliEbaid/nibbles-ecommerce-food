@@ -6,6 +6,8 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 
+import 'favicons_stacks.dart';
+
 class PackageItem extends StatelessWidget {
   const PackageItem(
       {super.key,
@@ -100,27 +102,7 @@ class PackageItem extends StatelessWidget {
                     Positioned(
                       bottom: 0,
                       left: 0,
-                      child: Stack(
-                        children: [
-                          SvgPicture.asset(
-                            AppAssets.favOutlined,
-                            colorFilter: const ColorFilter.mode(
-                                AppColors.deepTeal, BlendMode.srcIn),
-                          ),
-                          Positioned(
-                            left: AppDimensions.normalize(4),
-                            top: AppDimensions.normalize(1),
-                            bottom: 0,
-                            child: Image.asset(
-                              AppAssets.favPng,
-                              fit: BoxFit.contain,
-                              height: AppDimensions.normalize(10),
-                              width: AppDimensions.normalize(10),
-                              // color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: LeftFavIconStack(isFilled: false),
                     ),
                     Positioned(
                       bottom: 0,

@@ -5,7 +5,7 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/filled_favicon_stack.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_row.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 
@@ -164,7 +164,7 @@ class MealDetailsScreen extends StatelessWidget {
                   Positioned(
                     top: AppDimensions.normalize(70),
                     right: AppDimensions.normalize(25),
-                    child: filledFavIconSrack(),
+                    child: RightFavIconStack(isFilled: true),
                   )
                 ],
               ),

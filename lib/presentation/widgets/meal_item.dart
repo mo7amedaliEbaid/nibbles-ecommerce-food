@@ -9,7 +9,7 @@ import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'dart:math' as math;
 
-import 'package:nibbles_ecommerce/presentation/widgets/filled_favicon_stack.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem(
@@ -113,7 +113,7 @@ class MealItem extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(bottom: 0, right: 0, child: filledFavIconSrack()),
+            Positioned(bottom: 0, right: 0, child: RightFavIconStack(isFilled: true)),
           ],
         ),
       ),
