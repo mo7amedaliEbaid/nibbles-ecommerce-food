@@ -43,6 +43,7 @@ sealed class AppAssets {
   static const String circle = "assets/svg/circle.svg";
   static const String rightIconRec = "assets/svg/righticon_rec.svg";
   static const String pencil = "assets/svg/pencil.svg";
+  static const String add = "assets/svg/add.svg"; //NOT USED
 
   static const List<String> signupItems = [
     username,

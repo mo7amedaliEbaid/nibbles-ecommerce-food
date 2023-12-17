@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/application/blocs/user_bloc/user_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
@@ -55,13 +57,13 @@ class ProfileScreen extends StatelessWidget {
                                     Space.yf(.4),
                                     Text(
                                       state.user.email,
-                                      style: AppText.b1b?.copyWith(
+                                      style: AppText.b1?.copyWith(
                                           color: AppColors.antiqueRuby),
                                     ),
                                     Space.yf(.6),
                                     Text(
                                       state.user.phoneNumber,
-                                      style: AppText.b1b?.copyWith(
+                                      style: AppText.b1?.copyWith(
                                           color: AppColors.antiqueRuby),
                                     ),
                                   ],
@@ -90,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                                   onTap: () {},
                                   text: "Change Password",
                                   heightFraction: 18,
-                                  width: AppDimensions.normalize(44),
+                                  width: AppDimensions.normalize(48),
                                   color: AppColors.commonAmber,
                                   withSmallText: true,
                                 )
@@ -107,16 +109,71 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: AppDimensions.normalize(175),
-              left: AppDimensions.normalize(12),
-              child: Column(
-                children: [
-                  Text(
-                    "My Kids".toUpperCase(),
-                    style: AppText.h1b,
-                  )
-                ],
-              ))
+            top: AppDimensions.normalize(175),
+            left: AppDimensions.normalize(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "My Kids".toUpperCase(),
+                  style: AppText.h1b,
+                ),
+                Space.yf(.7),
+                Row(
+                  children: [
+                    Container(
+                      width: AppDimensions.normalize(52),
+                      height: AppDimensions.normalize(55),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(AppDimensions.normalize(6)),
+                          color: Colors.white),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  AppAssets.circle,
+                                  height: AppDimensions.normalize(15),
+                                  colorFilter: const ColorFilter.mode(
+                                      AppColors.deepTeal, BlendMode.srcIn),
+                                ),
+                                Icon(
+                                  Icons.add,
+                                  size: AppDimensions.normalize(12),
+                                  color: Colors.white,
+                                )
+                              ],
+                            ),
+                            Space.yf(),
+                            Text(
+                              "Add New",
+                              style: AppText.h3,
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: AppDimensions.normalize(8),
+            left: AppDimensions.normalize(8),
+            right: AppDimensions.normalize(8),
+            child: customElevatedButton(
+                onTap: () {},
+                text: "Logout".toUpperCase(),
+                heightFraction: 20,
+                width: AppDimensions.normalize(90),
+                color: AppColors.commonAmber,
+                ),
+          )
         ],
       ),
     );
