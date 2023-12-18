@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
@@ -70,7 +71,7 @@ class MoreScreen extends StatelessWidget {
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.of(context)
-                                    .pushNamed(AppRouter.moreScreenTaps[index]);
+                                    .pushNamed(AppRouter.moreScreenTaps[index],arguments: FirebaseAuth.instance.currentUser!.uid,);
                               },
                               child: Container(
                                 padding: Space.hf(1.2),

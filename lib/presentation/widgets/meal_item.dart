@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nibbles_ecommerce/application/blocs/user_bloc/user_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/configs/space.dart';
@@ -10,6 +12,8 @@ import 'package:nibbles_ecommerce/models/meal.dart';
 import 'dart:math' as math;
 
 import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
+
+import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem(
@@ -113,7 +117,35 @@ class MealItem extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(bottom: 0, right: 0, child: RightFavIconStack(isFilled: true)),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: BlocBuilder<UserBloc, UserState>(
+                builder: (context, userState) {
+                  return userState.user.id != null
+                      ? GestureDetector(
+                          onTap: () {
+                            context
+                                .read<FavoritesCubit>()
+                                .toggleFavorite(userState.user.id!, mealModel);
+                          },
+                          child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                            builder: (context, favState) {
+                              if (favState is FavoritesLoaded) {
+                                final isFavorite = favState.favoriteMeals.any(
+                                    (favoriteMeal) =>
+                                        favoriteMeal.id == mealModel.id);
+                                return RightFavIconStack(isFilled: isFavorite);
+                              } else {
+                                return RightFavIconStack(isFilled: false);
+                              }
+                            },
+                          ),
+                        )
+                      : RightFavIconStack(isFilled: false);
+                },
+              ),
+            ),
           ],
         ),
       ),

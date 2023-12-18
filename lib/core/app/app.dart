@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
+import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
+import 'package:nibbles_ecommerce/repositories/favourite_meals_repo/fav_meals_repo.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 
@@ -80,6 +82,9 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => SearchCubit(
                 mealsRepo: MealsRepo(), packagesRepos: PackagesRepos()),
+          ),
+          BlocProvider(
+            create: (context) => FavoritesCubit(FavoriteMealsRepository()),
           ),
         ],
         child: MaterialApp(

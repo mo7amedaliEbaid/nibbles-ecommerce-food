@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/presentation/screens/favourites.dart';
 import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
 import 'package:nibbles_ecommerce/presentation/screens/login.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
@@ -81,7 +83,11 @@ sealed class AppRouter {
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case favourites:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        String userId = routeSettings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => FavoritesScreen(
+                  userId: userId,
+                ));
       case settings:
         return MaterialPageRoute(builder: (_) => const OffersScreen());
       case invite:
