@@ -15,13 +15,15 @@ https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/assets/131966482
 - Food App.
 - Firebase Firestore.
 - Bloc Pattern.
-- Cubits
+- Cubits.
 - Firebase Auth.
-- Search
-- Qr Code Scanner
-- Search by qrcode
-- Meals
-- Food Packages
+- Search.
+- Qr Code Scanner.
+- Search by qrcode.
+- Meals.
+- Food Packages.
+- Favourite List.
+- Filter.
 
 ## Directory Structure
 
