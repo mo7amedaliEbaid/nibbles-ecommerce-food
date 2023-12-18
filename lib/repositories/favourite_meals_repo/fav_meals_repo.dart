@@ -51,8 +51,7 @@ class FavoriteMealsRepository implements BaseFavoriteMealsRepository {
 
   @override
   Future<List<MealModel>> getFavoriteMeals(String userId) async {
-    final userDocRef =
-        _firebaseFirestore.collection('favouritemeals').doc(userId);
+    final userDocRef = _firebaseFirestore.collection('favouritemeals').doc(userId);
 
     final snapshot = await userDocRef.get();
     print('Snapshot data: ${snapshot.data()}');
@@ -63,74 +62,28 @@ class FavoriteMealsRepository implements BaseFavoriteMealsRepository {
 
       final List<MealModel> favoriteMeals = [];
 
-      /*for (final mealId in mealIds) {
-        try {
-          final mealDoc =
-          await _firebaseFirestore.collection('meals').where('id', isEqualTo: mealId).snapshots().;
-          print('Meal Document for $mealId: ${mealDoc.data()}');
+      for (final mealId in mealIds.map((id) => id.toString())) {
+        await _firebaseFirestore
+            .collection('meals')
+            .where('id', isEqualTo: mealId)
+            .snapshots()
+            .listen((snapshot) {
+          final List<MealModel> meals = snapshot.docs.map((doc) {
+            return MealModel.fromSnapShot(doc);
+          }).toList();
 
-          if (mealDoc.exists) {
-            favoriteMeals.add(MealModel.fromSnapShot(mealDoc));
+          if (meals.isNotEmpty) {
+            final meal = meals.first;
+            print('Meal Description for $mealId: ${meal.description}');
+
+            favoriteMeals.add(meal);
           }
-        } catch (e) {
-          print('Error fetching meal with ID $mealId: $e');
-        }
-      }*/
-     /* for (final mealId in mealIds) {
-        try {
-          final mealQuerySnapshot = await _firebaseFirestore
-              .collection('meals')
-              .where(FieldPath.documentId, isEqualTo: mealId)
-              .get();
-
-          if (mealQuerySnapshot.docs.isNotEmpty) {
-            final mealDoc = mealQuerySnapshot.docs.first;
-            print('Meal Document for $mealId: ${mealDoc.data()}');
-
-            favoriteMeals.add(MealModel.fromSnapShot(mealDoc));
-          }
-        } catch (e) {
+        }, onError: (e) {
           print('Error fetching meal with ID $mealId: $e');
           // Optionally, add a default or placeholder meal to favoriteMeals
-        }
-      }*/
-     /* for (final mealId in mealIds.map((id) => id.toString())) {
-        try {
-          final mealQuerySnapshot = await await _firebaseFirestore
-              .collection('meals')
-              .where(FieldPath.documentId, whereIn: ['0', '1'])
-              .get(); *//*_firebaseFirestore
-              .collection('meals')
-              .where(FieldPath.documentId, isEqualTo: mealId)
-              .get();*//*
-
-          if (mealQuerySnapshot.docs.isNotEmpty) {
-            final mealDoc = mealQuerySnapshot.docs.first;
-            print('Meal Document for $mealId: ${mealDoc.data()}');
-
-            favoriteMeals.add(MealModel.fromSnapShot(mealDoc));
-          }
-        } catch (e) {
-          print('Error fetching meal with ID $mealId: $e');
-          // Optionally, add a default or placeholder meal to favoriteMeals
-        }
-      }*/
-      for (final mealId in mealIds) {
-        try {
-          final mealDoc = await _firebaseFirestore
-              .collection('meals')
-              .doc(mealId)  // Use doc() instead of where()
-              .get();
-
-          print('Meal Document for $mealId: ${mealDoc.data()}');
-
-          if (mealDoc.exists) {
-            favoriteMeals.add(MealModel.fromSnapShot(mealDoc));
-          }
-        } catch (e) {
-          print('Error fetching meal with ID $mealId: $e');
-        }
+        });
       }
+
       print('Favorite Meals: $favoriteMeals');
       return favoriteMeals;
     } else {
@@ -138,6 +91,7 @@ class FavoriteMealsRepository implements BaseFavoriteMealsRepository {
       return [];
     }
   }
+
 
   @override
   Future<bool> isMealFavorite(String userId, String mealId) async {

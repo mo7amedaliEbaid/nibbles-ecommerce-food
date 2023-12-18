@@ -50,11 +50,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       itemBuilder: (context, index) {
         final meal = favoriteMeals[index];
 
-        return ListTile(
-          title: Text(meal.name),
-          subtitle: Text(meal.description),
+        return
+        Text(meal.description);
           // Add more details as needed
-        );
+
       },
     );
   }
