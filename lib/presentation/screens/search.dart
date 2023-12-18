@@ -7,12 +7,10 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/packages_horizontal_list.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
-import '../widgets/packages_vertical_list.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

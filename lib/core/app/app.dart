@@ -16,6 +16,7 @@ import '../../application/blocs/categories/categories_bloc.dart';
 import '../../application/blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../application/blocs/sign_up_bloc/sign_up_bloc.dart';
 import '../../application/blocs/user_bloc/user_bloc.dart';
+import '../../application/cubits/filter/filter_cubit.dart';
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../../repositories/auth_repos/auth_repos.dart';
 import '../../repositories/user_repos/user_repos.dart';
@@ -84,7 +85,11 @@ class MyApp extends StatelessWidget {
                 mealsRepo: MealsRepo(), packagesRepos: PackagesRepos()),
           ),
           BlocProvider(
-            create: (context) => FavoritesCubit(FavoriteMealsRepository()),
+            create: (context) => FavoritesCubit(FavoriteMealsRepository())
+              ..loadFavorites(FirebaseAuth.instance.currentUser!.uid),
+          ),
+          BlocProvider(
+            create: (context) => FilterCubit(mealsRepo: MealsRepo()),
           ),
         ],
         child: MaterialApp(

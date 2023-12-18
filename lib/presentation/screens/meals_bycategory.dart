@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,16 +13,18 @@ import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
-class MealsScreen extends StatefulWidget {
-  const MealsScreen({super.key, required this.mealCategory});
+import '../widgets/filter_bottom_sheet.dart';
+
+class MealsByCategoryScreen extends StatefulWidget {
+  const MealsByCategoryScreen({super.key, required this.mealCategory});
 
   final MealCategory mealCategory;
 
   @override
-  State<MealsScreen> createState() => _MealsScreenState();
+  State<MealsByCategoryScreen> createState() => _MealsByCategoryScreenState();
 }
 
-class _MealsScreenState extends State<MealsScreen> {
+class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
   @override
   void initState() {
     context.read<MealsBloc>().add(LoadMealsByCategory(
@@ -46,10 +50,19 @@ class _MealsScreenState extends State<MealsScreen> {
               children: [
                 Text(widget.mealCategory.categoryname.toUpperCase(),
                     style: AppText.h2b),
-                SvgPicture.asset(
-                  AppAssets.filter,
-                  colorFilter: const ColorFilter.mode(
-                      AppColors.deepTeal, BlendMode.srcIn),
+                GestureDetector(
+                  onTap: () {
+                    log("Tapped");
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => FilterBottomSheet(),
+                    );
+                  },
+                  child: SvgPicture.asset(
+                    AppAssets.filter,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.deepTeal, BlendMode.srcIn),
+                  ),
                 )
               ],
             ),

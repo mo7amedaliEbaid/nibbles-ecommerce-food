@@ -5,7 +5,7 @@ abstract class BaseFavoriteMealsRepository {
 
   Future<void> removeFavoriteMeal(String userId, String mealId);
 
-  Future<List<MealModel>> getFavoriteMeals(String userId);
+  Stream<List<MealModel>> getFavoriteMeals(String userId);
 
   Future<bool> isMealFavorite(String userId, String mealId);
 }

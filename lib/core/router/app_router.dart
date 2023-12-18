@@ -6,7 +6,7 @@ import 'package:nibbles_ecommerce/presentation/screens/favourites.dart';
 import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
 import 'package:nibbles_ecommerce/presentation/screens/login.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
-import 'package:nibbles_ecommerce/presentation/screens/meals.dart';
+import 'package:nibbles_ecommerce/presentation/screens/meals_bycategory.dart';
 import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
 import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
@@ -68,7 +68,7 @@ sealed class AppRouter {
       case meals:
         MealCategory mealCategory = routeSettings.arguments as MealCategory;
         return MaterialPageRoute(
-            builder: (_) => MealsScreen(mealCategory: mealCategory));
+            builder: (_) => MealsByCategoryScreen(mealCategory: mealCategory));
       case mealDetails:
         MealModel mealModel = routeSettings.arguments as MealModel;
         return MaterialPageRoute(

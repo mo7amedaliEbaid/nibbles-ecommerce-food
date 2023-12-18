@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../models/meal.dart';
@@ -50,48 +52,50 @@ class FavoriteMealsRepository implements BaseFavoriteMealsRepository {
   }
 
   @override
-  Future<List<MealModel>> getFavoriteMeals(String userId) async {
-    final userDocRef = _firebaseFirestore.collection('favouritemeals').doc(userId);
+  Stream<List<MealModel>> getFavoriteMeals(String userId) async* {
+    final userDocRef =
+        _firebaseFirestore.collection('favouritemeals').doc(userId);
 
-    final snapshot = await userDocRef.get();
-    print('Snapshot data: ${snapshot.data()}');
+    final StreamController<List<MealModel>> controller =
+        StreamController<List<MealModel>>();
 
-    if (snapshot.exists) {
-      final mealIds = List<String>.from(snapshot.get('meals') ?? []);
-      print('Meal IDs: $mealIds');
+    userDocRef.snapshots().listen((snapshot) async {
+      print('Snapshot data: ${snapshot.data()}');
 
-      final List<MealModel> favoriteMeals = [];
+      if (snapshot.exists) {
+        final mealIds = List<String>.from(snapshot.get('meals') ?? []);
+        print('Meal IDs: $mealIds');
 
-      for (final mealId in mealIds.map((id) => id.toString())) {
-        await _firebaseFirestore
-            .collection('meals')
-            .where('id', isEqualTo: mealId)
-            .snapshots()
-            .listen((snapshot) {
-          final List<MealModel> meals = snapshot.docs.map((doc) {
+        final List<MealModel> favoriteMeals = [];
+
+        for (final mealId in mealIds.map((id) => id.toString())) {
+          final mealQuerySnapshot = await _firebaseFirestore
+              .collection('meals')
+              .where('id', isEqualTo: mealId)
+              .snapshots()
+              .first;
+
+          final meals = mealQuerySnapshot.docs.map((doc) {
             return MealModel.fromSnapShot(doc);
           }).toList();
 
           if (meals.isNotEmpty) {
             final meal = meals.first;
             print('Meal Description for $mealId: ${meal.description}');
-
             favoriteMeals.add(meal);
           }
-        }, onError: (e) {
-          print('Error fetching meal with ID $mealId: $e');
-          // Optionally, add a default or placeholder meal to favoriteMeals
-        });
+        }
+
+        print('Favorite Meals: $favoriteMeals');
+        controller.add(favoriteMeals);
+      } else {
+        print('User document does not exist.');
+        controller.add([]);
       }
+    });
 
-      print('Favorite Meals: $favoriteMeals');
-      return favoriteMeals;
-    } else {
-      print('User document does not exist.');
-      return [];
-    }
+    yield* controller.stream;
   }
-
 
   @override
   Future<bool> isMealFavorite(String userId, String mealId) async {

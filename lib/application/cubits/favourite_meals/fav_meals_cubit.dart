@@ -1,4 +1,6 @@
 // Cubit
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,13 +11,20 @@ part 'fav_meals_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesState> {
   final FavoriteMealsRepository _repository;
+  StreamSubscription? _streamSubscription;
 
   FavoritesCubit(this._repository) : super(FavoritesInitial());
 
   Future<void> loadFavorites(String userId) async {
     try {
-      final favoriteMeals = await _repository.getFavoriteMeals(userId);
-      emit(FavoritesLoaded(favoriteMeals));
+      _streamSubscription?.cancel();
+      _streamSubscription = _repository.getFavoriteMeals(userId).listen(
+        (meals) {
+          emit(
+            FavoritesLoaded(meals),
+          );
+        },
+      );
     } catch (e) {
       emit(FavoritesError('Error loading favorite meals: $e'));
     }

@@ -13,6 +13,21 @@ class FilterCubit extends Cubit<FilterState> {
       : _mealsRepo = mealsRepo,
         super(FilterInitial());
 
+  final Map<String, bool> selectedFacts = {
+    'Sugar Free': false,
+    'Healthy': false,
+    'Fast Cook': false,
+    // Add more facts as needed
+  };
+
+  void toggleFact(String fact, bool selected) {
+    selectedFacts[fact] = selected;
+  }
+
+  bool isFactSelected(String fact) {
+    return selectedFacts[fact] ?? false;
+  }
+
   void filterMealsByFacts(List<String> selectedFacts) async {
     try {
       emit(FilterLoading());
