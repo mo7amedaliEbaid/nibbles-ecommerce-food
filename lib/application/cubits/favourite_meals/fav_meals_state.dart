@@ -2,28 +2,28 @@
 
 part of 'fav_meals_cubit.dart';
 
-abstract class FavoritesState extends Equatable {
-  const FavoritesState();
+abstract class FavoriteMealsState extends Equatable {
+  const FavoriteMealsState();
 
   @override
   List<Object> get props => [];
 }
 
-class FavoritesInitial extends FavoritesState {}
+class FavoriteMealsInitial extends FavoriteMealsState {}
 
-class FavoritesLoaded extends FavoritesState {
+class FavoriteMealsLoaded extends FavoriteMealsState {
   final List<MealModel> favoriteMeals;
 
-  const FavoritesLoaded(this.favoriteMeals);
+  const FavoriteMealsLoaded(this.favoriteMeals);
 
   @override
   List<Object> get props => [favoriteMeals];
 }
 
-class FavoritesError extends FavoritesState {
+class FavoriteMealsError extends FavoriteMealsState {
   final String message;
 
-  const FavoritesError(this.message);
+  const FavoriteMealsError(this.message);
 
   @override
   List<Object> get props => [message];

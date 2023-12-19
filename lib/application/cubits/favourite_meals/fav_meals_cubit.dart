@@ -9,11 +9,11 @@ import '../../../repositories/favourite_meals_repo/fav_meals_repo.dart';
 
 part 'fav_meals_state.dart';
 
-class FavoritesCubit extends Cubit<FavoritesState> {
+class FavoriteMealsCubit extends Cubit<FavoriteMealsState> {
   final FavoriteMealsRepository _repository;
   StreamSubscription? _streamSubscription;
 
-  FavoritesCubit(this._repository) : super(FavoritesInitial());
+  FavoriteMealsCubit(this._repository) : super(FavoriteMealsInitial());
 
   Future<void> loadFavorites(String userId) async {
     try {
@@ -21,12 +21,12 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       _streamSubscription = _repository.getFavoriteMeals(userId).listen(
         (meals) {
           emit(
-            FavoritesLoaded(meals),
+            FavoriteMealsLoaded(meals),
           );
         },
       );
     } catch (e) {
-      emit(FavoritesError('Error loading favorite meals: $e'));
+      emit(FavoriteMealsError('Error loading favorite meals: $e'));
     }
   }
 

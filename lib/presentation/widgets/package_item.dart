@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 
+import '../../application/blocs/user_bloc/user_bloc.dart';
+import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'favicons_stacks.dart';
 
 class PackageItem extends StatelessWidget {
@@ -102,7 +106,37 @@ class PackageItem extends StatelessWidget {
                     Positioned(
                       bottom: 0,
                       left: 0,
-                      child: LeftFavIconStack(isFilled: false),
+                      child: BlocBuilder<UserBloc, UserState>(
+                        builder: (context, userState) {
+                          return userState.user.id != null
+                              ? GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<FavouritePackagesCubit>()
+                                        .toggleFavorite(
+                                            userState.user.id!, packageModel);
+                                  },
+                                  child: BlocBuilder<FavouritePackagesCubit,
+                                      FavoritesPackagesState>(
+                                    builder: (context, favState) {
+                                      if (favState is FavoritePackagesLoaded) {
+                                        final isFavorite = favState
+                                            .favouritePackages
+                                            .any((favouritePackage) =>
+                                                favouritePackage.id ==
+                                                packageModel.id);
+                                        return LeftFavIconStack(
+                                            isFilled: isFavorite);
+                                      } else {
+                                        return LeftFavIconStack(
+                                            isFilled: false);
+                                      }
+                                    },
+                                  ),
+                                )
+                              : LeftFavIconStack(isFilled: false);
+                        },
+                      ),
                     ),
                     Positioned(
                       bottom: 0,

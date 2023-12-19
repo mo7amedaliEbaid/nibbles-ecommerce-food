@@ -126,12 +126,12 @@ class MealItem extends StatelessWidget {
                       ? GestureDetector(
                           onTap: () {
                             context
-                                .read<FavoritesCubit>()
+                                .read<FavoriteMealsCubit>()
                                 .toggleFavorite(userState.user.id!, mealModel);
                           },
-                          child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                          child: BlocBuilder<FavoriteMealsCubit, FavoriteMealsState>(
                             builder: (context, favState) {
-                              if (favState is FavoritesLoaded) {
+                              if (favState is FavoriteMealsLoaded) {
                                 final isFavorite = favState.favoriteMeals.any(
                                     (favoriteMeal) =>
                                         favoriteMeal.id == mealModel.id);

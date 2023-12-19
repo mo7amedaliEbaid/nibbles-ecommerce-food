@@ -5,9 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_meals_repo/fav_meals_repo.dart';
+import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packages_repo.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 
@@ -85,7 +87,11 @@ class MyApp extends StatelessWidget {
                 mealsRepo: MealsRepo(), packagesRepos: PackagesRepos()),
           ),
           BlocProvider(
-            create: (context) => FavoritesCubit(FavoriteMealsRepository())
+            create: (context) => FavoriteMealsCubit(FavoriteMealsRepository())
+              ..loadFavorites(FirebaseAuth.instance.currentUser!.uid),
+          ),
+          BlocProvider(
+            create: (context) => FavouritePackagesCubit(FavoritePackagesRepository())
               ..loadFavorites(FirebaseAuth.instance.currentUser!.uid),
           ),
           BlocProvider(

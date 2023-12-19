@@ -20,7 +20,9 @@ Widget packagesList() {
         ),
       );
     } else {
-      return const LoadingTicker(text: AppStrings.loading,);
+      return const LoadingTicker(
+        text: AppStrings.loading,
+      );
     }
   });
 }

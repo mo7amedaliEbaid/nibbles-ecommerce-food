@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
@@ -8,6 +9,9 @@ import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_row.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
+
+import '../../application/blocs/user_bloc/user_bloc.dart';
+import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
 
 class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen({super.key, required this.mealModel});
@@ -164,7 +168,34 @@ class MealDetailsScreen extends StatelessWidget {
                   Positioned(
                     top: AppDimensions.normalize(70),
                     right: AppDimensions.normalize(25),
-                    child: RightFavIconStack(isFilled: true),
+                    child: BlocBuilder<UserBloc, UserState>(
+                      builder: (context, userState) {
+                        return userState.user.id != null
+                            ? GestureDetector(
+                                onTap: () {
+                                  context
+                                      .read<FavoriteMealsCubit>()
+                                      .toggleFavorite(
+                                          userState.user.id!, mealModel);
+                                },
+                                child: BlocBuilder<FavoriteMealsCubit,
+                                    FavoriteMealsState>(
+                                  builder: (context, favState) {
+                                    if (favState is FavoriteMealsLoaded) {
+                                      final isFavorite = favState.favoriteMeals
+                                          .any((favoriteMeal) =>
+                                              favoriteMeal.id == mealModel.id);
+                                      return RightFavIconStack(
+                                          isFilled: isFavorite);
+                                    } else {
+                                      return RightFavIconStack(isFilled: false);
+                                    }
+                                  },
+                                ),
+                              )
+                            : RightFavIconStack(isFilled: false);
+                      },
+                    ),
                   )
                 ],
               ),

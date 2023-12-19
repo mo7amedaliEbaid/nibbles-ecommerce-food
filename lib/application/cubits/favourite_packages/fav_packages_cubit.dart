@@ -12,7 +12,7 @@ class FavouritePackagesCubit extends Cubit<FavoritesPackagesState> {
   final FavoritePackagesRepository _repository;
   StreamSubscription? _streamSubscription;
 
-  FavouritePackagesCubit(this._repository) : super(FavoritesInitial());
+  FavouritePackagesCubit(this._repository) : super(FavoritePackagesInitial());
 
   Future<void> loadFavorites(String userId) async {
     try {
@@ -20,12 +20,12 @@ class FavouritePackagesCubit extends Cubit<FavoritesPackagesState> {
       _streamSubscription = _repository.getFavoritePackages(userId).listen(
         (packages) {
           emit(
-            FavoritesLoaded(packages),
+            FavoritePackagesLoaded(packages),
           );
         },
       );
     } catch (e) {
-      emit(FavoritesError('Error loading favorite packages: $e'));
+      emit(FavoritePackagesError('Error loading favorite packages: $e'));
     }
   }
 
