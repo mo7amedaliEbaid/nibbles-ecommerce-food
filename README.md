@@ -23,8 +23,10 @@ https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/assets/131966482
 - Search by qrcode.
 - Meals.
 - Food Packages.
-- Favourite List.
+- Favourite Lists.
 - Filter.
+- Contact US.
+- App Info Screens.
 
 ## Directory Structure
 
@@ -79,6 +81,7 @@ project_root
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/cac9447485e531c6bd9982e36a7194a39435540e/screenshots/intro.jpg" width="180"/> 
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails2.jpg" width="180"/>
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/more.jpg" width="180"/>
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/contactscr.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/mealsbycat.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/signup.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/search.jpg" width="180"/>
@@ -90,6 +93,10 @@ project_root
  
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails1.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/login.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/favmeals.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/termsn.jpg" width="180"/>
 
 </p>
 
