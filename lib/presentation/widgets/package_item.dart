@@ -9,7 +9,6 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 
 import '../../application/blocs/user_bloc/user_bloc.dart';
-import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'favicons_stacks.dart';
 
 class PackageItem extends StatelessWidget {

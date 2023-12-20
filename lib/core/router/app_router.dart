@@ -2,12 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/presentation/screens/about.dart';
+import 'package:nibbles_ecommerce/presentation/screens/contact.dart';
 import 'package:nibbles_ecommerce/presentation/screens/favourites.dart';
 import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
 import 'package:nibbles_ecommerce/presentation/screens/login.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meals_bycategory.dart';
 import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
+import 'package:nibbles_ecommerce/presentation/screens/privacy.dart';
 import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
@@ -15,6 +18,7 @@ import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
 import '../../presentation/screens/ads.dart';
 import '../../presentation/screens/root.dart';
 import '../../presentation/screens/splash.dart';
+import '../../presentation/screens/terms.dart';
 import '../error/exceptions.dart';
 
 sealed class AppRouter {
@@ -93,13 +97,13 @@ sealed class AppRouter {
       case invite:
         return MaterialPageRoute(builder: (_) => const OffersScreen());
       case about:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        return MaterialPageRoute(builder: (_) => const AboutScreen());
       case terms:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        return MaterialPageRoute(builder: (_) => const TermsScreen());
       case privacy:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        return MaterialPageRoute(builder: (_) => const PrivacyScreen());
       case contact:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        return MaterialPageRoute(builder: (_) => const ContactScreen());
 
       default:
         throw const RouteException('Route not found!');

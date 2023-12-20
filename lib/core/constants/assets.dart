@@ -9,7 +9,7 @@ sealed class AppAssets {
   static const String meal = "assets/svg/meal.svg";
   static const String more = "assets/svg/more.svg";
   static const String qrcode = "assets/svg/qrcode.svg";
-  static const String cart = "assets/svg/cart.svg";// Not Used
+  static const String cart = "assets/svg/cart.svg"; // Not Used
   static const String favOutlined = "assets/svg/leftrec.svg";
   static const String favWhite = "assets/svg/favwhite.svg";
   static const String favWhite1 = "assets/svg/favwhite1.svg"; //Not Used
@@ -43,6 +43,13 @@ sealed class AppAssets {
   static const String circle = "assets/svg/circle.svg";
   static const String rightIconRec = "assets/svg/righticon_rec.svg";
   static const String pencil = "assets/svg/pencil.svg";
+  static const String customerService = "assets/svg/customer_service.svg";
+  static const String twitter = "assets/svg/twitter.svg"; //NOT USED
+  static const String phoneFilled = "assets/svg/phone_filled.svg";
+  static const String location = "assets/svg/location.svg";
+  static const String instagram = "assets/svg/instagram.svg"; //NOT USED
+  static const String facebook = "assets/svg/facebook.svg"; //NOT USED
+  static const String angryFace = "assets/svg/angry_face.svg";
   static const String add = "assets/svg/add.svg"; //NOT USED
 
   static const List<String> signupItems = [
@@ -73,6 +80,12 @@ sealed class AppAssets {
     more,
   ];
 
+  static const List<String> contactSvg = [
+    location,
+    phoneFilled,
+  ];
+
+
   //png
   static const String nibblesPng = "assets/png/nibbles.png";
   static const String packagesPng = "assets/png/package.png";
@@ -102,6 +115,17 @@ sealed class AppAssets {
   static const String offer = "assets/png/offers/offer.png";
   static const String offer1 = "assets/png/offers/offer1.png";
 
+  //social
+  static const String twitterPng = "assets/png/social/twitter.png";
+  static const String instaPng = "assets/png/social/instagram.png";
+  static const String facebookPng = "assets/png/social/facebook.png";
+
+  static const List<String> socialImages = [
+    twitterPng,
+    instaPng,
+    facebookPng,
+  ];
+
   static const List<String> categoriesImages = [
     category1,
     category2,
@@ -121,4 +145,5 @@ sealed class AppAssets {
     offer,
     offer1,
   ];
+
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
+import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
@@ -20,6 +21,7 @@ import '../../application/blocs/sign_up_bloc/sign_up_bloc.dart';
 import '../../application/blocs/user_bloc/user_bloc.dart';
 import '../../application/cubits/filter/filter_cubit.dart';
 import '../../application/cubits/navigation/navigation_cubit.dart';
+import '../../application/cubits/nibbles_info/nibbles_info_cubit.dart';
 import '../../repositories/auth_repos/auth_repos.dart';
 import '../../repositories/user_repos/user_repos.dart';
 import '../constants/colors.dart';
@@ -82,6 +84,7 @@ class MyApp extends StatelessWidget {
             create: (context) => MealsBloc(mealsRepo: MealsRepo()),
           ),
           BlocProvider(create: (context) => NavigationCubit()),
+          BlocProvider(create: (context) => NibblesInfoCubit()),
           BlocProvider(
             create: (context) => SearchCubit(
                 mealsRepo: MealsRepo(), packagesRepos: PackagesRepos()),
@@ -91,11 +94,15 @@ class MyApp extends StatelessWidget {
               ..loadFavorites(FirebaseAuth.instance.currentUser!.uid),
           ),
           BlocProvider(
-            create: (context) => FavouritePackagesCubit(FavoritePackagesRepository())
-              ..loadFavorites(FirebaseAuth.instance.currentUser!.uid),
+            create: (context) =>
+                FavouritePackagesCubit(FavoritePackagesRepository())
+                  ..loadFavorites(FirebaseAuth.instance.currentUser!.uid),
           ),
           BlocProvider(
             create: (context) => FilterCubit(mealsRepo: MealsRepo()),
+          ),
+          BlocProvider(
+            create: (context) => ContactUsCubit(),
           ),
         ],
         child: MaterialApp(

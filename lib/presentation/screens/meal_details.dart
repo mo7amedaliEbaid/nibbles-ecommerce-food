@@ -6,6 +6,7 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_row.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
@@ -39,22 +40,8 @@ class MealDetailsScreen extends StatelessWidget {
                       //  height: AppDimensions.normalize(1000),
                       width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(
-                            AppDimensions.normalize(22),
-                          ),
-                          topLeft: Radius.circular(
-                            AppDimensions.normalize(11),
-                          ),
-                          bottomLeft: Radius.circular(
-                            AppDimensions.normalize(22),
-                          ),
-                          bottomRight: Radius.circular(
-                            AppDimensions.normalize(11),
-                          ),
-                        ),
-                      ),
+                          color: Colors.white,
+                          borderRadius: mealDetailsBorderRadius),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

@@ -12,12 +12,10 @@ Widget curvedlRecSvg(Color color) {
     left: 0,
     child: SvgPicture.asset(
       AppAssets.curvedRec,
-      colorFilter:  ColorFilter.mode(color, BlendMode.srcIn),
+      colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
     ),
   );
 }
-
-
 
 Widget whiteLogoSvg() {
   return SvgPicture.asset(

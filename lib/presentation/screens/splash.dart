@@ -16,9 +16,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void _nextScreen() {
-    Future.delayed(const Duration(seconds: 7), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.of(context).pushNamedAndRemoveUntil(
-        AppRouter.ads,
+        AppRouter.root,
         (route) => false,
       );
     });
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-        _nextScreen();
+      _nextScreen();
     });
     super.initState();
   }

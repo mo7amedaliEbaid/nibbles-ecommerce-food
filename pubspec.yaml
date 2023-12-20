@@ -26,6 +26,7 @@ dependencies:
   flutter_bloc:
   carousel_slider:
   flutter_barcode_scanner:
+  url_launcher:
 #  qr_code_scanner:
 #  rxdart:
 #  qr_flutter:
@@ -49,6 +50,7 @@ flutter:
    - assets/png/categories/
    - assets/png/meals/
    - assets/png/offers/
+   - assets/png/social/
 
 
   fonts:
