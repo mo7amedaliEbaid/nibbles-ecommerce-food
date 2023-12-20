@@ -95,7 +95,6 @@ project_root
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/login.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/favmeals.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/termsn.jpg" width="180"/>
 
 </p>
