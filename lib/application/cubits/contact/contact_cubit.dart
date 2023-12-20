@@ -14,6 +14,8 @@ class ContactUsCubit extends Cubit<ContactUsState> {
   ContactUsCubit() : super(ContactUsInitial());
 
   void sendMessage(ContactMessage message) async {
+    emit(ContactUsLoading());
+
     try {
       await _contactUsRepo.sendMessage(message);
       emit(ContactUsSuccess());

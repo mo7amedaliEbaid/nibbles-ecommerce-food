@@ -5,7 +5,7 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
 Widget customTextFormField(
     {required String label,
-    required String svgUrl,
+    String? svgUrl,
     String? Function(String?)? validator,
     required TextEditingController controller}) {
   return TextFormField(
@@ -19,20 +19,21 @@ Widget customTextFormField(
             borderSide: BorderSide(color: AppColors.lightGrey)),
         focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.antiqueRuby)),
-        prefixIcon: Padding(
-          padding: EdgeInsets.only(
-              right: AppDimensions.normalize(10),
-              top: AppDimensions.normalize(1)),
-          child: SvgPicture.asset(
-            svgUrl,
-            colorFilter:
-                const ColorFilter.mode(AppColors.deepTeal, BlendMode.srcIn),
-          ),
-        ),
+        prefixIcon: svgUrl == null
+            ? null
+            : Padding(
+                padding: EdgeInsets.only(
+                    right: AppDimensions.normalize(10),
+                    top: AppDimensions.normalize(1)),
+                child: SvgPicture.asset(
+                  svgUrl,
+                  colorFilter: const ColorFilter.mode(
+                      AppColors.deepTeal, BlendMode.srcIn),
+                ),
+              ),
         labelText: label,
         errorStyle: AppText.l1b?.copyWith(color: Colors.red),
         errorMaxLines: 3,
-
         labelStyle: AppText.b1?.copyWith(color: AppColors.greyText)),
   );
 }

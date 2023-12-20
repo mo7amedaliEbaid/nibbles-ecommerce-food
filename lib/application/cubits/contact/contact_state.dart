@@ -10,6 +10,8 @@ abstract class ContactUsState extends Equatable {
 
 class ContactUsInitial extends ContactUsState {}
 
+class ContactUsLoading extends ContactUsState {}
+
 class ContactUsSuccess extends ContactUsState {}
 
 class ContactUsError extends ContactUsState {

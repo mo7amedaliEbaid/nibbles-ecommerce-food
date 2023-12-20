@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart';
+import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
+import 'package:nibbles_ecommerce/models/contact_message.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/thanks_bottom_sheet.dart';
 
 import '../../configs/configs.dart';
-import '../../core/constants/assets.dart';
 import '../../core/validator/validator.dart';
 import 'custom_textformfield.dart';
 
@@ -15,13 +21,24 @@ class ContactMessageForm extends StatefulWidget {
 class _ContactMessageFormState extends State<ContactMessageForm> {
   final TextEditingController _emailController = TextEditingController();
 
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
   final Validators _validators = Validators();
 
-  bool _isSubmitting = false;
+  // bool _isSubmitting = false;
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    _emailController.dispose();
+    _nameController.dispose();
+    _phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,26 +47,60 @@ class _ContactMessageFormState extends State<ContactMessageForm> {
       child: Form(
         key: _formKey,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              "Send Us a message".toUpperCase(),
+              style: AppText.h3b,
+            ),
+            Space.yf(.3),
             customTextFormField(
-                label: "Email Address*",
-                svgUrl: AppAssets.email,
+                label: "Name",
+                controller: _nameController,
+                validator: _validators.validateFirstName),
+            Space.yf(1.3),
+            customTextFormField(
+                label: "Email",
                 controller: _emailController,
                 validator: _validators.validateEmail),
             Space.yf(1.3),
             customTextFormField(
-                label: "Password*",
-                svgUrl: AppAssets.password,
-                controller: _passwordController,
-                validator: _validators.validatePassword),
-            Space.yf(.3),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text("Forgot Password?",style: AppText.b2,),
-            ),
+                label: "Phone Number",
+                controller: _phoneController,
+                validator: _validators.validatePhoneNumber),
+            Space.yf(1.3),
+            customTextFormField(
+                label: "Message",
+                controller: _messageController,
+                validator: _validators.validateFirstName),
             Space.yf(2.5),
+            BlocBuilder<ContactUsCubit, ContactUsState>(
+              builder: (context, state) {
+                return customElevatedButton(
+                    onTap: () {
+                      context.read<ContactUsCubit>().sendMessage(ContactMessage(
+                          message: _messageController.text,
+                          phone: _phoneController.text,
+                          email: _emailController.text,
+                          name: _nameController.text));
 
-            Space.yf(2.5),
+                      if (state is ContactUsSuccess) {
+                        _nameController.clear();
+                        _phoneController.clear();
+                        _emailController.clear();
+                        _messageController.clear();
+                        showThanksBottomSheet(context);
+                      }
+                    },
+                    text: (state is ContactUsLoading)
+                        ? AppStrings.wait
+                        : "Send".toUpperCase(),
+                    heightFraction: 20,
+                    width: double.infinity,
+                    color: AppColors.commonAmber,
+                    radiusFraction: 6);
+              },
+            )
           ],
         ),
       ),
