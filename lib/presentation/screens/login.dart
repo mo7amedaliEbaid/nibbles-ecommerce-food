@@ -32,7 +32,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final Validators _validators = Validators();
 
-  bool _isSubmitting = false;
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +64,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: _passwordController,
                       validator: _validators.validatePassword),
                   Space.yf(.3),
-                   Align(
+                  Align(
                     alignment: Alignment.centerRight,
-                    child: Text("Forgot Password?",style: AppText.b2,),
+                    child: Text(
+                      "Forgot Password?",
+                      style: AppText.b2,
+                    ),
                   ),
                   Space.yf(2.5),
                   BlocConsumer<SignInBloc, SignInState>(
@@ -69,31 +77,29 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (state.status == SignInStatus.error) {
                         showErrorAuthBottomSheet(context);
                       }
-                      if (state.status == SignInStatus.submitting) {
-                        setState(() {
-                          _isSubmitting = true;
-                        });
-                        print("submitting");
-                      }
                       if (state.status == SignInStatus.success) {
                         showSuccessfulAuthBottomSheet(context, false);
                       }
                     },
                     builder: (context, state) {
                       return customElevatedButton(
-                          onTap: () {
-                            state.status == SignInStatus.submitting
-                                ? null
-                                : context.read<SignInBloc>().add(
-                                    SignInWithCredential(
-                                        email: _emailController.text.trim(),
-                                        password:
-                                            _passwordController.text.trim()));
-                          },
-                          text: _isSubmitting ? AppStrings.wait : "Login".toUpperCase(),
-                          heightFraction: 20,
-                          width: double.infinity,
-                          color: AppColors.commonAmber);
+                        onTap: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.read<SignInBloc>().add(
+                                  SignInWithCredential(
+                                    email: _emailController.text.trim(),
+                                    password: _passwordController.text.trim(),
+                                  ),
+                                );
+                          }
+                        },
+                        text: (state.status == SignInStatus.submitting)
+                            ? AppStrings.wait
+                            : "Login".toUpperCase(),
+                        heightFraction: 20,
+                        width: double.infinity,
+                        color: AppColors.commonAmber,
+                      );
                     },
                   ),
                   Space.yf(2.5),

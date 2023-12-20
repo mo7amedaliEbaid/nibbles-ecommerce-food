@@ -78,18 +78,21 @@ class _ContactMessageFormState extends State<ContactMessageForm> {
               builder: (context, state) {
                 return customElevatedButton(
                     onTap: () {
-                      context.read<ContactUsCubit>().sendMessage(ContactMessage(
-                          message: _messageController.text,
-                          phone: _phoneController.text,
-                          email: _emailController.text,
-                          name: _nameController.text));
+                      if (_formKey.currentState!.validate()) {
+                        context.read<ContactUsCubit>().sendMessage(
+                            ContactMessage(
+                                message: _messageController.text,
+                                phone: _phoneController.text,
+                                email: _emailController.text,
+                                name: _nameController.text));
 
-                      if (state is ContactUsSuccess) {
-                        _nameController.clear();
-                        _phoneController.clear();
-                        _emailController.clear();
-                        _messageController.clear();
-                        showThanksBottomSheet(context);
+                        if (state is ContactUsSuccess) {
+                          _nameController.clear();
+                          _phoneController.clear();
+                          _emailController.clear();
+                          _messageController.clear();
+                          showThanksBottomSheet(context);
+                        }
                       }
                     },
                     text: (state is ContactUsLoading)
@@ -100,7 +103,8 @@ class _ContactMessageFormState extends State<ContactMessageForm> {
                     color: AppColors.commonAmber,
                     radiusFraction: 6);
               },
-            )
+            ),
+            Space.yf(1.5),
           ],
         ),
       ),

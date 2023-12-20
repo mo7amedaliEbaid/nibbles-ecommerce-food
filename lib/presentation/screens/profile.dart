@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nibbles_ecommerce/application/blocs/auth_bloc/auth_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/user_bloc/user_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/configs/space.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
@@ -167,12 +169,15 @@ class ProfileScreen extends StatelessWidget {
             left: AppDimensions.normalize(8),
             right: AppDimensions.normalize(8),
             child: customElevatedButton(
-                onTap: () {},
-                text: "Logout".toUpperCase(),
-                heightFraction: 20,
-                width: AppDimensions.normalize(90),
-                color: AppColors.commonAmber,
-                ),
+              onTap: () {
+                context.read<AuthBloc>().add(SignOutRequestedEvent());
+                Navigator.of(context).pushNamed(AppRouter.splash);
+              },
+              text: "Logout".toUpperCase(),
+              heightFraction: 20,
+              width: AppDimensions.normalize(90),
+              color: AppColors.commonAmber,
+            ),
           )
         ],
       ),
