@@ -24,7 +24,9 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
   
 - **Contact Us:** Connect with app administrators using the "Contact Us" feature.
   
-- **App Info Screens:** Access essential app-related information with informative screens such as "About" and "Privacy."
+- **App Info Screens:** Access essential app-related information with informative screens such as "About" and "Privacy.".
+  
+- **Kid Accounts:** Enable users to create accounts for their kids with a dedicated `AddKidScreen`.
 
 ## Directory Structure
 
