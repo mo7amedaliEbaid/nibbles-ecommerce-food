@@ -72,7 +72,7 @@ class _ContactMessageFormState extends State<ContactMessageForm> {
             customTextFormField(
                 label: "Message",
                 controller: _messageController,
-                validator: _validators.validateFirstName),
+                validator: _validators.validateMessage),
             Space.yf(2.5),
             BlocBuilder<ContactUsCubit, ContactUsState>(
               builder: (context, state) {

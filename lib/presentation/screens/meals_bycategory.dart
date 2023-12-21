@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/configs/app_typography.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
@@ -13,7 +12,7 @@ import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
-import '../widgets/filter_bottom_sheet.dart';
+import '../../application/cubits/filter/filter_cubit.dart';
 
 class MealsByCategoryScreen extends StatefulWidget {
   const MealsByCategoryScreen({super.key, required this.mealCategory});
@@ -27,14 +26,17 @@ class MealsByCategoryScreen extends StatefulWidget {
 class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
   @override
   void initState() {
-    context.read<MealsBloc>().add(LoadMealsByCategory(
-        categoryId: widget.mealCategory
-            .categoryid)) /*updateCategoryId(widget.mealCategory.categoryid)*/;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final selectedFacts = context
+        .read<FilterCubit>()
+        .selectedFacts
+        .keys
+        .where((fact) => context.read<FilterCubit>().isFactSelected(fact))
+        .toList();
     return Scaffold(
       body: Column(
         children: [
@@ -54,9 +56,73 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                   onTap: () {
                     log("Tapped");
                     showModalBottomSheet(
-                      context: context,
-                      builder: (context) => FilterBottomSheet(),
-                    );
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              AppDimensions.normalize(10)),
+                        ),
+                        builder: (context) => Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Wrap(
+                                  children: [
+                                    ListTile(
+                                      title: const Text('Sugar Free'),
+                                      leading: Checkbox(
+                                        value: context
+                                            .read<FilterCubit>()
+                                            .isFactSelected('Sugar Free'),
+                                        onChanged: (value) {
+                                          context
+                                              .read<FilterCubit>()
+                                              .toggleFact(
+                                                  'Sugar Free', value ?? false);
+                                          setState(() {});
+                                        },
+                                      ),
+                                    ),
+                                    ListTile(
+                                      title: const Text('Healthy'),
+                                      leading: Checkbox(
+                                        value: context
+                                            .read<FilterCubit>()
+                                            .isFactSelected('Healthy'),
+                                        onChanged: (value) {
+                                          context
+                                              .read<FilterCubit>()
+                                              .toggleFact(
+                                                  'Healthy', value ?? false);
+                                          setState(() {});
+                                        },
+                                      ),
+                                    ),
+                                    ListTile(
+                                      title: const Text('Fast Cook'),
+                                      leading: Checkbox(
+                                        value: context
+                                            .read<FilterCubit>()
+                                            .isFactSelected('Fast Cook'),
+                                        onChanged: (value) {
+                                          context
+                                              .read<FilterCubit>()
+                                              .toggleFact(
+                                                  'Fast Cook', value ?? false);
+                                          setState(() {});
+                                        },
+                                      ),
+                                    ),
+                                    // Add more facts as needed
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        setState(() {});
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text('Apply Filters'),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ));
                   },
                   child: SvgPicture.asset(
                     AppAssets.filter,
@@ -67,14 +133,31 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
               ],
             ),
           ),
-          Expanded(
-            child: BlocProvider(
-              create: (context) => MealsBloc(mealsRepo: MealsRepo())
-                ..add(LoadMealsByCategory(
-                    categoryId: widget.mealCategory.categoryid)),
-              child: const MealsVerticalListview(),
-            ),
-          ),
+          selectedFacts.isNotEmpty
+              ? BlocProvider(
+                  create: (context) => FilterCubit(mealsRepo: MealsRepo())
+                    ..filterMealsByFacts(selectedFacts),
+                  child: BlocBuilder<FilterCubit, FilterState>(
+                    builder: (context, state) {
+                      if (state is FilterSuccess) {
+                        return Center(
+                          child:
+                              Text(state.filteredMeals.first.facts.toString()),
+                        );
+                      } else {
+                        return const CircularProgressIndicator();
+                      }
+                    },
+                  ),
+                )
+              : Expanded(
+                  child: BlocProvider(
+                    create: (context) => MealsBloc(mealsRepo: MealsRepo())
+                      ..add(LoadMealsByCategory(
+                          categoryId: widget.mealCategory.categoryid)),
+                    child: const MealsVerticalListview(),
+                  ),
+                ),
         ],
       ),
     );

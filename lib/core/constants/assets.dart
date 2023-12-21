@@ -50,6 +50,12 @@ sealed class AppAssets {
   static const String instagram = "assets/svg/instagram.svg"; //NOT USED
   static const String facebook = "assets/svg/facebook.svg"; //NOT USED
   static const String angryFace = "assets/svg/angry_face.svg";
+  static const String add2 = "assets/svg/add2.svg"; //Not Used
+  static const String step1 = "assets/svg/step1.svg"; //Not Used
+  static const String stepkid = "assets/svg/stepkid.svg"; //Not Used
+  static const String plus = "assets/svg/plus.svg";
+  static const String diet = "assets/svg/diet.svg";
+  static const String forks = "assets/svg/forks.svg";
   static const String add = "assets/svg/add.svg"; //NOT USED
 
   static const List<String> signupItems = [
@@ -85,7 +91,6 @@ sealed class AppAssets {
     phoneFilled,
   ];
 
-
   //png
   static const String nibblesPng = "assets/png/nibbles.png";
   static const String packagesPng = "assets/png/package.png";
@@ -96,6 +101,8 @@ sealed class AppAssets {
   static const String mealsByCat = "assets/png/mealsbyCat.png";
   static const String qrPng = "assets/png/qrpng.png";
   static const String errorPng = "assets/png/errorpng.png";
+  static const String addKidPng = "assets/png/addkidPng.png";
+  static const String kidPng = "assets/png/kid.png";// Not Used
   static const String whiteRecPng = "assets/png/whiterecpng.png"; //Not Used
 
   //categories
@@ -119,6 +126,11 @@ sealed class AppAssets {
   static const String twitterPng = "assets/png/social/twitter.png";
   static const String instaPng = "assets/png/social/instagram.png";
   static const String facebookPng = "assets/png/social/facebook.png";
+
+  //steps
+  static const String step1Png = "assets/png/steps/step1Png.png";
+  static const String step2Png = "assets/png/steps/step2Png.png";
+  static const String step3Png = "assets/png/steps/step3Png.png";
 
   static const List<String> socialImages = [
     twitterPng,
@@ -145,5 +157,4 @@ sealed class AppAssets {
     offer,
     offer1,
   ];
-
 }

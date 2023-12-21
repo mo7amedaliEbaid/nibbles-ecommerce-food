@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/repositories/packages_repos/base_packages_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 import '../../../models/package.dart';
 
@@ -11,7 +12,7 @@ part 'packages_state.dart';
 
 
 class PackagesBloc extends Bloc<PackagesEvent, PackagesState> {
-  final PackagesRepos _packagesRepos;
+  final BasePackagesRepository _packagesRepos;
   StreamSubscription? _streamSubscription;
 
   PackagesBloc({required PackagesRepos packagesRepos})

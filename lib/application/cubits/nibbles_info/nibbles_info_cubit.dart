@@ -4,11 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/repositories/info_repos/info_repo.dart';
 
 import '../../../models/info.dart';
+import '../../../repositories/info_repos/base_info_repo.dart';
 
 part 'nibbles_info_state.dart';
 
 class NibblesInfoCubit extends Cubit<NibblesInfoState> {
-  final InfoRepo _infoRepo = InfoRepo();
+  final BaseInfoRepository _infoRepo = InfoRepo();
 
   NibblesInfoCubit() : super(NibblesInfoInitial());
 

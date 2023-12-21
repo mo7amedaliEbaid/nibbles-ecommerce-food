@@ -7,10 +7,13 @@ import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart'
 import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/kids/kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_meals_repo/fav_meals_repo.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packages_repo.dart';
+import 'package:nibbles_ecommerce/repositories/kid_repos/kid_repo.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 
@@ -104,6 +107,13 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => ContactUsCubit(),
           ),
+          BlocProvider(
+            create: (context) => KidsStepsCubit(),
+          ),
+          BlocProvider(
+            create: (context) => KidsCubit(kidsRepository: KidsRepository())
+              //..getKids(FirebaseAuth.instance.currentUser!.uid),
+          ),
         ],
         child: MaterialApp(
           title: 'Nibbles',
@@ -114,8 +124,10 @@ class MyApp extends StatelessWidget {
             fontFamily: AppStrings.fontFamily,
             scaffoldBackgroundColor: AppColors.scafoldBackground,
             checkboxTheme: CheckboxThemeData(
+
               fillColor: MaterialStateColor.resolveWith(
                 (states) => AppColors.lightGrey,
+
               ),
             ),
           ),

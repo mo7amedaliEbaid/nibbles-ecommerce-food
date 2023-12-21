@@ -6,10 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packages_repo.dart';
 
+import '../../../repositories/favourite_packages_repo/base_favpackages_repo.dart';
+
 part 'fav_packages_state.dart';
 
 class FavouritePackagesCubit extends Cubit<FavoritesPackagesState> {
-  final FavoritePackagesRepository _repository;
+  final BaseFavoritePackagesRepository _repository;
   StreamSubscription? _streamSubscription;
 
   FavouritePackagesCubit(this._repository) : super(FavoritePackagesInitial());

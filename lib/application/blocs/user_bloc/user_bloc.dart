@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/repositories/user_repos/base_user_repos.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../models/user_model.dart';
-import '../../../repositories/user_repos/user_repos.dart';
 import '../auth_bloc/auth_bloc.dart';
 
 part 'user_event.dart';
@@ -15,7 +15,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   late final StreamSubscription _authSubscription;
   StreamSubscription? _userSubscription;
   final AuthBloc authBloc;
-  final UserRepository userRepository;
+  final BaseUserRepository userRepository;
   UserBloc({required this.authBloc, required this.userRepository})
       : super(UserState.initial()) {
     on<StartUserEvent>(_onStartUser);

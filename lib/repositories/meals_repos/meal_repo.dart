@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/base_meals_repo.dart';
@@ -50,8 +49,6 @@ class MealsRepo extends BaseMealRepository {
     return _firebaseFirestore
         .collection('meals')
         .where('qrhash', isEqualTo: qrhash)
-        // .where('qrhash', isGreaterThanOrEqualTo: qrhash)
-        // .where('qrhash', isLessThan: '${qrhash}z')
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {
@@ -59,6 +56,7 @@ class MealsRepo extends BaseMealRepository {
       }).toList();
     });
   }
+
   @override
   Stream<List<MealModel>> getFilteredMealsByCalorieRange(
       int minCalories, int maxCalories) {
@@ -73,6 +71,7 @@ class MealsRepo extends BaseMealRepository {
             .map((doc) => MealModel.fromSnapShot(doc))
             .toList());
   }
+
   @override
   Stream<List<MealModel>> getFilteredMealsByFacts(List<String> selectedFacts) {
     // Implement the logic to filter meals by facts in your repository
@@ -81,7 +80,8 @@ class MealsRepo extends BaseMealRepository {
         .collection('meals')
         .where('facts', arrayContainsAny: selectedFacts)
         .snapshots()
-        .map((querySnapshot) =>
-        querySnapshot.docs.map((doc) => MealModel.fromSnapShot(doc)).toList());
+        .map((querySnapshot) => querySnapshot.docs
+            .map((doc) => MealModel.fromSnapShot(doc))
+            .toList());
   }
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/repositories/categories_repos/base_categories_repos.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
 
 import '../../../models/meal_category.dart';
@@ -13,7 +14,7 @@ part 'categories_state.dart';
 
 
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
-  final CategoriesRepos _categoriesRepos;
+  final BaseCategoriesRepository _categoriesRepos;
   StreamSubscription? _streamSubscription;
 
   CategoriesBloc({required CategoriesRepos categoriesRepos})

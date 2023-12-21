@@ -5,12 +5,13 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../models/meal.dart';
+import '../../../repositories/favourite_meals_repo/base_favmeals_repo.dart';
 import '../../../repositories/favourite_meals_repo/fav_meals_repo.dart';
 
 part 'fav_meals_state.dart';
 
 class FavoriteMealsCubit extends Cubit<FavoriteMealsState> {
-  final FavoriteMealsRepository _repository;
+  final BaseFavoriteMealsRepository _repository;
   StreamSubscription? _streamSubscription;
 
   FavoriteMealsCubit(this._repository) : super(FavoriteMealsInitial());

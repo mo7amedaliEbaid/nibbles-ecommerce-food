@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 
 import '../../application/blocs/user_bloc/user_bloc.dart';
@@ -125,39 +125,48 @@ class PackageItem extends StatelessWidget {
                                                 favouritePackage.id ==
                                                 packageModel.id);
                                         return LeftFavIconStack(
-                                            isFilled: isFavorite);
+                                          isFilled: isFavorite,
+                                        );
                                       } else {
                                         return LeftFavIconStack(
-                                            isFilled: false);
+                                          isFilled: false,
+                                        );
                                       }
                                     },
                                   ),
                                 )
-                              : LeftFavIconStack(isFilled: false);
+                              : LeftFavIconStack(
+                                  isFilled: false,
+                                );
                         },
                       ),
                     ),
                     Positioned(
                       bottom: 0,
                       right: 0,
-                      child: Stack(
-                        children: [
-                          SvgPicture.asset(
-                            AppAssets.rightIconRec,
-                            colorFilter: const ColorFilter.mode(
-                                AppColors.deepTeal, BlendMode.srcIn),
-                          ),
-                          Positioned(
-                            right: AppDimensions.normalize(4),
-                            top: AppDimensions.normalize(1),
-                            bottom: 0,
-                            child: SvgPicture.asset(
-                              AppAssets.cartWhite,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRouter.noKid);
+                        },
+                        child: Stack(
+                          children: [
+                            SvgPicture.asset(
+                              AppAssets.rightIconRec,
                               colorFilter: const ColorFilter.mode(
-                                  Colors.white, BlendMode.srcIn),
+                                  AppColors.deepTeal, BlendMode.srcIn),
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              right: AppDimensions.normalize(4),
+                              top: AppDimensions.normalize(1),
+                              bottom: 0,
+                              child: SvgPicture.asset(
+                                AppAssets.cartWhite,
+                                colorFilter: const ColorFilter.mode(
+                                    Colors.white, BlendMode.srcIn),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

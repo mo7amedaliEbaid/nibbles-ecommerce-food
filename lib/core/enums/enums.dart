@@ -4,7 +4,6 @@ enum AuthStatus {
   unauthenticated,
 }
 
-
 enum SignInStatus {
   initial,
   submitting,
@@ -17,4 +16,10 @@ enum SignUpStatus {
   submitting,
   success,
   error,
+}
+
+enum KidsStepType {
+  index0,
+  index1,
+  index2,
 }

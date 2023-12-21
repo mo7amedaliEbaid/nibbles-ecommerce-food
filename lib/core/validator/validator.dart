@@ -63,4 +63,81 @@ class Validators {
     }
     return null;
   }
+
+  String? validateWeight(String? value) {
+    if (value == null || value.isEmpty) return 'Weight is required';
+
+    // Assuming your weight range should be between '0' and '1000' (adjust as needed)
+    if (double.tryParse(value) == null) {
+      return 'Please enter a valid numeric weight';
+    }
+
+    double weight = double.parse(value);
+
+    if (weight <= 0 || weight > 1000) {
+      return 'Weight must be a positive value less than or equal to 1000';
+    }
+
+    return null;
+  }
+
+  String? validateGender(String? value) {
+    if (value == null || value.isEmpty) return 'Gender is required';
+
+    // Assuming your valid gender values are 'male' or 'female' (case-insensitive)
+    if (value.toLowerCase() != 'male' && value.toLowerCase() != 'female') {
+      return 'Please select a valid gender';
+    }
+
+    return null;
+  }
+
+  String? validateMessage(String? value) {
+    if (value == null || value.isEmpty) return 'Message is required';
+
+    // Split the message into words and count them
+    List<String> words = value.split(' ');
+    int wordCount = words.length;
+
+    // Assuming the minimum word count is 5 (adjust as needed)
+    if (wordCount < 5) {
+      return 'Message must be at least five words long';
+    }
+
+    return null;
+  }
+
+  String? validateHeight(String? value) {
+    if (value == null || value.isEmpty) return 'Height is required';
+
+    // Assuming the height should be a positive numeric value less than or equal to 300 (adjust as needed)
+    try {
+      double height = double.parse(value);
+
+      if (height <= 0 || height > 300) {
+        return 'Please enter a valid height between 1 and 300';
+      }
+    } catch (e) {
+      return 'Please enter a valid numeric height';
+    }
+
+    return null;
+  }
+
+  String? validateAge(String? value) {
+    if (value == null || value.isEmpty) return 'Age is required';
+
+    // Assuming the age should be a positive integer less than or equal to 120 (adjust as needed)
+    try {
+      int age = int.parse(value);
+
+      if (age <= 0 || age > 120) {
+        return 'Please enter a valid age between 1 and 120';
+      }
+    } catch (e) {
+      return 'Please enter a valid numeric age';
+    }
+
+    return null;
+  }
 }

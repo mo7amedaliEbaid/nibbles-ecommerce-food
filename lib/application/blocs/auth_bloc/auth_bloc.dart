@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:nibbles_ecommerce/repositories/auth_repos/base_auth_repos.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../core/error/custom_error.dart';
@@ -17,7 +18,7 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   late final StreamSubscription _authSubscription;
-  final AuthRepository authRepository;
+  final BaseAuthRepository authRepository;
 
   AuthBloc({
     required this.authRepository,

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/core/error/failures.dart';
+import 'package:nibbles_ecommerce/repositories/auth_repos/base_auth_repos.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../core/error/custom_error.dart';
@@ -14,7 +15,7 @@ part 'sign_up_event.dart';
 part 'sign_up_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
-  final AuthRepository authRepository;
+  final BaseAuthRepository authRepository;
   SignUpBloc({required this.authRepository}) : super(SignUpState.initial()) {
     on<SignUpWithCredential>(_mapSignInWithCredentialToState);
   }

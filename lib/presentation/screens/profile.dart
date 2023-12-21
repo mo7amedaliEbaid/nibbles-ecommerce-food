@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/application/blocs/auth_bloc/auth_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/user_bloc/user_bloc.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/configs/space.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
+import '../widgets/kids_components.dart';
 import '../widgets/profile_components.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -122,44 +121,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Space.yf(.7),
                 Row(
-                  children: [
-                    Container(
-                      width: AppDimensions.normalize(52),
-                      height: AppDimensions.normalize(55),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(AppDimensions.normalize(6)),
-                          color: Colors.white),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  AppAssets.circle,
-                                  height: AppDimensions.normalize(15),
-                                  colorFilter: const ColorFilter.mode(
-                                      AppColors.deepTeal, BlendMode.srcIn),
-                                ),
-                                Icon(
-                                  Icons.add,
-                                  size: AppDimensions.normalize(12),
-                                  color: Colors.white,
-                                )
-                              ],
-                            ),
-                            Space.yf(),
-                            Text(
-                              "Add New",
-                              style: AppText.h3,
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
+                  children: [addKidContainer(context)],
                 ),
               ],
             ),

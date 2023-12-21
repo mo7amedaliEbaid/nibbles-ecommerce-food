@@ -1,16 +1,18 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
+import 'package:nibbles_ecommerce/repositories/packages_repos/base_packages_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 
+import '../../../repositories/meals_repos/base_meals_repo.dart';
 import '../../../repositories/meals_repos/meal_repo.dart';
 
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  final MealsRepo _mealsRepo;
-  final PackagesRepos _packagesRepos;
+  final BaseMealRepository _mealsRepo;
+  final BasePackagesRepository _packagesRepos;
 
   SearchCubit(
       {required MealsRepo mealsRepo, required PackagesRepos packagesRepos})

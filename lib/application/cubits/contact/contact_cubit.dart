@@ -3,13 +3,14 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../models/contact_message.dart';
+import '../../../repositories/contact_message/base_contact_message_repo.dart';
 import '../../../repositories/contact_message/contact_message_repo.dart';
 
 
 part 'contact_state.dart';
 
 class ContactUsCubit extends Cubit<ContactUsState> {
-  final ContactUsRepo _contactUsRepo = ContactUsRepo();
+  final BaseContactMessageRepo _contactUsRepo = ContactUsRepo();
 
   ContactUsCubit() : super(ContactUsInitial());
 

@@ -2,12 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../models/meal.dart';
+import '../../../repositories/meals_repos/base_meals_repo.dart';
 import '../../../repositories/meals_repos/meal_repo.dart';
 
 part 'filter_state.dart';
 
 class FilterCubit extends Cubit<FilterState> {
-  final MealsRepo _mealsRepo;
+  final BaseMealRepository _mealsRepo;
 
   FilterCubit({required MealsRepo mealsRepo})
       : _mealsRepo = mealsRepo,

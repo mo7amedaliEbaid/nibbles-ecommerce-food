@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
+import 'package:nibbles_ecommerce/repositories/meals_repos/base_meals_repo.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
 part 'meals_event.dart';
@@ -12,7 +13,7 @@ part 'meals_event.dart';
 part 'meals_state.dart';
 
 class MealsBloc extends Bloc<MealsEvent, MealsState> {
-  final MealsRepo _mealsRepo;
+  final BaseMealRepository _mealsRepo;
 
   StreamSubscription? _mealsSubscription;
 
