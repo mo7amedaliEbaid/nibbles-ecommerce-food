@@ -28,6 +28,8 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
   
 - **Kid Accounts:** Enable users to create accounts for their kids with a dedicated `AddKidScreen`.
 
+- **Responsive Layouts:** The UI design is responsive, adapting gracefully to various screen sizes.
+
 ## Directory Structure
 
 The project is organized into several directories:
