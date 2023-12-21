@@ -1,4 +1,4 @@
-## In Development [👀🔄 50% ].
+## In Development [👀🔄 70% ].
 
 
 
@@ -6,7 +6,15 @@ https://github.com/mo7amedaliEbaid/nibbles-ecommerce/assets/131966482/436bd522-7
 
 
 
+https://github.com/mo7amedaliEbaid/nibbles-ecommerce/assets/131966482/b61a63e2-07a8-47f0-87e1-4dd85884c4a1
+
+
+
 https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/assets/131966482/015740aa-b53e-4abf-9de3-9a160e9a4e83
+
+
+
+https://github.com/mo7amedaliEbaid/nibbles-ecommerce/assets/131966482/f0dcc29c-dc52-4dca-b4d3-29a84e0c7df4
 
 
 # nibbles_ecommerce
