@@ -77,7 +77,7 @@ class _ContactMessageFormState extends State<ContactMessageForm> {
             BlocBuilder<ContactUsCubit, ContactUsState>(
               builder: (context, state) {
                 return customElevatedButton(
-                    onTap: () {
+                    onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         context.read<ContactUsCubit>().sendMessage(
                             ContactMessage(
@@ -91,7 +91,7 @@ class _ContactMessageFormState extends State<ContactMessageForm> {
                           _phoneController.clear();
                           _emailController.clear();
                           _messageController.clear();
-                          showThanksBottomSheet(context);
+                          await showThanksBottomSheet(context);
                         }
                       }
                     },
