@@ -7,12 +7,15 @@ import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
 import '../../application/cubits/filter/filter_cubit.dart';
+import '../widgets/range_slider.dart';
 
 class MealsByCategoryScreen extends StatefulWidget {
   const MealsByCategoryScreen({super.key, required this.mealCategory});
@@ -61,67 +64,73 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                           borderRadius: BorderRadius.circular(
                               AppDimensions.normalize(10)),
                         ),
-                        builder: (context) => Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Wrap(
+                        builder: (context) => SizedBox(
+                              width: double.infinity,
+                              child: Padding(
+                                padding: Space.all(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    ListTile(
-                                      title: const Text('Sugar Free'),
-                                      leading: Checkbox(
-                                        value: context
-                                            .read<FilterCubit>()
-                                            .isFactSelected('Sugar Free'),
-                                        onChanged: (value) {
-                                          context
-                                              .read<FilterCubit>()
-                                              .toggleFact(
-                                                  'Sugar Free', value ?? false);
-                                          setState(() {});
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const SizedBox.shrink(),
+                                        Text(
+                                          "Filter".toUpperCase(),
+                                          style: AppText.h3,
+                                        ),
+                                        IconButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            icon: const Icon(Icons.clear))
+                                      ],
+                                    ),
+                                    Text(
+                                      "Meal Tags".toUpperCase(),
+                                      style: AppText.h3,
+                                    ),
+                                    SizedBox(
+                                      height: AppDimensions.normalize(30),
+                                      child: ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: AppStrings.tags.length,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          return _buildCheckboxRow(
+                                              AppStrings.tags[index]);
                                         },
                                       ),
                                     ),
-                                    ListTile(
-                                      title: const Text('Healthy'),
-                                      leading: Checkbox(
-                                        value: context
-                                            .read<FilterCubit>()
-                                            .isFactSelected('Healthy'),
-                                        onChanged: (value) {
-                                          context
-                                              .read<FilterCubit>()
-                                              .toggleFact(
-                                                  'Healthy', value ?? false);
-                                          setState(() {});
-                                        },
-                                      ),
-                                    ),
-                                    ListTile(
-                                      title: const Text('Fast Cook'),
-                                      leading: Checkbox(
-                                        value: context
-                                            .read<FilterCubit>()
-                                            .isFactSelected('Fast Cook'),
-                                        onChanged: (value) {
-                                          context
-                                              .read<FilterCubit>()
-                                              .toggleFact(
-                                                  'Fast Cook', value ?? false);
-                                          setState(() {});
-                                        },
-                                      ),
-                                    ),
-                                    // Add more facts as needed
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        setState(() {});
-                                        Navigator.pop(context);
-                                      },
-                                      child: const Text('Apply Filters'),
-                                    ),
+                                    CalorieRangeSlider(
+                                        minCalories: 0,
+                                        maxCalories: 1000,
+                                        onRangeChanged: (int1, int2) {}),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        customElevatedButton(
+                                            onTap: () {},
+                                            text: "Reset".toUpperCase(),
+                                            heightFraction: 20,
+                                            width: AppDimensions.normalize(40),
+                                            color: AppColors.antiqueRuby,
+                                            textColor: Colors.white),
+                                        Space.xf(),
+                                        customElevatedButton(
+                                            onTap: () {},
+                                            text: "Apply".toUpperCase(),
+                                            heightFraction: 20,
+                                            width: AppDimensions.normalize(40),
+                                            color: AppColors.commonAmber)
+                                      ],
+                                    )
                                   ],
                                 ),
-                              ],
+                              ),
                             ));
                   },
                   child: SvgPicture.asset(
@@ -160,6 +169,22 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                 ),
         ],
       ),
+    );
+  }
+
+  Widget _buildCheckboxRow(String label) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Checkbox(
+          value: context.read<FilterCubit>().isFactSelected(label),
+          onChanged: (value) {
+            context.read<FilterCubit>().toggleFact(label, value ?? false);
+            setState(() {});
+          },
+        ),
+        Text(label),
+      ],
     );
   }
 }

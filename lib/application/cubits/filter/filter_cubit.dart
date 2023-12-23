@@ -17,7 +17,15 @@ class FilterCubit extends Cubit<FilterState> {
   final Map<String, bool> selectedFacts = {
     'Sugar Free': false,
     'Healthy': false,
+    'Cheap': false,
+    'Veggie': false,
     'Fast Cook': false,
+    'Cold': false,
+    'Delicious': false,
+    'Power Giver': false,
+    'Muscle Builder': false,
+    'Easy Cook': false,
+
     // Add more facts as needed
   };
 

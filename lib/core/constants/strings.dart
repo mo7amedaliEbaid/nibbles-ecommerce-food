@@ -19,6 +19,18 @@ sealed class AppStrings {
     'Contact Us',
   ];
 
+  static const List<String> tags = [
+    'Sugar Free',
+    'Veggie',
+    'Easy Cook',
+    'Fast Cook',
+    'Cheap',
+    'Cold',
+    'Muscle Builder',
+    'Power Giver',
+    'Delicious'
+  ];
+
   static const String gitUrl = "https://github.com/mo7amedaliEbaid";
   static const String linkedUrl = "https://www.linkedin.com/in/mo7amedebaid/";
   static const String nibblesUrl =

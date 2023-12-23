@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
 class CalorieRangeSlider extends StatefulWidget {
   final int minCalories;
@@ -13,10 +14,10 @@ class CalorieRangeSlider extends StatefulWidget {
   });
 
   @override
-  _CalorieRangeSliderState createState() => _CalorieRangeSliderState();
+  CalorieRangeSliderState createState() => CalorieRangeSliderState();
 }
 
-class _CalorieRangeSliderState extends State<CalorieRangeSlider> {
+class CalorieRangeSliderState extends State<CalorieRangeSlider> {
   late RangeValues _currentRangeValues;
 
   @override
@@ -36,6 +37,8 @@ class _CalorieRangeSliderState extends State<CalorieRangeSlider> {
         Text(
             'Calorie Range: ${_currentRangeValues.start.round()} - ${_currentRangeValues.end.round()}'),
         RangeSlider(
+          activeColor: AppColors.deepTeal,
+          inactiveColor: Colors.black26,
           values: _currentRangeValues,
           min: widget.minCalories.toDouble(),
           max: widget.maxCalories.toDouble(),
