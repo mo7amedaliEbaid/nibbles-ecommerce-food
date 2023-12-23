@@ -6,9 +6,11 @@ import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/enums/enums.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/addKid_steps.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/addKid_step1.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_appbar.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/kids_components.dart';
+
+import '../widgets/addKid_step2.dart';
 
 class AddKidScreen extends StatefulWidget {
   const AddKidScreen({super.key});

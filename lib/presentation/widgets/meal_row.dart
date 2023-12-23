@@ -15,7 +15,7 @@ return Column(
       ],
     ),
     Space.yf(.5),
-    Divider(color: AppColors.lightGrey,),
+    const Divider(color: AppColors.lightGrey,),
     Space.yf(.5),
   ],
 );

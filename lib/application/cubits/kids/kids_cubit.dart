@@ -31,6 +31,5 @@ class KidsCubit extends Cubit<KidsState> {
         emit(KidsError(errorMessage: error.toString()));
       },
     );
-    //  return kidsRepository.getKids(userId);
   }
 }

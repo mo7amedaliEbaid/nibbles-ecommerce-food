@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
 import 'package:nibbles_ecommerce/presentation/screens/about.dart';
+import 'package:nibbles_ecommerce/presentation/screens/add_address.dart';
 import 'package:nibbles_ecommerce/presentation/screens/add_kid.dart';
 import 'package:nibbles_ecommerce/presentation/screens/contact.dart';
 import 'package:nibbles_ecommerce/presentation/screens/favourites.dart';
@@ -17,6 +17,7 @@ import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
 
+import '../../presentation/screens/addresses.dart';
 import '../../presentation/screens/ads.dart';
 import '../../presentation/screens/root.dart';
 import '../../presentation/screens/splash.dart';
@@ -45,6 +46,8 @@ sealed class AppRouter {
   static const String login = '/login';
   static const String noKid = '/noKid';
   static const String addKid = '/addKid';
+  static const String addresses = '/addresses';
+  static const String addAddress = '/addAddress';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -112,6 +115,10 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const PrivacyScreen());
       case contact:
         return MaterialPageRoute(builder: (_) => const ContactScreen());
+      case addresses:
+        return MaterialPageRoute(builder: (_) => const AddressesScreen());
+      case addAddress:
+        return MaterialPageRoute(builder: (_) => const AddAddressScreen());
 
       default:
         throw const RouteException('Route not found!');

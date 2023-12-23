@@ -53,13 +53,13 @@ class Validators {
     return null;
   }
 
-  String? validateLastName(String? value) {
-    if (value == null || value.isEmpty) return 'Last name is required';
+  String? validateString(String? value) {
+    if (value == null || value.isEmpty) return 'This field is required';
     if (value.length < 2) {
-      return 'Last name must be at least 2 characters long';
+      return 'This field must be at least 2 characters long';
     }
     if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
-      return 'First name must be alphabetic';
+      return 'This field must be alphabetic';
     }
     return null;
   }
@@ -136,6 +136,23 @@ class Validators {
       }
     } catch (e) {
       return 'Please enter a valid numeric age';
+    }
+
+    return null;
+  }
+
+  String? validateNumbers(String? value) {
+    if (value == null || value.isEmpty) return 'This Field is required';
+
+    // Assuming the house number should be a positive integer
+    try {
+      int houseNumber = int.parse(value);
+
+      if (houseNumber <= 0) {
+        return 'Please enter a valid positive number';
+      }
+    } catch (e) {
+      return 'Please enter a valid numeric number';
     }
 
     return null;

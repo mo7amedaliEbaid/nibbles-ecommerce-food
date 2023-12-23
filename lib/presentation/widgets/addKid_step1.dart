@@ -142,14 +142,7 @@ class _Step1State extends State<Step1> {
   }
 }
 
-class Step2 extends StatelessWidget {
-  const Step2({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
 
 class Step3 extends StatelessWidget {
   const Step3({super.key});

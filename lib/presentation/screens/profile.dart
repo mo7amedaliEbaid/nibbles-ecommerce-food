@@ -81,7 +81,10 @@ class ProfileScreen extends StatelessWidget {
                               children: [
                                 Space.xf(2),
                                 customElevatedButton(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .pushNamed(AppRouter.addresses);
+                                    },
                                     text: "My Address",
                                     heightFraction: 18,
                                     width: AppDimensions.normalize(40),
@@ -133,7 +136,10 @@ class ProfileScreen extends StatelessWidget {
             child: customElevatedButton(
               onTap: () {
                 context.read<AuthBloc>().add(SignOutRequestedEvent());
-                Navigator.of(context).pushNamed(AppRouter.splash);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  AppRouter.splash,
+                  (route) => false,
+                );
               },
               text: "Logout".toUpperCase(),
               heightFraction: 20,

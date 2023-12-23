@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -57,7 +55,6 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                     style: AppText.h2b),
                 GestureDetector(
                   onTap: () {
-                    log("Tapped");
                     showModalBottomSheet(
                         context: context,
                         shape: RoundedRectangleBorder(

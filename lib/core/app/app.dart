@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
+import 'package:nibbles_ecommerce/application/cubits/address/address_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids/kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
+import 'package:nibbles_ecommerce/repositories/address_repo/address_repo.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_meals_repo/fav_meals_repo.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packages_repo.dart';
@@ -111,9 +113,14 @@ class MyApp extends StatelessWidget {
             create: (context) => KidsStepsCubit(),
           ),
           BlocProvider(
-            create: (context) => KidsCubit(kidsRepository: KidsRepository())
+              create: (context) => KidsCubit(kidsRepository: KidsRepository())
               //..getKids(FirebaseAuth.instance.currentUser!.uid),
-          ),
+              ),
+          BlocProvider(
+              lazy: false,
+              create: (context) =>
+                  AddressCubit(addressRepository: AddressRepository())
+                    ..getAddresses(FirebaseAuth.instance.currentUser!.uid)),
         ],
         child: MaterialApp(
           title: 'Nibbles',
@@ -124,10 +131,8 @@ class MyApp extends StatelessWidget {
             fontFamily: AppStrings.fontFamily,
             scaffoldBackgroundColor: AppColors.scafoldBackground,
             checkboxTheme: CheckboxThemeData(
-
               fillColor: MaterialStateColor.resolveWith(
                 (states) => AppColors.lightGrey,
-
               ),
             ),
           ),
