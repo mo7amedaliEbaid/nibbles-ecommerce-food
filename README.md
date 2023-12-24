@@ -114,6 +114,8 @@ project_root
   
 - **url_launcher:** Opens URLs in the default web browser, facilitating external content connections.
 
+- **connectivity_plus:** Provides a simple and efficient way to monitor the network connectivity status of a device..
+
 These dependencies collectively contribute to the functionality, design, and user experience of the Nibbles Flutter app, ensuring a robust and feature-rich application for exploring meals and food packages.
 
 ## Blocs and Cubits
@@ -135,6 +137,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - KidsStepsCubit
 - AddAddressCubit
 - GetAddressesCubit
+- ConnectivityCubit
 
 ## Screens
 
@@ -187,6 +190,9 @@ These dependencies collectively contribute to the functionality, design, and use
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/addkid1.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/nokids.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/signupfull.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/noconnection.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/add_addressem.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/addresses.jpg" width="180"/>
 
 </p>
 
