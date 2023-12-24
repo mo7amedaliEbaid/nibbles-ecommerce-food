@@ -25,6 +25,7 @@ import '../../application/blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../application/blocs/sign_up_bloc/sign_up_bloc.dart';
 import '../../application/blocs/user_bloc/user_bloc.dart';
 import '../../application/cubits/add_address/add_address_cubit.dart';
+import '../../application/cubits/connectivity/connectivity_cubit.dart';
 import '../../application/cubits/filter/filter_cubit.dart';
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../../application/cubits/nibbles_info/nibbles_info_cubit.dart';
@@ -123,6 +124,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
               create: (context) =>
                   GetAddressCubit(addressRepository: AddressRepository())),
+          BlocProvider(create: (context) => ConnectivityCubit())
         ],
         child: MaterialApp(
           title: 'Nibbles',

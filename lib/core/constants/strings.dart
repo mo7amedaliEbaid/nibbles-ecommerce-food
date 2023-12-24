@@ -4,6 +4,7 @@ sealed class AppStrings {
   static const String fontFamily = 'Form';
   static const String loading = "LOADING";
   static const String wait = "Wait...";
+  static const String noConnection = "Sorry! Due to internet connection\nfailed, so the application is not working. Please check the\ninternet connection.";
 
   // static const List<String> tabStrings = ['Breakfast', 'Lunch', 'Dinner', 'Drinks', 'Snacks','Desert'];
   static const List<String> moreScreenStrings = [

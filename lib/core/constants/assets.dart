@@ -56,6 +56,7 @@ sealed class AppAssets {
   static const String plus = "assets/svg/plus.svg";
   static const String diet = "assets/svg/diet.svg";
   static const String forks = "assets/svg/forks.svg";
+  static const String noConnection = "assets/svg/noconnection.svg";
   static const String add = "assets/svg/add.svg"; //NOT USED
 
   static const List<String> signupItems = [

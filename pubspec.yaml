@@ -27,6 +27,7 @@ dependencies:
   carousel_slider:
   flutter_barcode_scanner:
   url_launcher:
+  connectivity_plus:
 #  qr_code_scanner:
 #  rxdart:
 #  qr_flutter:
