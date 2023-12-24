@@ -1,14 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/address/address_cubit.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
+import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/address.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_appbar.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 
+import '../../application/cubits/add_address/add_address_cubit.dart';
 import '../../core/validator/validator.dart';
 import '../widgets/custom_textformfield.dart';
 
@@ -113,12 +113,12 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     controller: _instructions,
                     validator: _validators.validateMessage),
                 Space.yf(2.5),
-                BlocBuilder<AddressCubit, AddressState>(
+                BlocBuilder<AddAddressCubit, AddAddressState>(
                   builder: (context, state) {
                     return customElevatedButton(
-                        onTap: ()async {
+                        onTap: () async {
                           if (_formKey.currentState!.validate()) {
-                            context.read<AddressCubit>().addAddress(Address(
+                            context.read<AddAddressCubit>().addAddress(Address(
                                 bloc: _bloc.text,
                                 street: _street.text,
                                 house: _house.text,
@@ -129,14 +129,15 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                                 apartment: _apartment.text,
                                 instructions: _instructions.text));
                            // if (state is AddressAddedSuccessfully) {
-                              context
-                                  .read<AddressCubit>()
-                                  .getAddresses(FirebaseAuth.instance.currentUser!.uid);
-                              Navigator.pop(context);
-                           // }
-                          }
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                AppRouter.addresses,
+                                (route) => route.isFirst,
+                              );
+                            }
+                       //   }
                         },
-                        text: (state is AddressLoading)
+                        text: (state is AddAddressLoading)
                             ? AppStrings.wait
                             : "Add Address".toUpperCase(),
                         heightFraction: 20,

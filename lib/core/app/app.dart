@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/address/address_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids/kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
@@ -24,6 +24,7 @@ import '../../application/blocs/categories/categories_bloc.dart';
 import '../../application/blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../application/blocs/sign_up_bloc/sign_up_bloc.dart';
 import '../../application/blocs/user_bloc/user_bloc.dart';
+import '../../application/cubits/add_address/add_address_cubit.dart';
 import '../../application/cubits/filter/filter_cubit.dart';
 import '../../application/cubits/navigation/navigation_cubit.dart';
 import '../../application/cubits/nibbles_info/nibbles_info_cubit.dart';
@@ -117,10 +118,11 @@ class MyApp extends StatelessWidget {
               //..getKids(FirebaseAuth.instance.currentUser!.uid),
               ),
           BlocProvider(
-              lazy: false,
               create: (context) =>
-                  AddressCubit(addressRepository: AddressRepository())
-                    ..getAddresses(FirebaseAuth.instance.currentUser!.uid)),
+                  AddAddressCubit(addressRepository: AddressRepository())),
+          BlocProvider(
+              create: (context) =>
+                  GetAddressCubit(addressRepository: AddressRepository())),
         ],
         child: MaterialApp(
           title: 'Nibbles',

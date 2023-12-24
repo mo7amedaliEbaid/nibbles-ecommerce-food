@@ -1,11 +1,10 @@
 part of 'packages_bloc.dart';
 
-
-
 @immutable
 abstract class PackagesState extends Equatable {
   const PackagesState();
 
+  @override
   List<Object> get props => [];
 }
 

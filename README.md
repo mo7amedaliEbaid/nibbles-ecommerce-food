@@ -133,6 +133,8 @@ These dependencies collectively contribute to the functionality, design, and use
 - ContactUsCubit
 - KidsCubit
 - KidsStepsCubit
+- AddAddressCubit
+- GetAddressesCubit
 
 ## Screens
 

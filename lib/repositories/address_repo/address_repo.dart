@@ -11,6 +11,16 @@ class AddressRepository extends BaseAddressRepository {
   Future<void> addAddress(Address address) async {
     await addressCollection.doc().set(address.toDocument());
   }
+/*
+  @override
+  Future<void> editAddress(Address address) async {
+    // Ensure the address has an ID before attempting to edit
+    if (address.id == null) {
+      throw Exception("Address ID is null. Cannot edit.");
+    }
+
+    await addressCollection.doc(address.id!).update(address.toDocument());
+  }*/
 
   @override
   Stream<List<Address>> getAddresses(String userId) {
