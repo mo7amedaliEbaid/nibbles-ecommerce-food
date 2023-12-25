@@ -28,6 +28,8 @@ dependencies:
   flutter_barcode_scanner:
   url_launcher:
   connectivity_plus:
+  firebase_messaging:
+  flutter_local_notifications:
 #  qr_code_scanner:
 #  rxdart:
 #  qr_flutter:

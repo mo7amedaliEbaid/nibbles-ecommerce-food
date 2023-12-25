@@ -3,7 +3,8 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/kids/kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/add_kids/add_kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
@@ -32,7 +33,7 @@ class _Step1State extends State<Step1> {
 
   @override
   void initState() {
-    context.read<KidsCubit>().getKids(FirebaseAuth.instance.currentUser!.uid);
+    context.read<GetKidsCubit>().getKids(FirebaseAuth.instance.currentUser!.uid);
     super.initState();
   }
 
@@ -55,12 +56,12 @@ class _Step1State extends State<Step1> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BlocBuilder<KidsCubit, KidsState>(
+            BlocBuilder<GetKidsCubit, GetKidsState>(
               builder: (context, state) {
-                if (state is KidsLoaded) {
+                if (state is GetKidsLoaded) {
                   log(state.kids.toString());
                   return addStack(true);
-                } else if (state is KidsError) {
+                } else if (state is GetKidsError) {
                   log(state.errorMessage.toString());
                   return const SizedBox.shrink();
                 } else {
@@ -101,7 +102,7 @@ class _Step1State extends State<Step1> {
               ],
             ),
             Space.yf(3.3),
-            BlocConsumer<KidsCubit, KidsState>(
+            BlocConsumer<AddKidsCubit, AddKidsState>(
               listener: (context, state) {},
               builder: (context, state) {
                 return Padding(
@@ -109,7 +110,7 @@ class _Step1State extends State<Step1> {
                   child: customElevatedButton(
                       onTap: () {
                         if (_formKey.currentState!.validate()) {
-                          context.read<KidsCubit>().addKid(Kid(
+                          context.read<AddKidsCubit>().addKid(Kid(
                               gender: _genderController.text,
                               name: _nameController.text,
                               age: _ageController.text,
@@ -125,7 +126,7 @@ class _Step1State extends State<Step1> {
                           }
                         }
                       },
-                      text: (state is! KidsLoading)
+                      text: (state is! AddKidsLoading)
                           ? "Add".toUpperCase()
                           : AppStrings.wait,
                       heightFraction: 20,

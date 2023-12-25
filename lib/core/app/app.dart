@@ -8,7 +8,8 @@ import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart'
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cubit.dart';
-import 'package:nibbles_ecommerce/application/cubits/kids/kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/add_kids/add_kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
 import 'package:nibbles_ecommerce/repositories/address_repo/address_repo.dart';
@@ -33,10 +34,22 @@ import '../../repositories/auth_repos/auth_repos.dart';
 import '../../repositories/user_repos/user_repos.dart';
 import '../constants/colors.dart';
 import '../constants/strings.dart';
+import '../functions/fcm.dart';
 import '../router/app_router.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    init();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,9 +128,11 @@ class MyApp extends StatelessWidget {
             create: (context) => KidsStepsCubit(),
           ),
           BlocProvider(
-              create: (context) => KidsCubit(kidsRepository: KidsRepository())
-              //..getKids(FirebaseAuth.instance.currentUser!.uid),
-              ),
+              create: (context) =>
+                  GetKidsCubit(kidsRepository: KidsRepository())),
+          BlocProvider(
+              create: (context) =>
+                  AddKidsCubit(kidsRepository: KidsRepository())),
           BlocProvider(
               create: (context) =>
                   AddAddressCubit(addressRepository: AddressRepository())),
