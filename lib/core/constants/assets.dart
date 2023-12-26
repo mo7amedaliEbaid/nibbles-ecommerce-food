@@ -57,6 +57,8 @@ sealed class AppAssets {
   static const String diet = "assets/svg/diet.svg";
   static const String forks = "assets/svg/forks.svg";
   static const String noConnection = "assets/svg/noconnection.svg";
+  static const String checkCircle = "assets/svg/checkcircle.svg";
+  static const String checkedCircle = "assets/svg/checkedcircle.svg";
   static const String add = "assets/svg/add.svg"; //NOT USED
 
   static const List<String> signupItems = [
@@ -103,7 +105,7 @@ sealed class AppAssets {
   static const String qrPng = "assets/png/qrpng.png";
   static const String errorPng = "assets/png/errorpng.png";
   static const String addKidPng = "assets/png/addkidPng.png";
-  static const String kidPng = "assets/png/kid.png";// Not Used
+  static const String kidPng = "assets/png/kid.png"; // Not Used
   static const String whiteRecPng = "assets/png/whiterecpng.png"; //Not Used
 
   //categories
@@ -132,6 +134,15 @@ sealed class AppAssets {
   static const String step1Png = "assets/png/steps/step1Png.png";
   static const String step2Png = "assets/png/steps/step2Png.png";
   static const String step3Png = "assets/png/steps/step3Png.png";
+
+  //kids
+  static const String kid1 = "assets/png/kid1.png";
+  static const String kid2 = "assets/png/kid2.png";
+
+  static const List<String> kidsImages = [
+    kid1,
+    kid2,
+  ];
 
   static const List<String> socialImages = [
     twitterPng,

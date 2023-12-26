@@ -12,6 +12,7 @@ import 'package:nibbles_ecommerce/models/kid.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_textformfield.dart';
 
+import '../../core/router/app_router.dart';
 import '../../core/validator/validator.dart';
 import 'kids_components.dart';
 
@@ -33,7 +34,9 @@ class _Step1State extends State<Step1> {
 
   @override
   void initState() {
-    context.read<GetKidsCubit>().getKids(FirebaseAuth.instance.currentUser!.uid);
+    context
+        .read<GetKidsCubit>()
+        .getKids(FirebaseAuth.instance.currentUser!.uid);
     super.initState();
   }
 
@@ -58,7 +61,7 @@ class _Step1State extends State<Step1> {
           children: [
             BlocBuilder<GetKidsCubit, GetKidsState>(
               builder: (context, state) {
-                if (state is GetKidsLoaded) {
+                if (state is GetKidsLoaded && state.kids.isNotEmpty) {
                   log(state.kids.toString());
                   return addStack(true);
                 } else if (state is GetKidsError) {
@@ -117,13 +120,19 @@ class _Step1State extends State<Step1> {
                               height: _heightController.text,
                               weight: _weightController.text));
 
-                          if (state is KidsAddedSuccessfully) {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            AppRouter.selectKid,
+                            (route) => route.isFirst,
+                          );
+
+                          /*     if (state is KidsAddedSuccessfully) {
                             _genderController.clear();
                             _nameController.clear();
                             _ageController.clear();
                             _heightController.clear();
                             _weightController.clear();
-                          }
+                          }*/
                         }
                       },
                       text: (state is! AddKidsLoading)
@@ -142,8 +151,6 @@ class _Step1State extends State<Step1> {
     );
   }
 }
-
-
 
 class Step3 extends StatelessWidget {
   const Step3({super.key});

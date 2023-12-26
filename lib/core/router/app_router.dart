@@ -10,7 +10,7 @@ import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
 import 'package:nibbles_ecommerce/presentation/screens/login.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meals_bycategory.dart';
-import 'package:nibbles_ecommerce/presentation/screens/no_kids.dart';
+import 'package:nibbles_ecommerce/presentation/screens/select_kid.dart';
 import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
 import 'package:nibbles_ecommerce/presentation/screens/privacy.dart';
 import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
@@ -44,7 +44,7 @@ sealed class AppRouter {
   static const String privacy = '/privacy';
   static const String signup = '/signup';
   static const String login = '/login';
-  static const String noKid = '/noKid';
+  static const String selectKid = '/selectKid';
   static const String addKid = '/addKid';
   static const String addresses = '/addresses';
   static const String addAddress = '/addAddress';
@@ -93,8 +93,8 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const OffersScreen());
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
-      case noKid:
-        return MaterialPageRoute(builder: (_) => const NoKidsScreen());
+      case selectKid:
+        return MaterialPageRoute(builder: (_) => const SelectKidScreen());
       case addKid:
         return MaterialPageRoute(builder: (_) => const AddKidScreen());
       case favourites:

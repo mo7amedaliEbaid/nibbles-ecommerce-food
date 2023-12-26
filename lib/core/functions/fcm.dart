@@ -93,7 +93,7 @@ void showFlutterNotification(RemoteMessage message) {
 }
 String? initialMessage;
 bool resolved = false;
-void init() async{
+void initFcm() async{
   flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
       AndroidFlutterLocalNotificationsPlugin>()
