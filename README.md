@@ -114,8 +114,12 @@ project_root
   
 - **url_launcher:** Opens URLs in the default web browser, facilitating external content connections.
 
-- **connectivity_plus:** Provides a simple and efficient way to monitor the network connectivity status of a device..
+- **connectivity_plus:** Provides a simple and efficient way to monitor the network connectivity status of a device.
 
+- **firebase_messaging:** Flutter plugin for Firebase Cloud Messaging, a cross-platform messaging solution that lets you reliably deliver messages on Android and iOS.
+
+- **flutter_local_notifications** A cross platform plugin for displaying and scheduling local notifications for Flutter applications with the ability to customise for each platform.
+  
 These dependencies collectively contribute to the functionality, design, and user experience of the Nibbles Flutter app, ensuring a robust and feature-rich application for exploring meals and food packages.
 
 ## Blocs and Cubits
@@ -133,7 +137,8 @@ These dependencies collectively contribute to the functionality, design, and use
 - FavouritePackagesCubit
 - FilterCubit
 - ContactUsCubit
-- KidsCubit
+- AddKidsCubit
+- GetKidsCubit.
 - KidsStepsCubit
 - AddAddressCubit
 - GetAddressesCubit
@@ -152,7 +157,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - MealDetailsScreen
 - MealsByCategoryScreen
 - MoreScreen
-- NoKidsScreen
+- SelectKidScreen
 - OffersScreen
 - PackagesScreen
 - PrivacyScreen
