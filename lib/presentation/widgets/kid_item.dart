@@ -8,9 +8,8 @@ import 'dart:math' as math;
 
 Widget kidItem(Kid kid) {
   final random = math.Random();
-
   return Material(
-    elevation: 2,
+    elevation: 1,
     borderRadius: BorderRadius.circular(AppDimensions.normalize(4)),
     child: Container(
       width: AppDimensions.normalize(52),
