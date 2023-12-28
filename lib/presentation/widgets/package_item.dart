@@ -146,7 +146,8 @@ class PackageItem extends StatelessWidget {
                       right: 0,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed(AppRouter.selectKid);
+                          Navigator.of(context).pushNamed(AppRouter.selectKid,
+                              arguments: packageModel);
                         },
                         child: Stack(
                           children: [

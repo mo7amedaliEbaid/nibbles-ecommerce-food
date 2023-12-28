@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/presentation/screens/about.dart';
 import 'package:nibbles_ecommerce/presentation/screens/add_address.dart';
 import 'package:nibbles_ecommerce/presentation/screens/add_kid.dart';
+import 'package:nibbles_ecommerce/presentation/screens/checkout.dart';
 import 'package:nibbles_ecommerce/presentation/screens/contact.dart';
 import 'package:nibbles_ecommerce/presentation/screens/favourites.dart';
 import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
@@ -17,6 +19,7 @@ import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
 
+import '../../models/kid.dart';
 import '../../presentation/screens/addresses.dart';
 import '../../presentation/screens/ads.dart';
 import '../../presentation/screens/root.dart';
@@ -48,6 +51,7 @@ sealed class AppRouter {
   static const String addKid = '/addKid';
   static const String addresses = '/addresses';
   static const String addAddress = '/addAddress';
+  static const String checkout = '/checkout';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -94,7 +98,11 @@ sealed class AppRouter {
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case selectKid:
-        return MaterialPageRoute(builder: (_) => const SelectKidScreen());
+        PackageModel packageModel = routeSettings.arguments as PackageModel;
+        return MaterialPageRoute(
+            builder: (_) => SelectKidScreen(
+                  packageModel: packageModel,
+                ));
       case addKid:
         return MaterialPageRoute(builder: (_) => const AddKidScreen());
       case favourites:
@@ -119,6 +127,17 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const AddressesScreen());
       case addAddress:
         return MaterialPageRoute(builder: (_) => const AddAddressScreen());
+      case checkout:
+        final Map<String, dynamic> arguments =
+            routeSettings.arguments as Map<String, dynamic>;
+        final PackageModel packageModel =
+            arguments['packageModel'] as PackageModel;
+        final Kid kid = arguments['kid'] as Kid;
+        return MaterialPageRoute(
+            builder: (_) => CheckoutScreen(
+                  packageModel: packageModel,
+                  kid: kid,
+                ));
 
       default:
         throw const RouteException('Route not found!');
