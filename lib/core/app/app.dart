@@ -13,6 +13,7 @@ import 'package:nibbles_ecommerce/application/cubits/add_kids/add_kids_cubit.dar
 import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
+import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/repositories/address_repo/address_repo.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_meals_repo/fav_meals_repo.dart';
@@ -164,6 +165,10 @@ class _MyAppState extends State<MyApp> {
               fillColor: MaterialStateColor.resolveWith(
                 (states) => AppColors.lightGrey,
               ),
+            ),
+            datePickerTheme: const DatePickerThemeData(
+              backgroundColor: AppColors.commonAmber,
+              headerBackgroundColor: AppColors.deepTeal,
             ),
           ),
         ),

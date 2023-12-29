@@ -1,21 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/application/blocs/products/products_bloc.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/kid.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/checkout_components.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 import 'dart:math' as math;
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 import '../../core/constants/assets.dart';
 import '../widgets/common_border_radius.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen(
       {super.key, required this.packageModel, required this.kid});
 
   final PackageModel packageModel;
   final Kid kid;
+
+  @override
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
+}
+
+class _CheckoutScreenState extends State<CheckoutScreen> {
+  DateTime selectedDate = DateTime.now();
+  bool dateChosen = false;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2101),
+    );
+
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        dateChosen = true;
+        selectedDate = picked;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +99,11 @@ class CheckoutScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      packageModel.name.toUpperCase(),
+                                      widget.packageModel.name.toUpperCase(),
                                       style: AppText.h2,
                                     ),
-                                    Text(packageModel.price.toUpperCase()),
+                                    Text(widget.packageModel.price
+                                        .toUpperCase()),
                                     Space.yf(.4),
                                     Row(
                                       children: [
@@ -83,7 +113,7 @@ class CheckoutScreen extends StatelessWidget {
                                           height: AppDimensions.normalize(12),
                                         ),
                                         Space.xf(.5),
-                                        Text(kid.name.capitalize())
+                                        Text(widget.kid.name.capitalize())
                                       ],
                                     ),
                                     Space.yf(.8),
@@ -103,29 +133,35 @@ class CheckoutScreen extends StatelessWidget {
                                           ?.copyWith(color: Colors.white),
                                     ),
                                     Space.xf(1.5),
-                                    Container(
-                                      height: AppDimensions.normalize(12),
-                                      width: AppDimensions.normalize(50),
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                              AppDimensions.normalize(4)),
-                                          border: Border.all(
-                                              color: AppColors.commonAmber)),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          const Text(
-                                            "Select Date",
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                          Icon(
-                                            Icons.calendar_month,
-                                            size: AppDimensions.normalize(7),
-                                            color: Colors.white,
-                                          )
-                                        ],
+                                    GestureDetector(
+                                      onTap: () => _selectDate(context),
+                                      child: Container(
+                                        height: AppDimensions.normalize(12),
+                                        width: AppDimensions.normalize(50),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                                AppDimensions.normalize(4)),
+                                            border: Border.all(
+                                                color: AppColors.commonAmber)),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              dateChosen
+                                                  ? "${selectedDate.toLocal()}"
+                                                      .split(' ')[0]
+                                                  : "Select Date",
+                                              style: const TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            Icon(
+                                              Icons.calendar_month,
+                                              size: AppDimensions.normalize(7),
+                                              color: Colors.white,
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     )
                                   ],
@@ -141,12 +177,38 @@ class CheckoutScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-                left: AppDimensions.normalize(10),
-                top: AppDimensions.normalize(7)),
+              left: AppDimensions.normalize(10),
+              top: AppDimensions.normalize(7),
+              bottom: AppDimensions.normalize(5),
+            ),
             child: Text(
               "Things you may like to add".toUpperCase(),
               style: AppText.h3,
             ),
+          ),
+          BlocBuilder<ProductsBloc, ProductsState>(
+            builder: (context, state) {
+              if (state is ProductsLoaded && state.products.isNotEmpty) {
+                return SizedBox(
+                  height: AppDimensions.normalize(80),
+                  child: ListView.separated(
+                    itemCount: state.products.length,
+                    scrollDirection: Axis.horizontal,
+                    padding: Space.hf(1.5),
+                    itemBuilder: (context, index) {
+                      return productItem(state.products[index]);
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return Space.xf();
+                    },
+                  ),
+                );
+              } else {
+                return const Center(
+                  child: LoadingTicker(text: AppStrings.loading),
+                );
+              }
+            },
           )
         ],
       ),
