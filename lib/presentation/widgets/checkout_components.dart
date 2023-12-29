@@ -13,6 +13,7 @@ Widget productItem(Product product) {
 
   return Container(
     width: AppDimensions.normalize(53),
+    padding: Space.all(.6, .6),
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppDimensions.normalize(4))),
@@ -20,7 +21,16 @@ Widget productItem(Product product) {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset(AppAssets.productsPng[random.nextInt(3)]),
+        Container(
+          height: AppDimensions.normalize(35),
+          width: double.infinity,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppDimensions.normalize(5)),
+              image: DecorationImage(
+                  image: AssetImage(AppAssets.productsPng[random.nextInt(3)]),
+                  fit: BoxFit.none)),
+        ),
+        Space.yf(.4),
         Text(
           product.name.capitalize(),
           style: AppText.h3b,
@@ -29,8 +39,9 @@ Widget productItem(Product product) {
           product.price,
           style: AppText.b1,
         ),
+        Space.yf(.5),
         Padding(
-          padding: Space.all(),
+          padding: Space.hf(.5),
           child: customElevatedButton(
               onTap: () {},
               text: "Add Product",
