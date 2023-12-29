@@ -8,6 +8,7 @@ import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/kid.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/checkout_components.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 import 'dart:math' as math;
 import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
@@ -29,6 +30,7 @@ class CheckoutScreen extends StatefulWidget {
 class _CheckoutScreenState extends State<CheckoutScreen> {
   DateTime selectedDate = DateTime.now();
   bool dateChosen = false;
+  final TextEditingController controller = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -97,7 +99,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   ),
                                   Space.xf(.8),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         widget.packageModel.name.toUpperCase(),
@@ -140,10 +143,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           height: AppDimensions.normalize(12),
                                           width: AppDimensions.normalize(50),
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(
-                                                  AppDimensions.normalize(4)),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      AppDimensions.normalize(
+                                                          4)),
                                               border: Border.all(
-                                                  color: AppColors.commonAmber)),
+                                                  color:
+                                                      AppColors.commonAmber)),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
@@ -158,7 +164,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                               ),
                                               Icon(
                                                 Icons.calendar_month,
-                                                size: AppDimensions.normalize(7),
+                                                size:
+                                                    AppDimensions.normalize(7),
                                                 color: Colors.white,
                                               )
                                             ],
@@ -212,24 +219,33 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               },
             ),
             Space.yf(1.3),
-            Container(
-              height: AppDimensions.normalize(40),
-              width: double.infinity,
-              margin: Space.all(1.2,1),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(AppDimensions.normalize(10))
-              ),
+            couponContainer(controller),
+            Space.yf(1.3),
+            pricesContainer(widget.packageModel),
+            Space.yf(1.2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ...AppAssets.paymentPng.map((e) => Padding(
+                      padding:
+                          EdgeInsets.only(right: AppDimensions.normalize(4)),
+                      child: Image.asset(
+                        e,
+                        height: AppDimensions.normalize(13),
+                      ),
+                    ))
+              ],
             ),
             Space.yf(),
-            Container(
-              height: AppDimensions.normalize(50),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(AppDimensions.normalize(7))
-              ),
-            )
+            Padding(
+              padding: Space.all(1.3, 1),
+              child: customElevatedButton(
+                  onTap: () {},
+                  text: "Place An Order".toUpperCase(),
+                  heightFraction: 20,
+                  width: double.infinity,
+                  color: AppColors.commonAmber),
+            ),
           ],
         ),
       ),

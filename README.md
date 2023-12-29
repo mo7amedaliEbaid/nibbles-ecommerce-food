@@ -30,6 +30,10 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
 
 - **Responsive Layouts:** The UI design is responsive, adapting gracefully to various screen sizes.
 
+- **Notifications:** Stay informed about special offers, new arrivals, and more with our notification feature powered by Firebase Cloud Messaging.
+
+- **Addresses:** Easily manage your delivery addresses, making the ordering process more convenient and efficient.
+
 ## Directory Structure
 
 The project is organized into several directories:
@@ -131,6 +135,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - SignInBloc
 - PackagesBloc
 - MealsBloc
+- ProductsBloc
 - NavigationCubit
 - FavoriteMealsCubit
 - SearchCubit
@@ -143,6 +148,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - AddAddressCubit
 - GetAddressesCubit
 - ConnectivityCubit
+- InfoCubit
 
 ## Screens
 
@@ -169,6 +175,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - AdsScreen
 - SplashScreen
 - TermsScreen
+- CheckoutScreen
 
 <p float="left">
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd3.jpg" width="180"/>

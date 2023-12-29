@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
+import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/models/product.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/custom_textformfield.dart';
 import 'dart:math' as math;
 
 import '../../configs/configs.dart';
@@ -53,5 +55,71 @@ Widget productItem(Product product) {
         )
       ],
     ),
+  );
+}
+
+Widget couponContainer(TextEditingController controller) {
+  return Container(
+    height: AppDimensions.normalize(55),
+    width: double.infinity,
+    margin: Space.all(1.2, 1),
+    padding: Space.all(1, 1.2),
+    decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppDimensions.normalize(10))),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          "Coupon Code",
+          style: AppText.h2,
+        ),
+        customTextFormField(
+            label: "Type here",
+            controller: controller,
+            suffix: customElevatedButton(
+                onTap: () {},
+                text: "Redeem",
+                heightFraction: 15,
+                width: AppDimensions.normalize(35),
+                color: AppColors.commonAmber))
+      ],
+    ),
+  );
+}
+
+Widget pricesContainer(PackageModel packageModel) {
+  return Container(
+    height: AppDimensions.normalize(80),
+    margin: Space.hf(1.2),
+    padding: Space.all(2, 2),
+    width: double.infinity,
+    decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppDimensions.normalize(9))),
+    child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      priceRow(
+          "Package Total", "${packageModel.price.substring(0, 3)}.000 KWD"),
+      priceRow("Add ons", "0.000 KWD"),
+      priceRow("Promo Discount", "0.000 KWD"),
+      priceRow("Grand total", "${packageModel.price.substring(0, 3)}.000 KWD"),
+    ]),
+  );
+}
+
+Widget priceRow(String leftText, String rightText) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        leftText,
+        style: AppText.h3?.copyWith(color: AppColors.greyText),
+      ),
+      Text(
+        rightText,
+        style: AppText.h3?.copyWith(color: AppColors.deepTeal),
+      ),
+    ],
   );
 }

@@ -7,6 +7,7 @@ Widget customTextFormField(
     {required String label,
     String? svgUrl,
     String? Function(String?)? validator,
+    Widget? suffix,
     required TextEditingController controller}) {
   return TextFormField(
     cursorColor: AppColors.deepTeal,
@@ -31,7 +32,7 @@ Widget customTextFormField(
                       AppColors.deepTeal, BlendMode.srcIn),
                 ),
               ),
-        labelText: label,
+        suffix: suffix,
         errorStyle: AppText.l1b?.copyWith(color: Colors.red),
         errorMaxLines: 3,
         labelStyle: AppText.b1?.copyWith(color: AppColors.greyText)),

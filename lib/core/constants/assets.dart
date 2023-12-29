@@ -59,6 +59,9 @@ sealed class AppAssets {
   static const String noConnection = "assets/svg/noconnection.svg";
   static const String checkCircle = "assets/svg/checkcircle.svg";
   static const String checkedCircle = "assets/svg/checkedcircle.svg";
+  static const String knet = "assets/svg/knetn.svg"; //NOT USED
+  static const String visa = "assets/svg/visan.svg"; //NOT USED
+  static const String masterCard = "assets/svg/mastercard.svg"; //NOT USED
   static const String add = "assets/svg/add.svg"; //NOT USED
 
   static const List<String> signupItems = [
@@ -144,6 +147,11 @@ sealed class AppAssets {
   static const String product1 = "assets/png/products/product1.png";
   static const String product2 = "assets/png/products/product2.png";
 
+  //payment
+  static const String knetPng = "assets/png/payment/knetPng.png";
+  static const String mastercardPng = "assets/png/payment/mastercardPng.png";
+  static const String visaPng = "assets/png/payment/visaPng.png";
+
   static const List<String> productsPng = [
     product0,
     product1,
@@ -179,5 +187,11 @@ sealed class AppAssets {
   static const List<String> offersPng = [
     offer,
     offer1,
+  ];
+
+  static const List<String> paymentPng = [
+    visaPng,
+    mastercardPng,
+    knetPng,
   ];
 }
