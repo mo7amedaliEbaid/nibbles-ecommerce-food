@@ -55,9 +55,9 @@ The project is organized into several directories:
 project_root
 │
 ├── 📁 application
-│   ├── 📁 feature_blocs
+│   ├── 📁 blocs
 │   │   └── ...
-│   ├── 📁 global_cubits
+│   ├── 📁 cubits
 │   │   └── ...
 │   └── ...
 │
@@ -205,6 +205,8 @@ These dependencies collectively contribute to the functionality, design, and use
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/noconnection.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/add_addressem.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/addresses.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/fbf9e0883a5c429f7992ee35eefb745410666dc0/screenshots/checkout1.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/fbf9e0883a5c429f7992ee35eefb745410666dc0/screenshots/checkout.jpg" width="180"/>
 
 </p>
 
