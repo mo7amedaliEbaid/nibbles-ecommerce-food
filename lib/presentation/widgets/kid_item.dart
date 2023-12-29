@@ -1,37 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
 import 'package:nibbles_ecommerce/models/kid.dart';
 import '../../configs/configs.dart';
 import '../../core/constants/assets.dart';
 import '../../core/constants/colors.dart';
 import 'dart:math' as math;
 
-Widget kidItem(Kid kid) {
+Widget kidItem(Kid kid, BuildContext context) {
   final random = math.Random();
   return Material(
     elevation: 1,
     borderRadius: BorderRadius.circular(AppDimensions.normalize(4)),
-    child: Container(
-      width: AppDimensions.normalize(52),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(AppDimensions.normalize(4))),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            AppAssets.kidsImages[random.nextInt(2)],
-            height: AppDimensions.normalize(18),
-          ),
-          Space.yf(.3),
-          Text(kid.name),
-          Space.yf(.3),
-          SvgPicture.asset(
-            AppAssets.checkCircle,
-            colorFilter:
-                const ColorFilter.mode(AppColors.greyText, BlendMode.srcIn),
-          )
-        ],
+    child: GestureDetector(
+      onTap: () {
+        context.read<SelectKidCubit>().toggleKid(kid);
+      },
+      child: Container(
+        width: AppDimensions.normalize(52),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(AppDimensions.normalize(4))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              AppAssets.kidsImages[random.nextInt(2)],
+              height: AppDimensions.normalize(18),
+            ),
+            Space.yf(.3),
+            Text(kid.name),
+            Space.yf(.3),
+            BlocBuilder<SelectKidCubit, SelectKidState>(
+              builder: (context, state) {
+                if (kid == state.selectedKid) {
+                  return SvgPicture.asset(
+                    AppAssets.checkedCircle,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.deepTeal, BlendMode.srcIn),
+                  );
+                } else {
+                  return SvgPicture.asset(
+                    AppAssets.checkCircle,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.greyText, BlendMode.srcIn),
+                  );
+                }
+              },
+            )
+          ],
+        ),
       ),
     ),
   );

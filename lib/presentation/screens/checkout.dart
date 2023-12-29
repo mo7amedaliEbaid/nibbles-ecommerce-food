@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/products/products_bloc.dart';
+import 'package:nibbles_ecommerce/application/cubits/place_order/place_order_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
-import 'package:nibbles_ecommerce/models/kid.dart';
+import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/models/order.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/checkout_components.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
@@ -18,10 +21,10 @@ import '../widgets/common_border_radius.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen(
-      {super.key, required this.packageModel, required this.kid});
+      {super.key, required this.packageModel, required this.addressTitle});
 
   final PackageModel packageModel;
-  final Kid kid;
+  final String addressTitle;
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -117,7 +120,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             height: AppDimensions.normalize(12),
                                           ),
                                           Space.xf(.5),
-                                          Text(widget.kid.name.capitalize())
+                                          BlocBuilder<SelectKidCubit,
+                                              SelectKidState>(
+                                            builder: (context, state) {
+                                              return Text(state
+                                                      .selectedKid?.name
+                                                      .capitalize() ??
+                                                  "");
+                                            },
+                                          )
                                         ],
                                       ),
                                       Space.yf(.8),
@@ -237,14 +248,37 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ],
             ),
             Space.yf(),
-            Padding(
-              padding: Space.all(1.3, 1),
-              child: customElevatedButton(
-                  onTap: () {},
-                  text: "Place An Order".toUpperCase(),
-                  heightFraction: 20,
-                  width: double.infinity,
-                  color: AppColors.commonAmber),
+            BlocBuilder<SelectKidCubit, SelectKidState>(
+              builder: (context, kidState) {
+                return Padding(
+                  padding: Space.all(1.3, 1),
+                  child: BlocBuilder<PlaceOrderCubit, PlaceOrderState>(
+                    builder: (context, orderState) {
+                      return customElevatedButton(
+                          onTap: () {
+                            OrderModel order = OrderModel(
+                                addressTitle: widget.addressTitle,
+                                date: selectedDate,
+                                kidName: kidState.selectedKid?.name ?? "",
+                                packageName: widget.packageModel.name,
+                                totalPrice: widget.packageModel.price);
+                            context.read<PlaceOrderCubit>().placeOrder(order);
+                            if (orderState is OrderPlacedSuccessfully) {
+                              Navigator.of(context).pushNamed(
+                                  AppRouter.successfulOrder,
+                                  arguments: widget.packageModel.name);
+                            }
+                          },
+                          text: (orderState is PlaceOrderLoading)
+                              ? AppStrings.wait
+                              : "Place An Order".toUpperCase(),
+                          heightFraction: 20,
+                          width: double.infinity,
+                          color: AppColors.commonAmber);
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),

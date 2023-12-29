@@ -18,6 +18,7 @@ import 'package:nibbles_ecommerce/presentation/screens/privacy.dart';
 import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
+import 'package:nibbles_ecommerce/presentation/screens/successful_order.dart';
 
 import '../../models/kid.dart';
 import '../../presentation/screens/addresses.dart';
@@ -52,6 +53,7 @@ sealed class AppRouter {
   static const String addresses = '/addresses';
   static const String addAddress = '/addAddress';
   static const String checkout = '/checkout';
+  static const String successfulOrder = '/successfulOrder';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -132,11 +134,18 @@ sealed class AppRouter {
             routeSettings.arguments as Map<String, dynamic>;
         final PackageModel packageModel =
             arguments['packageModel'] as PackageModel;
-        final Kid kid = arguments['kid'] as Kid;
+        final String addressTitle = arguments['addressTitle'] as String;
         return MaterialPageRoute(
             builder: (_) => CheckoutScreen(
                   packageModel: packageModel,
-                  kid: kid,
+                  addressTitle: addressTitle,
+                ));
+
+      case successfulOrder:
+        String packageName = routeSettings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => SuccessfulOrderScreen(
+                  packageName: packageName,
                 ));
 
       default:

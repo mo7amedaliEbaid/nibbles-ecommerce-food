@@ -12,7 +12,9 @@ import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cub
 import 'package:nibbles_ecommerce/application/cubits/add_kids/add_kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/place_order/place_order_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/repositories/address_repo/address_repo.dart';
 import 'package:nibbles_ecommerce/repositories/categories_repos/categories_repos.dart';
@@ -20,6 +22,7 @@ import 'package:nibbles_ecommerce/repositories/favourite_meals_repo/fav_meals_re
 import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packages_repo.dart';
 import 'package:nibbles_ecommerce/repositories/kid_repos/kid_repo.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
+import 'package:nibbles_ecommerce/repositories/orders_repos/orders_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 import 'package:nibbles_ecommerce/repositories/products_repos/products_repo.dart';
 
@@ -138,6 +141,7 @@ class _MyAppState extends State<MyApp> {
           BlocProvider(
               create: (context) =>
                   AddKidsCubit(kidsRepository: KidsRepository())),
+          BlocProvider(create: (context) => SelectKidCubit()),
           BlocProvider(
               create: (context) =>
                   AddAddressCubit(addressRepository: AddressRepository())),
@@ -152,6 +156,9 @@ class _MyAppState extends State<MyApp> {
                 LoadProducts(),
               ),
           ),
+          BlocProvider(
+              create: (context) =>
+                  PlaceOrderCubit(ordersRepository: OrdersRepository())),
         ],
         child: MaterialApp(
           title: 'Nibbles',

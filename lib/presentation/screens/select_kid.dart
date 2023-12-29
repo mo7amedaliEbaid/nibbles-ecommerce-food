@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
 import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
 import 'package:nibbles_ecommerce/configs/app_typography.dart';
 import 'package:nibbles_ecommerce/configs/space.dart';
@@ -71,7 +72,7 @@ class _SelectKidScreenState extends State<SelectKidScreen> {
                                 itemCount: state.kids.length,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
-                                  return kidItem(state.kids[index]);
+                                  return kidItem(state.kids[index], context);
                                 },
                                 separatorBuilder:
                                     (BuildContext context, int index) {
@@ -190,31 +191,23 @@ class _SelectKidScreenState extends State<SelectKidScreen> {
             }
           }),
           Space.ym!,
-          BlocBuilder<GetKidsCubit, GetKidsState>(
-            builder: (context, state) {
-              if (state is GetKidsLoaded && state.kids.isNotEmpty) {
-                return Padding(
-                  padding: Space.all(1.5, 1.5),
-                  child: customElevatedButton(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                          AppRouter.checkout,
-                          arguments: {
-                            'packageModel': widget.packageModel,
-                            'kid': state.kids.first,
-                          },
-                        );
-                      },
-                      text: "Proceed to checkout".toUpperCase(),
-                      heightFraction: 20,
-                      width: double.infinity,
-                      color: AppColors.commonAmber),
-                );
-              } else {
-                return const SizedBox.shrink();
-              }
-            },
-          )
+          Padding(
+            padding: Space.all(1.5, 1.5),
+            child: customElevatedButton(
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    AppRouter.checkout,
+                    arguments: {
+                      'packageModel': widget.packageModel,
+                      'addressTitle': selectedValue
+                    },
+                  );
+                },
+                text: "Proceed to checkout".toUpperCase(),
+                heightFraction: 20,
+                width: double.infinity,
+                color: AppColors.commonAmber),
+          ),
         ],
       ),
     );
