@@ -139,6 +139,17 @@ sealed class AppAssets {
   static const String kid1 = "assets/png/kid1.png";
   static const String kid2 = "assets/png/kid2.png";
 
+  //products
+  static const String product0 = "assets/png/products/product0.png";
+  static const String product1 = "assets/png/products/product1.png";
+  static const String product2 = "assets/png/products/product2.png";
+
+  static const List<String> productsPng = [
+    product0,
+    product1,
+    product2,
+  ];
+
   static const List<String> kidsImages = [
     kid1,
     kid2,

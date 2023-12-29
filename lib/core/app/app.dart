@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
 import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
+import 'package:nibbles_ecommerce/application/blocs/products/products_bloc.dart';
 import 'package:nibbles_ecommerce/application/cubits/contact/contact_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_meals/fav_meals_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
@@ -19,6 +20,7 @@ import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packa
 import 'package:nibbles_ecommerce/repositories/kid_repos/kid_repo.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
+import 'package:nibbles_ecommerce/repositories/products_repos/products_repo.dart';
 
 import '../../application/blocs/auth_bloc/auth_bloc.dart';
 import '../../application/blocs/categories/categories_bloc.dart';
@@ -104,7 +106,9 @@ class _MyAppState extends State<MyApp> {
             create: (context) => MealsBloc(mealsRepo: MealsRepo()),
           ),
           BlocProvider(create: (context) => NavigationCubit()),
-          BlocProvider(create: (context) => NibblesInfoCubit()),
+          BlocProvider(
+              lazy: false,
+              create: (context) => NibblesInfoCubit()..fetchAboutInfo()),
           BlocProvider(
             create: (context) => SearchCubit(
                 mealsRepo: MealsRepo(), packagesRepos: PackagesRepos()),
@@ -139,7 +143,14 @@ class _MyAppState extends State<MyApp> {
           BlocProvider(
               create: (context) =>
                   GetAddressCubit(addressRepository: AddressRepository())),
-          BlocProvider(create: (context) => ConnectivityCubit())
+          BlocProvider(create: (context) => ConnectivityCubit()),
+          BlocProvider(
+            lazy: false,
+            create: (context) => ProductsBloc(productsRepo: ProductsRepo())
+              ..add(
+                LoadProducts(),
+              ),
+          ),
         ],
         child: MaterialApp(
           title: 'Nibbles',

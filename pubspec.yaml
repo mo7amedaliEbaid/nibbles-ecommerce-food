@@ -55,6 +55,7 @@ flutter:
    - assets/png/offers/
    - assets/png/social/
    - assets/png/steps/
+   - assets/png/products/
 
 
   fonts:

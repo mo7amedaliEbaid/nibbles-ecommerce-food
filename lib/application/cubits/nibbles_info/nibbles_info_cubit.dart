@@ -22,7 +22,7 @@ class NibblesInfoCubit extends Cubit<NibblesInfoState> {
     }
   }
 
-  void fetchPrivacyInfo() async {
+/*  void fetchPrivacyInfo() async {
     try {
       final info = await _infoRepo.getPrivacyInfo().first;
       emit(NibblesInfoLoaded(info));
@@ -38,5 +38,5 @@ class NibblesInfoCubit extends Cubit<NibblesInfoState> {
     } catch (e) {
       emit(NibblesInfoError('Failed to fetch terms info: $e'));
     }
-  }
+  }*/
 }

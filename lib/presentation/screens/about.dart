@@ -28,7 +28,7 @@ class _AboutScreenState extends State<AboutScreen> {
     return Scaffold(
       body: BlocConsumer<NibblesInfoCubit, NibblesInfoState>(
         listener: (context, state) {
-          context.read<NibblesInfoCubit>().fetchAboutInfo();
+       //   context.read<NibblesInfoCubit>().fetchAboutInfo();
         },
         builder: (context, state) {
           if (state is NibblesInfoLoaded) {

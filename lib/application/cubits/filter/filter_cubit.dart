@@ -29,6 +29,13 @@ class FilterCubit extends Cubit<FilterState> {
     // Add more facts as needed
   };
 
+  void resetAllFacts() {
+    selectedFacts.forEach((fact, _) {
+      selectedFacts[fact] = false;
+    });
+    emit(FilterInitial());
+  }
+
   void toggleFact(String fact, bool selected) {
     selectedFacts[fact] = selected;
   }

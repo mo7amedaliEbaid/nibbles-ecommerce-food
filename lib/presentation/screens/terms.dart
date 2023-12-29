@@ -16,7 +16,7 @@ class TermsScreen extends StatefulWidget {
 class _TermsScreenState extends State<TermsScreen> {
   @override
   void initState() {
-    context.read<NibblesInfoCubit>().fetchTermsInfo();
+   // context.read<NibblesInfoCubit>().fetchTermsInfo();
     super.initState();
   }
 
@@ -30,7 +30,7 @@ class _TermsScreenState extends State<TermsScreen> {
             return NibblesInfoBody(
                 nibblesInfo: state.info, title: "Terms and conditions");
           } else {
-            return const LoadingTicker(text: "Loading");
+            return const Center(child: LoadingTicker(text: "Loading"));
           }
         },
       ),

@@ -16,7 +16,7 @@ class PrivacyScreen extends StatefulWidget {
 class _PrivacyScreenState extends State<PrivacyScreen> {
   @override
   void initState() {
-    context.read<NibblesInfoCubit>().fetchPrivacyInfo();
+   // context.read<NibblesInfoCubit>().fetchPrivacyInfo();
     super.initState();
   }
 
@@ -30,7 +30,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             return NibblesInfoBody(
                 nibblesInfo: state.info, title: "Privacy Policy");
           } else {
-            return const LoadingTicker(text: "Loading");
+            return const Center(child: LoadingTicker(text: "Loading"));
           }
         },
       ),

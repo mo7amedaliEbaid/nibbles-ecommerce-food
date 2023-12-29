@@ -8,6 +8,7 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
 import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
@@ -51,7 +52,10 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(widget.mealCategory.categoryname.toUpperCase(),
+                Text(
+                    selectedFacts.isNotEmpty
+                        ? selectedFacts.first
+                        : widget.mealCategory.categoryname.toUpperCase(),
                     style: AppText.h2b),
                 GestureDetector(
                   onTap: () {
@@ -101,19 +105,31 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                                         },
                                       ),
                                     ),
+                                    Text(
+                                      "Calories".toUpperCase(),
+                                      style: AppText.h3,
+                                    ),
                                     CalorieRangeSlider(
                                         minCalories: 0,
                                         maxCalories: 1000,
                                         onRangeChanged: (int1, int2) {}),
+                                    Space.yf(),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         customElevatedButton(
-                                            onTap: () {},
+                                            onTap: () {
+                                              setState(() {
+                                                context
+                                                    .read<FilterCubit>()
+                                                    .resetAllFacts();
+                                              });
+                                              Navigator.pop(context);
+                                            },
                                             text: "Reset".toUpperCase(),
                                             heightFraction: 20,
-                                            width: AppDimensions.normalize(40),
+                                            width: AppDimensions.normalize(60),
                                             color: AppColors.antiqueRuby,
                                             textColor: Colors.white),
                                         Space.xf(),
@@ -121,10 +137,11 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                                             onTap: () {},
                                             text: "Apply".toUpperCase(),
                                             heightFraction: 20,
-                                            width: AppDimensions.normalize(40),
+                                            width: AppDimensions.normalize(60),
                                             color: AppColors.commonAmber)
                                       ],
-                                    )
+                                    ),
+                                    Space.yf()
                                   ],
                                 ),
                               ),
@@ -146,10 +163,21 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
                   child: BlocBuilder<FilterCubit, FilterState>(
                     builder: (context, state) {
                       if (state is FilterSuccess) {
-                        return Center(
-                          child:
-                              Text(state.filteredMeals.first.facts.toString()),
-                        );
+                        return SizedBox(
+                            height: AppDimensions.normalize(195),
+                            child: ListView.separated(
+                              itemCount: state.filteredMeals.length,
+                              padding: Space.all(1, 1),
+                              itemBuilder: (context, index) {
+                                return MealItem(
+                                    mealModel: state.filteredMeals[index],
+                                    isInVerticalList: true);
+                              },
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return Space.yf();
+                              },
+                            ));
                       } else {
                         return const CircularProgressIndicator();
                       }
@@ -176,8 +204,10 @@ class _MealsByCategoryScreenState extends State<MealsByCategoryScreen> {
         Checkbox(
           value: context.read<FilterCubit>().isFactSelected(label),
           onChanged: (value) {
-            context.read<FilterCubit>().toggleFact(label, value ?? false);
-            setState(() {});
+            setState(() {
+              context.read<FilterCubit>().toggleFact(label, value ?? false);
+              Navigator.pop(context);
+            });
           },
         ),
         Text(label),
