@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../configs/app_dimensions.dart';
 
-
 BorderRadius profileBorderRadius = BorderRadius.only(
   topRight: Radius.circular(AppDimensions.normalize(20)),
   topLeft: Radius.circular(AppDimensions.normalize(10)),
@@ -39,3 +38,20 @@ BorderRadius maxBorderRadius = BorderRadius.only(
     AppDimensions.normalize(11),
   ),
 );
+
+BorderRadius packageBorderRadius = BorderRadius.only(
+  topLeft: Radius.circular(
+    AppDimensions.normalize(8),
+  ),
+  topRight: Radius.circular(
+    AppDimensions.normalize(40),
+  ),
+  bottomRight: Radius.circular(
+    AppDimensions.normalize(8),
+  ),
+  bottomLeft: Radius.circular(
+    AppDimensions.normalize(8),
+  ),
+);
+
+

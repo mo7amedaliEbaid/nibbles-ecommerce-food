@@ -59,6 +59,7 @@ sealed class AppAssets {
   static const String noConnection = "assets/svg/noconnection.svg";
   static const String checkCircle = "assets/svg/checkcircle.svg";
   static const String checkedCircle = "assets/svg/checkedcircle.svg";
+  static const String subscriptions = "assets/svg/subscriptions.svg";
   static const String knet = "assets/svg/knetn.svg"; //NOT USED
   static const String visa = "assets/svg/visan.svg"; //NOT USED
   static const String masterCard = "assets/svg/mastercard.svg"; //NOT USED

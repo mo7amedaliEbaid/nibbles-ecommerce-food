@@ -1,5 +1,3 @@
-## In Development [👀🔄 85% ].
-
 # Nibbles - Flutter Food App 🍔🍕🍰
 
 Nibbles is a Flutter-based food app designed to provide users with a delightful and user-friendly experience as they explore a variety of meals and food packages. The app utilizes the Bloc pattern and Cubits for efficient state management, integrates Firebase Firestore for real-time data storage, and incorporates various plugins to enhance its functionality.
@@ -33,6 +31,8 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
 - **Notifications:** Stay informed about special offers, new arrivals, and more with our notification feature powered by Firebase Cloud Messaging.
 
 - **Addresses:** Easily manage your delivery addresses, making the ordering process more convenient and efficient.
+
+- **Orders:** Place you orders and select the address and delivery date.
 
 ## Directory Structure
 
@@ -120,6 +120,8 @@ project_root
 
 - **connectivity_plus:** Provides a simple and efficient way to monitor the network connectivity status of a device.
 
+- **table_calendar:** Highly customizable, feature-packed calendar widget for Flutter.
+
 - **firebase_messaging:** Flutter plugin for Firebase Cloud Messaging, a cross-platform messaging solution that lets you reliably deliver messages on Android and iOS.
 
 - **flutter_local_notifications** A cross platform plugin for displaying and scheduling local notifications for Flutter applications with the ability to customise for each platform.
@@ -181,6 +183,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - CheckoutScreen
 - SuccessfulOrderScreen.
 - SubscriptionsScreen.
+- OrderDetailsScreen.
 
 <p float="left">
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd3.jpg" width="180"/>

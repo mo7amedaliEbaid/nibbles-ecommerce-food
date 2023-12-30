@@ -7,6 +7,7 @@ import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
+import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
 
 import '../../application/blocs/user_bloc/user_bloc.dart';
 import 'favicons_stacks.dart';
@@ -39,22 +40,8 @@ class PackageItem extends StatelessWidget {
                       height: AppDimensions.normalize(100),
                       width: AppDimensions.normalize(120),
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                            AppDimensions.normalize(8),
-                          ),
-                          topRight: Radius.circular(
-                            AppDimensions.normalize(40),
-                          ),
-                          bottomRight: Radius.circular(
-                            AppDimensions.normalize(8),
-                          ),
-                          bottomLeft: Radius.circular(
-                            AppDimensions.normalize(8),
-                          ),
-                        ),
-                      ),
+                          color: Colors.white,
+                          borderRadius: packageBorderRadius),
                     ),
                     Positioned(
                       top: AppDimensions.normalize(48),

@@ -30,7 +30,7 @@ class OrderModel extends Equatable {
       packageName: data['packageName'],
       totalPrice: data['totalPrice'],
       addressTitle: data['addressTitle'],
-      date: data['date'],
+      date: data['date'].toDate(),
       userId: data['userId'],
     );
   }

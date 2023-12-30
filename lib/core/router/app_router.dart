@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
+import 'package:nibbles_ecommerce/models/order.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/presentation/screens/about.dart';
 import 'package:nibbles_ecommerce/presentation/screens/add_address.dart';
@@ -12,6 +13,7 @@ import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
 import 'package:nibbles_ecommerce/presentation/screens/login.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
 import 'package:nibbles_ecommerce/presentation/screens/meals_bycategory.dart';
+import 'package:nibbles_ecommerce/presentation/screens/order_details.dart';
 import 'package:nibbles_ecommerce/presentation/screens/select_kid.dart';
 import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
 import 'package:nibbles_ecommerce/presentation/screens/privacy.dart';
@@ -55,6 +57,7 @@ sealed class AppRouter {
   static const String addAddress = '/addAddress';
   static const String checkout = '/checkout';
   static const String successfulOrder = '/successfulOrder';
+  static const String orderDetails = '/orderDetails';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -147,6 +150,12 @@ sealed class AppRouter {
         return MaterialPageRoute(
             builder: (_) => SuccessfulOrderScreen(
                   packageName: packageName,
+                ));
+      case orderDetails:
+        OrderModel orderModel = routeSettings.arguments as OrderModel;
+        return MaterialPageRoute(
+            builder: (_) => OrderDetailsScreen(
+                  orderModel: orderModel,
                 ));
 
       default:
