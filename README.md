@@ -249,9 +249,9 @@ Happy coding and happy nibbling with Nibbles! 🍔🍕🍰
 More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots)
 
 <p float="left">
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/meal.png" width="480"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/addresses.png" width="480"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/packages.png" width="480"/>
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/meal.png" width="880"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/addresses.png" width="880"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/packages.png" width="880"/>
 
 </p>
 
