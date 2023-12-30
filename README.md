@@ -185,6 +185,8 @@ These dependencies collectively contribute to the functionality, design, and use
 - SubscriptionsScreen.
 - OrderDetailsScreen.
 
+#### More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots)
+
 <p float="left">
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd3.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd2.jpg" width="180"/>
@@ -213,8 +215,13 @@ These dependencies collectively contribute to the functionality, design, and use
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/noconnection.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/add_addressem.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/addresses.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/fbf9e0883a5c429f7992ee35eefb745410666dc0/screenshots/checkout1.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/fbf9e0883a5c429f7992ee35eefb745410666dc0/screenshots/checkout.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/check1.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/chech.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/orderdetails.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/select-date.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/select-kid.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/successfulorder.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/subscriptions.jpg" width="180"/>
 
 </p>
 
@@ -229,6 +236,7 @@ To get started with Nibbles:
 
 Feel free to explore and customize the app according to your needs. Share your feedback!
 
+### Note: the meals qr codes i used in this app are provided in [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/meals_qrcodes)
 
 ## License
 
