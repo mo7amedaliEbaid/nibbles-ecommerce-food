@@ -11,6 +11,7 @@ import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_pack
 import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/add_kids/add_kids_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/cubits/get_orders/get_orders_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/kids_steps/kids_steps_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/place_order/place_order_cubit.dart';
 import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
@@ -159,6 +160,9 @@ class _MyAppState extends State<MyApp> {
           BlocProvider(
               create: (context) =>
                   PlaceOrderCubit(ordersRepository: OrdersRepository())),
+          BlocProvider(
+              create: (context) =>
+                  GetOrdersCubit(ordersRepository: OrdersRepository())),
         ],
         child: MaterialApp(
           title: 'Nibbles',

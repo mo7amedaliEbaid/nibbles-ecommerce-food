@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/models/product.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_textformfield.dart';
 import 'dart:math' as math;
 
 import '../../configs/configs.dart';
@@ -75,7 +74,24 @@ Widget couponContainer(TextEditingController controller) {
           "Coupon Code",
           style: AppText.h2,
         ),
-        customTextFormField(
+        TextField(
+          cursorColor: AppColors.deepTeal,
+          decoration: InputDecoration(
+            labelText: "Type here",
+            enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.lightGrey)),
+            focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.antiqueRuby)),
+            labelStyle: AppText.b1?.copyWith(color: AppColors.greyText),
+            suffixIcon: customElevatedButton(
+                onTap: () {},
+                text: "Redeem",
+                heightFraction: 15,
+                width: AppDimensions.normalize(35),
+                color: AppColors.commonAmber),
+          ),
+        )
+        /* customTextFormField(
             label: "Type here",
             controller: controller,
             suffix: customElevatedButton(
@@ -83,7 +99,7 @@ Widget couponContainer(TextEditingController controller) {
                 text: "Redeem",
                 heightFraction: 15,
                 width: AppDimensions.normalize(35),
-                color: AppColors.commonAmber))
+                color: AppColors.commonAmber))*/
       ],
     ),
   );

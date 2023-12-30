@@ -263,11 +263,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 packageName: widget.packageModel.name,
                                 totalPrice: widget.packageModel.price);
                             context.read<PlaceOrderCubit>().placeOrder(order);
-                            if (orderState is OrderPlacedSuccessfully) {
+                          //  if (orderState is OrderPlacedSuccessfully) {
                               Navigator.of(context).pushNamed(
                                   AppRouter.successfulOrder,
                                   arguments: widget.packageModel.name);
-                            }
+                          //  }
                           },
                           text: (orderState is PlaceOrderLoading)
                               ? AppStrings.wait

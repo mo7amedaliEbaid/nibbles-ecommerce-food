@@ -18,6 +18,7 @@ import 'package:nibbles_ecommerce/presentation/screens/privacy.dart';
 import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
 import 'package:nibbles_ecommerce/presentation/screens/search.dart';
 import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
+import 'package:nibbles_ecommerce/presentation/screens/subscriptions.dart';
 import 'package:nibbles_ecommerce/presentation/screens/successful_order.dart';
 
 import '../../models/kid.dart';
@@ -96,7 +97,7 @@ sealed class AppRouter {
       case offers:
         return MaterialPageRoute(builder: (_) => const OffersScreen());
       case subscriptions:
-        return MaterialPageRoute(builder: (_) => const OffersScreen());
+        return MaterialPageRoute(builder: (_) => const SubscriptionsScreen());
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case selectKid:
