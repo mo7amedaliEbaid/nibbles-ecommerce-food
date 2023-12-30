@@ -1,4 +1,4 @@
-## In Development [👀🔄 70% ].
+## In Development [👀🔄 85% ].
 
 # Nibbles - Flutter Food App 🍔🍕🍰
 
@@ -148,7 +148,10 @@ These dependencies collectively contribute to the functionality, design, and use
 - AddAddressCubit
 - GetAddressesCubit
 - ConnectivityCubit
-- InfoCubit
+- InfoCubit.
+- SelectKidCubit.
+- PlaceOrderCubit.
+- GetOrdersCubit.
 
 ## Screens
 
@@ -176,6 +179,8 @@ These dependencies collectively contribute to the functionality, design, and use
 - SplashScreen
 - TermsScreen
 - CheckoutScreen
+- SuccessfulOrderScreen.
+- SubscriptionsScreen.
 
 <p float="left">
  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd3.jpg" width="180"/>
