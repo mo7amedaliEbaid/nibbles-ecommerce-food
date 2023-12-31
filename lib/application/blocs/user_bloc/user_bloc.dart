@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/repositories/user_repos/base_user_repos.dart';
+import 'package:nibbles_ecommerce/repositories/user_repos/base_user_repo.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../models/user_model.dart';

@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 
 import 'package:equatable/equatable.dart';
-import 'package:nibbles_ecommerce/core/error/failures.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../core/error/custom_error.dart';
-import '../../../repositories/auth_repos/auth_repos.dart';
+import '../../../repositories/auth_repos/auth_repo.dart';
 
 
 part 'sign_in_event.dart';

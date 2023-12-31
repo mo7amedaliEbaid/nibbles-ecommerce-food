@@ -1,21 +1,21 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/core/error/failures.dart';
-import 'package:nibbles_ecommerce/repositories/auth_repos/base_auth_repos.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/repositories/auth_repos/base_auth_repo.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../core/error/custom_error.dart';
 import '../../../models/user_model.dart';
-import '../../../repositories/auth_repos/auth_repos.dart';
 
 part 'sign_up_event.dart';
+
 part 'sign_up_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final BaseAuthRepository authRepository;
+
   SignUpBloc({required this.authRepository}) : super(SignUpState.initial()) {
     on<SignUpWithCredential>(_mapSignInWithCredentialToState);
   }
