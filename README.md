@@ -1,6 +1,6 @@
 # Nibbles - Flutter Food App 🍔🍕🍰
 
-Nibbles is a Flutter-based food app designed to provide users with a delightful and user-friendly experience as they explore a variety of meals and food packages. The app utilizes the Bloc pattern and Cubits for efficient state management, integrates Firebase Firestore for real-time data storage, and incorporates various plugins to enhance its functionality.
+Nibbles is a Flutter-based food app designed to provide users with a delightful and user-friendly experience as they explore a variety of meals and food packages📦. The app utilizes the Bloc pattern and Cubits for efficient state management, integrates Firebase Firestore for real-time data storage, and incorporates various plugins to enhance its functionality.
 
 ## Features
 
@@ -12,27 +12,27 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
   
 - **Authentication:** Sign up and sign in securely using Firebase Authentication, providing a reliable and safe user experience.
   
-- **Search Functionality:** Easily find specific meals or food packages based on preferences with a robust search feature.
+- **🔍Search Functionality:** Easily find specific meals or food packages based on preferences with a robust search feature.
   
 - **Qr Code Scanner:** Quickly access relevant information through the integrated Qr code scanner.
   
-- **Favourite Lists:** Manage your favourite lists, making it convenient to keep track of preferred meals and food packages.
+- **❤️Favourite Lists:** Manage your favourite lists, making it convenient to keep track of preferred meals and food packages.
   
 - **Filter Options:** Refine your search with filter options based on specific criteria, enhancing the overall browsing experience.
   
-- **Contact Us:** Connect with app administrators using the "Contact Us" feature.
+- **📞Contact Us:** Connect with app administrators using the "Contact Us" feature.
   
 - **App Info Screens:** Access essential app-related information with informative screens such as "About" and "Privacy.".
   
-- **Kid Accounts:** Enable users to create accounts for their kids with a dedicated `AddKidScreen`.
+- **🧒Kid Accounts:** Enable users to create accounts for their kids with a dedicated `AddKidScreen`.
 
 - **Responsive Layouts:** The UI design is responsive, adapting gracefully to various screen sizes.
 
-- **Notifications:** Stay informed about special offers, new arrivals, and more with our notification feature powered by Firebase Cloud Messaging.
+- **🔔Notifications:** Stay informed about special offers, new arrivals, and more with our notification feature powered by Firebase Cloud Messaging.
 
-- **Addresses:** Easily manage your delivery addresses, making the ordering process more convenient and efficient.
+- **🏠Addresses:** Easily manage your delivery addresses, making the ordering process more convenient and efficient.
 
-- **Orders:** Place you orders and select the address and delivery date.
+- **Orders:** Place your orders and select the address and delivery date.
 
 ## Directory Structure
 
@@ -249,9 +249,9 @@ Happy coding and happy nibbling with Nibbles! 🍔🍕🍰
 More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots)
 
 <p float="left">
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/meal.png" width="480"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/addresses.png" width="480"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/packages.png" width="480"/>
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/meal.png" width="880"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/addresses.png" width="880"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/8611cc4b32da8006acfdddf77d52c107546b0539/firestoreScreenshots/packages.png" width="880"/>
 
 </p>
 
