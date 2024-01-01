@@ -128,10 +128,8 @@ class _MyAppState extends State<MyApp> {
               create: (context) =>
                   PlaceOrderCubit(ordersRepository: OrdersRepository())),
           BlocProvider(
-              lazy: false,
               create: (context) =>
-                  GetOrdersCubit(ordersRepository: OrdersRepository())
-                    ..getOrders(FirebaseAuth.instance.currentUser!.uid)),
+                  GetOrdersCubit(ordersRepository: OrdersRepository())),
         ],
         child: MaterialApp(
           title: 'Nibbles',

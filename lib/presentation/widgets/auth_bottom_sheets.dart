@@ -65,8 +65,9 @@ Future<void> showSuccessfulAuthBottomSheet(
                     left: AppDimensions.normalize(3)),
                 child: customElevatedButton(
                     onTap: () {
-                      Navigator.of(context).pushNamed(
+                      Navigator.of(context).pushNamedAndRemoveUntil(
                         AppRouter.root,
+                        (route) => false,
                       );
                     },
                     text: "OK".toUpperCase(),
