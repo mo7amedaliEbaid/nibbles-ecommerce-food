@@ -1,4 +1,4 @@
-import 'package:nibbles_ecommerce/models/order.dart';
+part of 'orders_repo.dart';
 
 abstract class BaseOrdersRepository {
   Future<void> placeOrder(OrderModel order);

@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/repositories/favourite_packages_repo/fav_packages_repo.dart';
 
-import '../../../repositories/favourite_packages_repo/base_favpackages_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 part 'fav_packages_state.dart';
 

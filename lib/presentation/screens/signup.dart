@@ -1,21 +1,19 @@
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/core/validator/validator.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/auth_bottom_sheets.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_textformfield.dart';
+
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 
 import '../../core/enums/enums.dart';
 import '../../models/user_model.dart';
-import '../widgets/auth_screens_components.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

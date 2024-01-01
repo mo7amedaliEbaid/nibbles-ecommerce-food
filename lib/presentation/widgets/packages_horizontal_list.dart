@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/core/constants/strings.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
-import '../../application/blocs/packages/packages_bloc.dart';
-import 'tickers.dart';
+import 'package:nibbles_ecommerce/core/constants/strings.dart';
+
+import '../../application/application.dart';
 
 Widget packagesHorizontaList() {
   return BlocBuilder<PackagesBloc, PackagesState>(builder: (context, state) {
@@ -24,7 +24,9 @@ Widget packagesHorizontaList() {
             );
           });
     } else {
-      return const LoadingTicker(text: AppStrings.loading,);
+      return const LoadingTicker(
+        text: AppStrings.loading,
+      );
     }
   });
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../configs/app_typography.dart';
+import '../../configs/configs.dart';
 import '../../core/constants/colors.dart';
 
 class LoadingTicker extends StatefulWidget {

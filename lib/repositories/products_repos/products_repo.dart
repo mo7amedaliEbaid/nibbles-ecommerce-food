@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/product.dart';
-import 'package:nibbles_ecommerce/repositories/products_repos/base_products_repo.dart';
+
+part 'base_products_repo.dart';
 
 class ProductsRepo extends BaseProductsRepo {
   final FirebaseFirestore _firebaseFirestore;

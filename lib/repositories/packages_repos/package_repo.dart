@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
-import 'package:nibbles_ecommerce/repositories/packages_repos/base_packages_repo.dart';
+
+part 'base_packages_repo.dart';
 
 class PackagesRepos extends BasePackagesRepository {
   final FirebaseFirestore _firebaseFirestore;
@@ -19,6 +20,7 @@ class PackagesRepos extends BasePackagesRepository {
       }).toList();
     });
   }
+
   @override
   Stream<List<PackageModel>> getPackagesByName(String name) {
     return _firebaseFirestore

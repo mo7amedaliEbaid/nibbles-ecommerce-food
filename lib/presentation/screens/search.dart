@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/packages_horizontal_list.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
-
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

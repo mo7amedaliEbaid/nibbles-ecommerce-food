@@ -1,8 +1,8 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../models/user_model.dart';
-import 'base_user_repo.dart';
+
+part 'base_user_repo.dart';
 
 class UserRepository extends BaseUserRepository {
   final FirebaseFirestore _firebaseFirestore;

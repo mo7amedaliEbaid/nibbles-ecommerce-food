@@ -1,14 +1,11 @@
-import 'dart:developer';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 
 import '../../core/constants/strings.dart';
-import 'tickers.dart';
-import 'meal_item.dart';
 
 class MealsVerticalListview extends StatelessWidget {
   const MealsVerticalListview({super.key});

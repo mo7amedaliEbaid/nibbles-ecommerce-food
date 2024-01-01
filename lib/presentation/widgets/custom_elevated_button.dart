@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/configs/app_typography.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 
 Widget customElevatedButton(
     {required void Function()? onTap,

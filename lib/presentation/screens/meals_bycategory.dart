@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meals_vertical_listview.dart';
-import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
-import '../../application/cubits/filter/filter_cubit.dart';
-import '../widgets/range_slider.dart';
+import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
 
 class MealsByCategoryScreen extends StatefulWidget {
   const MealsByCategoryScreen({super.key, required this.mealCategory});

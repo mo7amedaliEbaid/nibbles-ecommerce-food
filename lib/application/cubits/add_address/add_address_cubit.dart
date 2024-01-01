@@ -1,14 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/repositories/address_repo/base_address_repo.dart';
-
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 import '../../../models/address.dart';
+
 part 'add_address_state.dart';
 
 class AddAddressCubit extends Cubit<AddAddressState> {
   final BaseAddressRepository addressRepository;
 
-  AddAddressCubit({required this.addressRepository}) : super(AddAddressInitial());
+  AddAddressCubit({required this.addressRepository})
+      : super(AddAddressInitial());
 
   Future<void> addAddress(Address address) async {
     emit(AddAddressLoading());
@@ -19,5 +20,4 @@ class AddAddressCubit extends Cubit<AddAddressState> {
       emit(const AddressError(errorMessage: 'Failed to add address'));
     }
   }
-
 }

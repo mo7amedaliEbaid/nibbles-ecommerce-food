@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/favourite_packages/fav_packages_cubit.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
-import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
 import '../../models/meal.dart';
 
 class FavoritesScreen extends StatefulWidget {

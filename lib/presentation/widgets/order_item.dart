@@ -3,8 +3,7 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/order.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../core/constants/assets.dart';
 

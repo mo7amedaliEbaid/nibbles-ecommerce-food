@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../models/contact_message.dart';
-import '../../../repositories/contact_message/base_contact_message_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 import '../../../repositories/contact_message/contact_message_repo.dart';
 
 

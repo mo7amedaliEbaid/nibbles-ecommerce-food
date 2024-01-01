@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../core/constants/strings.dart';
 

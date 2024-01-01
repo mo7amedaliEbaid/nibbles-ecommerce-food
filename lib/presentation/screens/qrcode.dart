@@ -1,23 +1,16 @@
 import 'dart:developer';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/search/search_cubit.dart';
-import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/qrscan_result_bottomsheet.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
-import '../../configs/app_dimensions.dart';
-import '../widgets/tickers.dart';
+import '../../configs/configs.dart';
 
 class QrCodeScreen extends StatefulWidget {
   const QrCodeScreen({super.key});
@@ -70,14 +63,11 @@ class QrCodeScreenState extends State<QrCodeScreen> {
                   showQrScanResultBottomSheet(context, []);
                 }
               },
-              child: Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
+              child: Stack(alignment: Alignment.center, children: <Widget>[
                 InkWell(
                     onTap: () => scanQR(), child: Image.asset(AppAssets.qrPng)),
                 Positioned(
-                    top: AppDimensions.normalize(20),
-                    child: TapToScanTicker()),
+                    top: AppDimensions.normalize(20), child: TapToScanTicker()),
               ]),
             ),
           ),

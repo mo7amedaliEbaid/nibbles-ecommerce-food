@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../configs/configs.dart';
 import '../../core/constants/colors.dart';
 import '../../models/meal.dart';
-import 'custom_elevated_button.dart';
-import 'meal_item.dart';
 
 Future<void> showQrScanResultBottomSheet(
     BuildContext context, List<MealModel> meals) async {
@@ -55,7 +54,6 @@ Future<void> showQrScanResultBottomSheet(
                           EdgeInsets.only(right: AppDimensions.normalize(4)),
                       child: customElevatedButton(
                           onTap: () {
-
                             Navigator.of(context).pushNamed(
                                 AppRouter.mealDetails,
                                 arguments: meals.first);

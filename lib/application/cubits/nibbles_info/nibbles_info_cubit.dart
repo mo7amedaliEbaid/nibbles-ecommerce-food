@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/repositories/info_repos/info_repo.dart';
 
 import '../../../models/info.dart';
-import '../../../repositories/info_repos/base_info_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 part 'nibbles_info_state.dart';
 

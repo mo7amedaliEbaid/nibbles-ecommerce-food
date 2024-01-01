@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/models/order.dart';
 
-import '../../../repositories/orders_repos/base_orders_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 part 'get_orders_state.dart';
 

@@ -1,17 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cubit.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/address_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_appbar.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 
 class AddressesScreen extends StatefulWidget {
   const AddressesScreen({super.key});

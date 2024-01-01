@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/models/kid.dart';
 import '../../configs/configs.dart';
 import '../../core/constants/assets.dart';

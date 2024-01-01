@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/info.dart';
-import 'package:nibbles_ecommerce/repositories/info_repos/base_info_repo.dart';
+
+part 'base_info_repo.dart';
 
 class InfoRepo extends BaseInfoRepository {
   final FirebaseFirestore _firebaseFirestore;

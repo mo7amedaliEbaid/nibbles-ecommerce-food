@@ -1,6 +1,4 @@
-import 'package:nibbles_ecommerce/models/package.dart';
-
-import '../../models/meal.dart';
+part of 'fav_packages_repo.dart';
 
 abstract class BaseFavoritePackagesRepository {
   Future<void> addFavoritePackage(String userId, PackageModel packageModel);

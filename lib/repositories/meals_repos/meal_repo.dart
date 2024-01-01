@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
-import 'package:nibbles_ecommerce/repositories/meals_repos/base_meals_repo.dart';
+
+part 'base_meals_repo.dart';
 
 class MealsRepo extends BaseMealRepository {
   final FirebaseFirestore _firebaseFirestore;

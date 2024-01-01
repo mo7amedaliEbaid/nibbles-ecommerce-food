@@ -1,4 +1,4 @@
-import '../../models/meal.dart';
+part of 'fav_meals_repo.dart';
 
 abstract class BaseFavoriteMealsRepository {
   Future<void> addFavoriteMeal(String userId, MealModel meal);

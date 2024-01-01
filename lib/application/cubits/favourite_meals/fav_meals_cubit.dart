@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../models/meal.dart';
-import '../../../repositories/favourite_meals_repo/base_favmeals_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 import '../../../repositories/favourite_meals_repo/fav_meals_repo.dart';
 
 part 'fav_meals_state.dart';

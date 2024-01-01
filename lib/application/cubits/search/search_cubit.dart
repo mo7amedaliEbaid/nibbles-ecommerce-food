@@ -2,11 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
-import 'package:nibbles_ecommerce/repositories/packages_repos/base_packages_repo.dart';
-import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
 
-import '../../../repositories/meals_repos/base_meals_repo.dart';
-import '../../../repositories/meals_repos/meal_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 part 'search_state.dart';
 

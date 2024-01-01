@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/auth_bloc/auth_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/user_bloc/user_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/configs/app_typography.dart';
-import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
+
+import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
-
-import '../widgets/common_border_radius.dart';
-import '../widgets/kids_components.dart';
-import '../widgets/profile_components.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

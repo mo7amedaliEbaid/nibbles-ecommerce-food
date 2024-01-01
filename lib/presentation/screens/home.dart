@@ -1,25 +1,18 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nibbles_ecommerce/application/blocs/categories/categories_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/meals/meals_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/packages/packages_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
+
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/auth_bottom_sheets.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meals_horizontal_listview.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/package_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
-import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../application/cubits/navigation/navigation_cubit.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -214,7 +207,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             }),
                       );
                     } else {
-                      return const LoadingTicker(text: AppStrings.loading,);
+                      return const LoadingTicker(
+                        text: AppStrings.loading,
+                      );
                     }
                   },
                 ),
@@ -255,7 +250,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context, state) {
                     if (state is CategoriesLoaded &&
                         state.categories.isNotEmpty) {
-
                       List<Tab> tabBarItems = List.generate(
                         state.categories.length,
                         (index) => Tab(
@@ -324,7 +318,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     } else {
                       return const Center(
-                        child: LoadingTicker(text: AppStrings.loading,),
+                        child: LoadingTicker(
+                          text: AppStrings.loading,
+                        ),
                       );
                     }
                   },

@@ -1,5 +1,4 @@
-
-import '../../models/kid.dart';
+part of 'kid_repo.dart';
 
 abstract class BaseKidsRepository {
   Future<void> addKid(Kid kid);

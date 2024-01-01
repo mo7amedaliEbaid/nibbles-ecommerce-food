@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
-import 'package:nibbles_ecommerce/repositories/meals_repos/base_meals_repo.dart';
-import 'package:nibbles_ecommerce/repositories/meals_repos/meal_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 part 'meals_event.dart';
 

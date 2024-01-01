@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../core/error/custom_error.dart';
-import '../../../repositories/auth_repos/auth_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 
 part 'sign_in_event.dart';

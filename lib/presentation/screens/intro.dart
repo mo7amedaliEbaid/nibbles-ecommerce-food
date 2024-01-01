@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/auth_bloc/auth_bloc.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../configs/app.dart';
 import '../../core/constants/assets.dart';
 import '../../core/enums/enums.dart';
 import '../../core/router/app_router.dart';
@@ -21,7 +21,7 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   final List<String> introItems =
-  List.generate(4, (index) => AppAssets.introPng);
+      List.generate(4, (index) => AppAssets.introPng);
 
   int _currentIndex = 0;
   final CarouselController _carouselController = CarouselController();
@@ -54,7 +54,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     return Container(
                       decoration: BoxDecoration(
                         borderRadius:
-                        BorderRadius.circular(AppDimensions.normalize(10)),
+                            BorderRadius.circular(AppDimensions.normalize(10)),
                         image: DecorationImage(
                           image: AssetImage(imageUrl),
                           fit: BoxFit.cover,
@@ -75,13 +75,13 @@ class _IntroScreenState extends State<IntroScreen> {
                   width: AppDimensions.normalize(4),
                   color: AppColors.antiqueRuby.withOpacity(.2),
                   borderRadius:
-                  BorderRadius.circular(AppDimensions.normalize(1))),
+                      BorderRadius.circular(AppDimensions.normalize(1))),
               activeDotDecoration: DotDecoration(
                   height: AppDimensions.normalize(4),
                   width: AppDimensions.normalize(4),
                   color: AppColors.antiqueRuby,
                   borderRadius:
-                  BorderRadius.circular(AppDimensions.normalize(1))),
+                      BorderRadius.circular(AppDimensions.normalize(1))),
             ),
           ),
           Space.yf(3),
@@ -97,17 +97,16 @@ class _IntroScreenState extends State<IntroScreen> {
                         if (state.status == AuthStatus.unauthenticated) {
                           Navigator.of(context).pushNamedAndRemoveUntil(
                             AppRouter.signup,
-                                (route) => false,
+                            (route) => false,
                           );
                         }
 
                         if (state.status == AuthStatus.authenticated) {
                           Navigator.of(context).pushNamedAndRemoveUntil(
                             AppRouter.root,
-                                (route) => false,
+                            (route) => false,
                           );
                         }
-
                       },
                       text: "SKIP",
                       heightFraction: 21,

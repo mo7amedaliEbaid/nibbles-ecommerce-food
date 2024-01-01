@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../models/kid.dart';
-import '../../../repositories/kid_repos/base_kid_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 part 'get_kids_state.dart';
 

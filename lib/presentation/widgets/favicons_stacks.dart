@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../configs/app_dimensions.dart';
+import '../../configs/configs.dart';
 import '../../core/constants/assets.dart';
 import '../../core/constants/colors.dart';
 
@@ -17,16 +17,19 @@ Widget RightFavIconStack({required bool isFilled}) {
         right: AppDimensions.normalize(4),
         top: AppDimensions.normalize(1),
         bottom: 0,
-        child:isFilled? SvgPicture.asset(
-          AppAssets.favWhite,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-        ):Image.asset(
-          AppAssets.favPng,
-          fit: BoxFit.contain,
-          height: AppDimensions.normalize(10),
-          width: AppDimensions.normalize(10),
-          // color: Colors.white,
-        ),
+        child: isFilled
+            ? SvgPicture.asset(
+                AppAssets.favWhite,
+                colorFilter:
+                    const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              )
+            : Image.asset(
+                AppAssets.favPng,
+                fit: BoxFit.contain,
+                height: AppDimensions.normalize(10),
+                width: AppDimensions.normalize(10),
+                // color: Colors.white,
+              ),
       ),
     ],
   );
@@ -61,4 +64,3 @@ Widget LeftFavIconStack({required bool isFilled}) {
     ],
   );
 }
-

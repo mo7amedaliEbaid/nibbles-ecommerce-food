@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/address.dart';
 
-import 'base_address_repo.dart';
+part 'base_address_repo.dart';
 
 class AddressRepository extends BaseAddressRepository {
   final CollectionReference addressCollection =
@@ -11,6 +11,7 @@ class AddressRepository extends BaseAddressRepository {
   Future<void> addAddress(Address address) async {
     await addressCollection.doc().set(address.toDocument());
   }
+
 /*
   @override
   Future<void> editAddress(Address address) async {

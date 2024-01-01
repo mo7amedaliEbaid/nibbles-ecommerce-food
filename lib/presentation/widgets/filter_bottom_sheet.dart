@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../application/cubits/filter/filter_cubit.dart';
+import '../../application/application.dart';
 
 class FilterBottomSheet extends StatefulWidget {
   const FilterBottomSheet({super.key});

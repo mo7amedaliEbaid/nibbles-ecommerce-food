@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/products/products_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/place_order/place_order_cubit.dart';
-import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
@@ -10,14 +10,10 @@ import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/order.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/checkout_components.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
+
 import 'dart:math' as math;
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 import '../../core/constants/assets.dart';
-import '../widgets/common_border_radius.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen(
@@ -263,11 +259,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 packageName: widget.packageModel.name,
                                 totalPrice: widget.packageModel.price);
                             context.read<PlaceOrderCubit>().placeOrder(order);
-                          //  if (orderState is OrderPlacedSuccessfully) {
-                              Navigator.of(context).pushNamed(
-                                  AppRouter.successfulOrder,
-                                  arguments: widget.packageModel.name);
-                          //  }
+                            //  if (orderState is OrderPlacedSuccessfully) {
+                            Navigator.of(context).pushNamed(
+                                AppRouter.successfulOrder,
+                                arguments: widget.packageModel.name);
+                            //  }
                           },
                           text: (orderState is PlaceOrderLoading)
                               ? AppStrings.wait

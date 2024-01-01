@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 
-import '../../application/blocs/categories/categories_bloc.dart';
-import '../widgets/top_rec_components.dart';
+import '../../application/application.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -22,7 +20,6 @@ class CategoriesScreen extends StatelessWidget {
           height: AppDimensions.normalize(560),
           child: Stack(
             children: [
-
               curvedlRecSvg(AppColors.antiqueRuby),
               positionedWhiteLogo(),
               positionedTitle("Meals".toUpperCase()),
@@ -36,7 +33,9 @@ class CategoriesScreen extends StatelessWidget {
                     builder: (context, state) {
                       if (state is CategoriesLoading) {
                         return const Center(
-                          child: LoadingTicker(text: AppStrings.loading,),
+                          child: LoadingTicker(
+                            text: AppStrings.loading,
+                          ),
                         );
                       }
                       if (state is CategoriesLoaded) {

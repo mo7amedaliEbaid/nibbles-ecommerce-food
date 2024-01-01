@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../configs/app_dimensions.dart';
-import '../../configs/app_typography.dart';
-import '../../configs/space.dart';
+import '../../configs/configs.dart';
 import '../../core/constants/assets.dart';
 
 Widget curvedlRecSvg(Color color) {

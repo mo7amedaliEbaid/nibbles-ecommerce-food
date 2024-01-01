@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../models/kid.dart';
-import 'base_kid_repo.dart';
+
+part 'base_kid_repo.dart';
 
 class KidsRepository extends BaseKidsRepository {
   final CollectionReference kidsCollection =

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/repositories/address_repo/base_address_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 import '../../../models/address.dart';
 part 'get_address_state.dart';

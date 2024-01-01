@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../configs/app_typography.dart';
 
 Widget customUndelinedText(TextStyle? style, String text) {
   return Text(

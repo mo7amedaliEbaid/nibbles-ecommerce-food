@@ -1,6 +1,4 @@
-
-import 'package:nibbles_ecommerce/models/meal_category.dart';
-
+part of 'categories_repo.dart';
 
 abstract class BaseCategoriesRepository {
   Stream<List<MealCategory>> getAllmealcates();

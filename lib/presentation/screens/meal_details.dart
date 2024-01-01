@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_row.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/meal_top_stack.dart';
 
-import '../../application/blocs/user_bloc/user_bloc.dart';
-import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
+import '../../application/application.dart';
 
 class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen({super.key, required this.mealModel});

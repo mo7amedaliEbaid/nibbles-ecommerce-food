@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/repositories/auth_repos/base_auth_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
 import '../../../core/enums/enums.dart';
 import '../../../core/error/custom_error.dart';

@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/repositories/packages_repos/base_packages_repo.dart';
-import 'package:nibbles_ecommerce/repositories/packages_repos/package_repo.dart';
+import 'package:nibbles_ecommerce/repositories/repositories.dart';
 import '../../../models/package.dart';
 
 part 'packages_event.dart';

@@ -3,32 +3,8 @@ import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
 import 'package:nibbles_ecommerce/models/order.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
-import 'package:nibbles_ecommerce/presentation/screens/about.dart';
-import 'package:nibbles_ecommerce/presentation/screens/add_address.dart';
-import 'package:nibbles_ecommerce/presentation/screens/add_kid.dart';
-import 'package:nibbles_ecommerce/presentation/screens/checkout.dart';
-import 'package:nibbles_ecommerce/presentation/screens/contact.dart';
-import 'package:nibbles_ecommerce/presentation/screens/favourites.dart';
-import 'package:nibbles_ecommerce/presentation/screens/intro.dart';
-import 'package:nibbles_ecommerce/presentation/screens/login.dart';
-import 'package:nibbles_ecommerce/presentation/screens/meal_details.dart';
-import 'package:nibbles_ecommerce/presentation/screens/meals_bycategory.dart';
-import 'package:nibbles_ecommerce/presentation/screens/order_details.dart';
-import 'package:nibbles_ecommerce/presentation/screens/select_kid.dart';
-import 'package:nibbles_ecommerce/presentation/screens/offers.dart';
-import 'package:nibbles_ecommerce/presentation/screens/privacy.dart';
-import 'package:nibbles_ecommerce/presentation/screens/profile.dart';
-import 'package:nibbles_ecommerce/presentation/screens/search.dart';
-import 'package:nibbles_ecommerce/presentation/screens/signup.dart';
-import 'package:nibbles_ecommerce/presentation/screens/subscriptions.dart';
-import 'package:nibbles_ecommerce/presentation/screens/successful_order.dart';
+import 'package:nibbles_ecommerce/presentation/screens.dart';
 
-import '../../models/kid.dart';
-import '../../presentation/screens/addresses.dart';
-import '../../presentation/screens/ads.dart';
-import '../../presentation/screens/root.dart';
-import '../../presentation/screens/splash.dart';
-import '../../presentation/screens/terms.dart';
 import '../error/exceptions.dart';
 
 sealed class AppRouter {

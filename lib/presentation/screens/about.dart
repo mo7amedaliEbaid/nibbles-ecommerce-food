@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/nibbles_info/nibbles_info_cubit.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/models/info.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});
@@ -28,7 +27,7 @@ class _AboutScreenState extends State<AboutScreen> {
     return Scaffold(
       body: BlocConsumer<NibblesInfoCubit, NibblesInfoState>(
         listener: (context, state) {
-       //   context.read<NibblesInfoCubit>().fetchAboutInfo();
+          //   context.read<NibblesInfoCubit>().fetchAboutInfo();
         },
         builder: (context, state) {
           if (state is NibblesInfoLoaded) {

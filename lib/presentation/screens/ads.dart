@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/connectivity/connectivity_cubit.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/noconnection.dart';
+
 import '../../core/constants/assets.dart';
 import '../../core/router/app_router.dart';
 

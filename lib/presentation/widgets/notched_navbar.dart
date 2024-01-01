@@ -2,7 +2,7 @@ library rolling_bottom_bar;
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
 class MyBottomBarItem {

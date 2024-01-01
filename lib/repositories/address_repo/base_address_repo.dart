@@ -1,4 +1,4 @@
-import 'package:nibbles_ecommerce/models/address.dart';
+part of 'address_repo.dart';
 
 abstract class BaseAddressRepository {
   Future<void> addAddress(Address address);

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/address.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/profile_components.dart';
+
 
 Widget addressItem(Address address) {
   return Container(

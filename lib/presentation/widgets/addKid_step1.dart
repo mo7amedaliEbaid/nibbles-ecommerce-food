@@ -1,20 +1,17 @@
 import 'dart:developer';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/add_kids/add_kids_cubit.dart';
-import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/models/kid.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_textformfield.dart';
 
 import '../../core/router/app_router.dart';
 import '../../core/validator/validator.dart';
-import 'kids_components.dart';
 
 class Step1 extends StatefulWidget {
   const Step1({super.key});

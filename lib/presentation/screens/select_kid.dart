@@ -1,22 +1,14 @@
 import 'dart:developer';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/cubits/get_address/get_address_cubit.dart';
-import 'package:nibbles_ecommerce/application/cubits/get_kids/get_kids_cubit.dart';
-import 'package:nibbles_ecommerce/application/cubits/select_kid/select_kid_cubit.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/configs/app_typography.dart';
-import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/kid_item.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/nokid_column.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
-
-import '../widgets/kids_components.dart';
 
 class SelectKidScreen extends StatefulWidget {
   const SelectKidScreen({super.key, required this.packageModel});

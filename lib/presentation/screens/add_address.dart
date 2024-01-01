@@ -5,12 +5,11 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/address.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_appbar.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_elevated_button.dart';
+
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../application/cubits/add_address/add_address_cubit.dart';
 import '../../core/validator/validator.dart';
-import '../widgets/custom_textformfield.dart';
 
 class AddAddressScreen extends StatefulWidget {
   const AddAddressScreen({super.key});
@@ -128,14 +127,14 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                                 floor: _floor.text,
                                 apartment: _apartment.text,
                                 instructions: _instructions.text));
-                           // if (state is AddressAddedSuccessfully) {
-                              Navigator.pushNamedAndRemoveUntil(
-                                context,
-                                AppRouter.addresses,
-                                (route) => route.isFirst,
-                              );
-                            }
-                       //   }
+                            // if (state is AddressAddedSuccessfully) {
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              AppRouter.addresses,
+                              (route) => route.isFirst,
+                            );
+                          }
+                          //   }
                         },
                         text: (state is AddAddressLoading)
                             ? AppStrings.wait

@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 
-import '../../models/meal.dart';
-import 'base_favpackages_repo.dart';
+part 'base_favpackages_repo.dart';
 
 class FavoritePackagesRepository implements BaseFavoritePackagesRepository {
   final FirebaseFirestore _firebaseFirestore;
@@ -13,15 +12,17 @@ class FavoritePackagesRepository implements BaseFavoritePackagesRepository {
       : _firebaseFirestore = firebaseFirestore ?? FirebaseFirestore.instance;
 
   @override
-  Future<void> addFavoritePackage(String userId, PackageModel packageModel) async {
+  Future<void> addFavoritePackage(
+      String userId, PackageModel packageModel) async {
     final userDocRef =
-    _firebaseFirestore.collection('favouritepackages').doc(userId);
+        _firebaseFirestore.collection('favouritepackages').doc(userId);
 
     return _firebaseFirestore.runTransaction((transaction) async {
       final snapshot = await transaction.get(userDocRef);
 
       if (snapshot.exists) {
-        final currentFavoritePackages = List.from(snapshot.get('packages') ?? []);
+        final currentFavoritePackages =
+            List.from(snapshot.get('packages') ?? []);
         if (!currentFavoritePackages.contains(packageModel.id)) {
           currentFavoritePackages.add(packageModel.id);
         }
@@ -38,13 +39,14 @@ class FavoritePackagesRepository implements BaseFavoritePackagesRepository {
   @override
   Future<void> removeFavoritePackage(String userId, String packageId) async {
     final userDocRef =
-    _firebaseFirestore.collection('favouritepackages').doc(userId);
+        _firebaseFirestore.collection('favouritepackages').doc(userId);
 
     return _firebaseFirestore.runTransaction((transaction) async {
       final snapshot = await transaction.get(userDocRef);
 
       if (snapshot.exists) {
-        final currentFavoritePackages = List.from(snapshot.get('packages') ?? []);
+        final currentFavoritePackages =
+            List.from(snapshot.get('packages') ?? []);
         currentFavoritePackages.remove(packageId);
 
         transaction.update(userDocRef, {'packages': currentFavoritePackages});
@@ -55,10 +57,10 @@ class FavoritePackagesRepository implements BaseFavoritePackagesRepository {
   @override
   Stream<List<PackageModel>> getFavoritePackages(String userId) async* {
     final userDocRef =
-    _firebaseFirestore.collection('favouritepackages').doc(userId);
+        _firebaseFirestore.collection('favouritepackages').doc(userId);
 
     final StreamController<List<PackageModel>> controller =
-    StreamController<List<PackageModel>>();
+        StreamController<List<PackageModel>>();
 
     userDocRef.snapshots().listen((snapshot) async {
       print('Snapshot data: ${snapshot.data()}');
@@ -101,7 +103,7 @@ class FavoritePackagesRepository implements BaseFavoritePackagesRepository {
   @override
   Future<bool> isPackageFavorite(String userId, String packageId) async {
     final userDocRef =
-    _firebaseFirestore.collection('favouritepackages').doc(userId);
+        _firebaseFirestore.collection('favouritepackages').doc(userId);
     final snapshot = await userDocRef.get();
 
     if (snapshot.exists) {

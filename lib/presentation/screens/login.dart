@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/sign_in_bloc/sign_in_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_typography.dart';
+import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
-import '../../configs/app_dimensions.dart';
-import '../../configs/space.dart';
+import '../../configs/configs.dart';
 import '../../core/constants/assets.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/strings.dart';
 import '../../core/enums/enums.dart';
 import '../../core/validator/validator.dart';
-import '../widgets/auth_bottom_sheets.dart';
-import '../widgets/auth_screens_components.dart';
-import '../widgets/custom_elevated_button.dart';
-import '../widgets/custom_textformfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

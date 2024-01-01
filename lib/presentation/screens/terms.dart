@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_appbar.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/nibbles_info_body.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
+
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../application/cubits/nibbles_info/nibbles_info_cubit.dart';
 
@@ -16,7 +15,7 @@ class TermsScreen extends StatefulWidget {
 class _TermsScreenState extends State<TermsScreen> {
   @override
   void initState() {
-   // context.read<NibblesInfoCubit>().fetchTermsInfo();
+    // context.read<NibblesInfoCubit>().fetchTermsInfo();
     super.initState();
   }
 

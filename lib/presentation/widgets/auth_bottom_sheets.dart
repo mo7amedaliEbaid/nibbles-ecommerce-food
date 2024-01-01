@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../configs/configs.dart';
 import '../../core/constants/colors.dart';
-import 'custom_elevated_button.dart';
 
 Future<void> showSuccessfulAuthBottomSheet(
     BuildContext context, bool isFromSignUp) async {

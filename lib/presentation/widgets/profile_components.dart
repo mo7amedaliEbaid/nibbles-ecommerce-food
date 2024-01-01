@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
-import '../../configs/app_dimensions.dart';
+import '../../configs/configs.dart';
 
 Widget profileSvgStack() {
   return Stack(

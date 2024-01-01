@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/constants/strings.dart';
 import 'package:nibbles_ecommerce/core/functions/url_launcher.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/common_border_radius.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_underlined_text.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/top_rec_components.dart';
-
-import '../widgets/contact_message_form.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});

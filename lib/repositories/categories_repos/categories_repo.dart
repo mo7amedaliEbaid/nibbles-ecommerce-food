@@ -1,13 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
 
-import 'base_categories_repos.dart';
+part 'base_categories_repo.dart';
 
-
-class CategoriesRepos extends BaseCategoriesRepository {
+class CategoriesRepo extends BaseCategoriesRepository {
   final FirebaseFirestore _firebaseFirestore;
 
-  CategoriesRepos({FirebaseFirestore? firebaseFirestore})
+  CategoriesRepo({FirebaseFirestore? firebaseFirestore})
       : _firebaseFirestore = firebaseFirestore ?? FirebaseFirestore.instance;
 
   @override

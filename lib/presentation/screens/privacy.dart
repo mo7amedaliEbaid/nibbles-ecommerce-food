@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/custom_appbar.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/nibbles_info_body.dart';
-import 'package:nibbles_ecommerce/presentation/widgets/tickers.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
-import '../../application/cubits/nibbles_info/nibbles_info_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../application/application.dart';
 
 class PrivacyScreen extends StatefulWidget {
   const PrivacyScreen({super.key});
@@ -16,7 +15,7 @@ class PrivacyScreen extends StatefulWidget {
 class _PrivacyScreenState extends State<PrivacyScreen> {
   @override
   void initState() {
-   // context.read<NibblesInfoCubit>().fetchPrivacyInfo();
+    // context.read<NibblesInfoCubit>().fetchPrivacyInfo();
     super.initState();
   }
 

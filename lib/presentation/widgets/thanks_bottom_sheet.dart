@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../configs/configs.dart';
 import '../../core/constants/colors.dart';
-import 'custom_elevated_button.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 Future<void> showThanksBottomSheet(BuildContext context) async {
   return showModalBottomSheet(

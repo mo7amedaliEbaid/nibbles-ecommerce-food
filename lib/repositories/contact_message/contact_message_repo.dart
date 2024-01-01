@@ -1,8 +1,9 @@
 // contact_us_repo.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:nibbles_ecommerce/repositories/contact_message/base_contact_message_repo.dart';
 
 import '../../models/contact_message.dart';
+
+part 'base_contact_message_repo.dart';
 
 class ContactUsRepo extends BaseContactMessageRepo {
   final FirebaseFirestore _firebaseFirestore;

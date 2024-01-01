@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nibbles_ecommerce/configs/app.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/presentation/screens/categories.dart';
-import 'package:nibbles_ecommerce/presentation/screens/home.dart';
-import 'package:nibbles_ecommerce/presentation/screens/more.dart';
-import 'package:nibbles_ecommerce/presentation/screens/packages.dart';
-import 'package:nibbles_ecommerce/presentation/screens/qrcode.dart';
 
-import '../../application/cubits/navigation/navigation_cubit.dart';
-import '../widgets/notched_navbar.dart';
+import 'package:nibbles_ecommerce/presentation/screens.dart';
+
+import '../../application/application.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});

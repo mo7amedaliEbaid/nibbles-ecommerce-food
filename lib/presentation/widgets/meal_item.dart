@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nibbles_ecommerce/application/blocs/user_bloc/user_bloc.dart';
-import 'package:nibbles_ecommerce/configs/app_dimensions.dart';
-import 'package:nibbles_ecommerce/configs/app_typography.dart';
-import 'package:nibbles_ecommerce/configs/space.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
+
+import 'package:nibbles_ecommerce/application/application.dart';
+import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/core/constants/assets.dart';
 import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'dart:math' as math;
-
-import 'package:nibbles_ecommerce/presentation/widgets/favicons_stacks.dart';
-
-import '../../application/cubits/favourite_meals/fav_meals_cubit.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem(
@@ -128,7 +124,8 @@ class MealItem extends StatelessWidget {
                                 .read<FavoriteMealsCubit>()
                                 .toggleFavorite(userState.user.id!, mealModel);
                           },
-                          child: BlocBuilder<FavoriteMealsCubit, FavoriteMealsState>(
+                          child: BlocBuilder<FavoriteMealsCubit,
+                              FavoriteMealsState>(
                             builder: (context, favState) {
                               if (favState is FavoriteMealsLoaded) {
                                 final isFavorite = favState.favoriteMeals.any(

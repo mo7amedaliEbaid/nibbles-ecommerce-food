@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../configs/app_dimensions.dart';
+import '../../configs/configs.dart';
 
 BorderRadius profileBorderRadius = BorderRadius.only(
   topRight: Radius.circular(AppDimensions.normalize(20)),

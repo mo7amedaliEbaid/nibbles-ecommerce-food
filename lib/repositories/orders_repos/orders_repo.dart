@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nibbles_ecommerce/models/order.dart';
 
-import 'base_orders_repo.dart';
+part 'base_orders_repo.dart';
 
 class OrdersRepository extends BaseOrdersRepository {
   final CollectionReference ordersCollection =
