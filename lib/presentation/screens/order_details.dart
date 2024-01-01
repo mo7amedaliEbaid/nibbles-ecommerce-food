@@ -1,13 +1,11 @@
 import 'dart:developer';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
-import 'package:nibbles_ecommerce/models/order.dart';
 
-import '../../core/constants/assets.dart';
+import 'package:nibbles_ecommerce/models/order.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
   const OrderDetailsScreen({super.key, required this.orderModel});

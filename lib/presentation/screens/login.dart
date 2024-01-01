@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
-import 'package:nibbles_ecommerce/core/router/app_router.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import '../../configs/configs.dart';
-import '../../core/constants/assets.dart';
-import '../../core/constants/colors.dart';
-import '../../core/constants/strings.dart';
-import '../../core/enums/enums.dart';
-import '../../core/validator/validator.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

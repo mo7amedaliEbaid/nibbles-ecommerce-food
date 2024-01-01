@@ -3,15 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/core/constants/strings.dart';
-import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
-
-import '../widgets/tickers.dart';
 
 class SubscriptionsScreen extends StatefulWidget {
   const SubscriptionsScreen({super.key});

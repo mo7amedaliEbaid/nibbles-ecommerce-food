@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
-
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import '../../configs/configs.dart';
 

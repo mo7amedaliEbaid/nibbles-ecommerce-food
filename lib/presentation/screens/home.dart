@@ -1,16 +1,13 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
 
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/core/constants/strings.dart';
-import 'package:nibbles_ecommerce/core/router/app_router.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

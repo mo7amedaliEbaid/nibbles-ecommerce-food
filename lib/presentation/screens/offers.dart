@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
+
 
 class OffersScreen extends StatelessWidget {
   const OffersScreen({super.key});

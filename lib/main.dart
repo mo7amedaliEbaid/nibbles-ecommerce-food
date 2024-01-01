@@ -4,10 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'core/app/app.dart';
-import 'core/firebase_options/firebase_options.dart';
-import 'core/functions/fcm.dart';
-import 'core/observer/bloc_observer.dart';
+
+import 'core/core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +14,7 @@ void main() async {
   // change emulators or use physical device.
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  Bloc.observer = MyBlocObserver();
+  Bloc.observer = NibblesBlocObserver();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

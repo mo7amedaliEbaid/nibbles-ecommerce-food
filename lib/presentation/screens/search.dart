@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

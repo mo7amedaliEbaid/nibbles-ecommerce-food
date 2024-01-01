@@ -1,18 +1,11 @@
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
-import 'package:nibbles_ecommerce/core/constants/strings.dart';
-import 'package:nibbles_ecommerce/core/router/app_router.dart';
-import 'package:nibbles_ecommerce/core/validator/validator.dart';
 
-import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
-
-import '../../core/enums/enums.dart';
 import '../../models/user_model.dart';
 
 class SignUpScreen extends StatefulWidget {

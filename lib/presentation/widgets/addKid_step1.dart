@@ -116,12 +116,10 @@ class _Step1State extends State<Step1> {
                               age: _ageController.text,
                               height: _heightController.text,
                               weight: _weightController.text));
-
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            AppRouter.selectKid,
-                            (route) => route.isFirst,
-                          );
+                          context
+                              .read<GetKidsCubit>()
+                              .getKids(FirebaseAuth.instance.currentUser!.uid);
+                          Navigator.pop(context);
 
                           /*     if (state is KidsAddedSuccessfully) {
                             _genderController.clear();

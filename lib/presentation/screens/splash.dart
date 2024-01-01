@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/core/constants/assets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import '../../configs/configs.dart';
-import '../../core/constants/colors.dart';
-import '../../core/router/app_router.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

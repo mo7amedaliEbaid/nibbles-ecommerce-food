@@ -1,16 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
-import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../../core/constants/assets.dart';
-import '../../core/enums/enums.dart';
-import '../../core/router/app_router.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
