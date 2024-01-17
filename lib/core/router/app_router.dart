@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nibbles_ecommerce/models/kid.dart';
 import 'package:nibbles_ecommerce/models/meal.dart';
 import 'package:nibbles_ecommerce/models/meal_category.dart';
 import 'package:nibbles_ecommerce/models/order.dart';
 import 'package:nibbles_ecommerce/models/package.dart';
 import 'package:nibbles_ecommerce/presentation/screens.dart';
+import 'package:nibbles_ecommerce/presentation/screens/kid_profile.dart';
 
 import '../error/exceptions.dart';
 
@@ -34,6 +36,7 @@ sealed class AppRouter {
   static const String checkout = '/checkout';
   static const String successfulOrder = '/successfulOrder';
   static const String orderDetails = '/orderDetails';
+  static const String kidProfile = '/kidProfile';
 
   static const List<String> moreScreenTaps = [
     subscriptions,
@@ -133,6 +136,9 @@ sealed class AppRouter {
             builder: (_) => OrderDetailsScreen(
                   orderModel: orderModel,
                 ));
+      case kidProfile:
+        Kid kid = routeSettings.arguments as Kid;
+        return MaterialPageRoute(builder: (_) => KidProfileScreen(kid: kid));
 
       default:
         throw const RouteException('Route not found!');

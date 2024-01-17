@@ -31,9 +31,7 @@ dependencies:
   firebase_messaging:
   flutter_local_notifications:
   table_calendar:
-#  qr_code_scanner:
-#  rxdart:
-#  qr_flutter:
+
 
 dev_dependencies:
   flutter_test:

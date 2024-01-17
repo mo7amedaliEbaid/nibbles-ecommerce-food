@@ -7,7 +7,6 @@ import 'package:nibbles_ecommerce/application/application.dart';
 
 import 'package:nibbles_ecommerce/configs/configs.dart';
 
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -119,7 +118,34 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Space.yf(.7),
                 Row(
-                  children: [addKidContainer(context)],
+                  children: [
+                    addKidContainer(context),
+                    BlocBuilder<GetKidsCubit, GetKidsState>(
+                        builder: (context, state) {
+                      if (state is GetKidsLoaded && state.kids.isNotEmpty) {
+                        return SizedBox(
+                          width: AppDimensions.normalize(80),
+                          height: AppDimensions.normalize(55),
+                          child: ListView.separated(
+                            itemCount: state.kids.length,
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.only(
+                                left: AppDimensions.normalize(6)),
+                            itemBuilder: (context, index) {
+                              return profileKidItem(
+                                  kid: state.kids[index], context: context);
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return Space.xf();
+                            },
+                          ),
+                        );
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    })
+                  ],
                 ),
               ],
             ),

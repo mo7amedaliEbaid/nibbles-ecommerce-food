@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
-import 'package:nibbles_ecommerce/models/kid.dart';
+import 'package:nibbles_ecommerce/models/models.dart';
 import '../../configs/configs.dart';
-import '../../core/constants/assets.dart';
-import '../../core/constants/colors.dart';
+import '../../core/core.dart';
 import 'dart:math' as math;
 
 Widget kidItem(Kid kid, BuildContext context) {
