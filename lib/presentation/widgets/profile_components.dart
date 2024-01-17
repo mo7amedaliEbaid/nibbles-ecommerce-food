@@ -50,7 +50,10 @@ Widget profileKidItem({
 
   return GestureDetector(
     onTap: () {
-      Navigator.of(context).pushNamed(AppRouter.kidProfile, arguments: kid);
+      Navigator.of(context).pushNamed(
+        AppRouter.kidProfile,
+        arguments: kid,
+      );
     },
     child: Container(
       width: AppDimensions.normalize(52),

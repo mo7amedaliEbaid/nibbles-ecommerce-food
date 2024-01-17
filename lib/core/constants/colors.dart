@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 sealed class AppColors {
-  static const Color scafoldBackground = Color(0xffeeeeee);
+  static const Color scaffoldBackground = Color(0xffeeeeee);
   static const Color antiqueRuby = Color(0xffb93273);
   static const Color deepTeal = Color(0xff2e7b79);
   static const Color greyText = Color(0xffA8A8A8);

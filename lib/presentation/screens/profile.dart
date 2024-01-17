@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
 import 'package:nibbles_ecommerce/core/core.dart';
@@ -7,8 +8,21 @@ import 'package:nibbles_ecommerce/application/application.dart';
 
 import 'package:nibbles_ecommerce/configs/configs.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    context
+        .read<GetKidsCubit>()
+        .getKids(FirebaseAuth.instance.currentUser!.uid);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

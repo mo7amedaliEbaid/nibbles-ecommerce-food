@@ -138,7 +138,7 @@ class _MyAppState extends State<MyApp> {
           initialRoute: AppRouter.splash,
           theme: ThemeData(
             fontFamily: AppStrings.fontFamily,
-            scaffoldBackgroundColor: AppColors.scafoldBackground,
+            scaffoldBackgroundColor: AppColors.scaffoldBackground,
             checkboxTheme: CheckboxThemeData(
               fillColor: MaterialStateColor.resolveWith(
                 (states) => AppColors.lightGrey,

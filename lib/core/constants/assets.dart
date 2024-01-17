@@ -64,6 +64,7 @@ sealed class AppAssets {
   static const String visa = "assets/svg/visan.svg"; //NOT USED
   static const String masterCard = "assets/svg/mastercard.svg"; //NOT USED
   static const String add = "assets/svg/add.svg"; //NOT USED
+  static const String remove = "assets/svg/remove.svg"; //NOT USED
 
   static const List<String> signupItems = [
     username,
@@ -109,6 +110,7 @@ sealed class AppAssets {
   static const String qrPng = "assets/png/qrpng.png";
   static const String errorPng = "assets/png/errorpng.png";
   static const String addKidPng = "assets/png/addkidPng.png";
+  static const String removePng = "assets/png/removePng.png";
   static const String kidPng = "assets/png/kid.png"; // Not Used
   static const String whiteRecPng = "assets/png/whiterecpng.png"; //Not Used
 
