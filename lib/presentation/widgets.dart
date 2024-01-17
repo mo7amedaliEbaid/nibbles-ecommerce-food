@@ -34,3 +34,4 @@ export 'widgets/range_slider.dart';
 export 'widgets/thanks_bottom_sheet.dart';
 export 'widgets/tickers.dart';
 export 'widgets/top_rec_components.dart';
+export 'widgets/kid_profile_components.dart';
