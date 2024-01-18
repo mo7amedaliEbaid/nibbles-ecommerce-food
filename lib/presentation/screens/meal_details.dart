@@ -22,7 +22,7 @@ class MealDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: AppDimensions.normalize(410),
+              height: AppDimensions.normalize(445),
               child: Stack(
                 children: [
                   mealTopStack(context),
