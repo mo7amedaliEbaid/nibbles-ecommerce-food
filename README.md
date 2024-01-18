@@ -205,13 +205,14 @@ More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-com
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6442a79d60c09586d6ab9031a00458584971fb06/screenshots/searchnotfound.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/qrcode.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails1.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/login.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/login.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/favmeals.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/termsn.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/addkid1.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/nokids.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c6bdac5525e7ce3fd5ab2b491d22bb0efbb693fa/screenshots/kidProfile.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/kidProfile.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/kidPofile2.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/signupfull.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/noconnection.jpg" width="180"/>
   <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/add_addressem.jpg" width="180"/>
