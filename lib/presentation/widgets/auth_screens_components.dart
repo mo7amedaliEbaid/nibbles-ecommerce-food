@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 
 import '../../configs/configs.dart';
 import '../../core/constants/assets.dart';
@@ -11,13 +12,13 @@ Widget authTopColumn(bool isFromSignUp) {
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(
-            "Continue as\na guest",
-            style: AppText.b2?.copyWith(
+          customUnderLinedText(
+            AppText.b2?.copyWith(
               decoration: TextDecoration.underline,
               decorationThickness: 3.5,
             ),
-            textAlign: TextAlign.end,
+            "Continue as\na guest",
+            true,
           ),
           Space.xf()
         ],

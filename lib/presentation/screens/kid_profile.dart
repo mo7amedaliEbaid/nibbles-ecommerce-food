@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
 import 'package:nibbles_ecommerce/models/models.dart';
 import 'package:nibbles_ecommerce/presentation/widgets.dart';
@@ -97,6 +96,17 @@ class KidProfileScreen extends StatelessWidget {
                 "Food Details",
                 style: AppText.h2,
               ),
+              Space.yf(.7),
+              foodDetailsItem(
+                  topText: "Dislikes",
+                  bottomTexts: ["Cilantro", "Dry Tomatoes"],
+                  context: context),
+              Space.yf(),
+              foodDetailsItem(
+                  topText: "Food allergies",
+                  bottomTexts: ["Peanuts", "Wheat Allergy"],
+                  context: context),
+              Space.yf(1.7),
             ],
           ),
         ),

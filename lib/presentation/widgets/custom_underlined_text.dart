@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-Widget customUndelinedText(TextStyle? style, String text) {
+Widget customUnderLinedText(
+  TextStyle? style,
+  String text,
+  bool isFromAuth,
+) {
   return Text(
     text,
     style: style?.copyWith(
@@ -12,5 +15,6 @@ Widget customUndelinedText(TextStyle? style, String text) {
       decoration: TextDecoration.underline,
       decorationThickness: 3.5,
     ),
+    textAlign: isFromAuth ? TextAlign.end : null,
   );
 }

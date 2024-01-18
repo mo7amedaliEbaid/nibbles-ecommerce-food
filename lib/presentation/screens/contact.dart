@@ -72,8 +72,11 @@ class ContactScreen extends StatelessWidget {
                                                         BlendMode.srcIn),
                                               ),
                                               Space.xf(.8),
-                                              customUndelinedText(AppText.b1,
-                                                  AppStrings.contactInfo[i])
+                                              customUnderLinedText(
+                                                AppText.b1,
+                                                AppStrings.contactInfo[i],
+                                                false,
+                                              )
                                             ],
                                           ),
                                         ),

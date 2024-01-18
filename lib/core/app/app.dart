@@ -6,10 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/repositories/repositories.dart';
 
-import '../constants/colors.dart';
-import '../constants/strings.dart';
-import '../functions/fcm.dart';
-import '../router/app_router.dart';
+import '../core.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
