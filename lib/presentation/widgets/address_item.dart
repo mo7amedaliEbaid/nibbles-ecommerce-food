@@ -6,10 +6,9 @@ import 'package:nibbles_ecommerce/core/constants/colors.dart';
 import 'package:nibbles_ecommerce/core/extensions/extensions.dart';
 import 'package:nibbles_ecommerce/models/address.dart';
 
-
 Widget addressItem(Address address) {
   return Container(
-    height: AppDimensions.normalize(72),
+    height: AppDimensions.normalize(78),
     width: double.infinity,
     padding: Space.all(1, .7),
     decoration:

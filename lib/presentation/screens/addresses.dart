@@ -89,7 +89,7 @@ class _AddressesScreenState extends State<AddressesScreen> {
                 }
               },
             ),
-            const Expanded(child: SizedBox()),
+            Space.ym!,
             customElevatedButton(
                 onTap: () {
                   Navigator.of(context).pushNamed(AppRouter.addAddress);

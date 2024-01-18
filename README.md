@@ -15,6 +15,9 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
 - **🔍Search Functionality:** Easily find specific meals or food packages based on preferences with a robust search feature.
   
 - **Qr Code Scanner:** Quickly access relevant information through the integrated Qr code scanner.
+
+#### Note: the meals qr codes i used in this app are provided in [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/meals_qrcodes)
+
   
 - **❤️Favourite Lists:** Manage your favourite lists, making it convenient to keep track of preferred meals and food packages.
   
@@ -33,6 +36,8 @@ Nibbles is a Flutter-based food app designed to provide users with a delightful 
 - **🏠Addresses:** Easily manage your delivery addresses, making the ordering process more convenient and efficient.
 
 - **Orders:** Place your orders and select the address and delivery date.
+
+- **Kid Profile:** Browse and manage your kids profiles.
 
 ## Directory Structure
 
@@ -155,6 +160,9 @@ These dependencies collectively contribute to the functionality, design, and use
 - PlaceOrderCubit.
 - GetOrdersCubit.
 
+## Download App
+<a href="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/releases/download/v1.0.0/nibbles.apk"><img src="https://playerzon.com/asset/download.png" width="150"></img></a>
+
 ## Screens
 
 - AboutScreen
@@ -239,7 +247,6 @@ To get started with Nibbles:
 
 Feel free to explore and customize the app according to your needs. Share your feedback!
 
-### Note: the meals qr codes i used in this app are provided in [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/meals_qrcodes)
 
 ## License
 
