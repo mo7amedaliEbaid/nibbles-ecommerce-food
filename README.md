@@ -184,6 +184,7 @@ These dependencies collectively contribute to the functionality, design, and use
 - SuccessfulOrderScreen.
 - SubscriptionsScreen.
 - OrderDetailsScreen.
+- KidProfileScreen.
 
 More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots)
 
@@ -259,7 +260,10 @@ More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-com
 
 # Demos
 
-https://github.com/mo7amedaliEbaid/nibbles-ecommerce/assets/131966482/436bd522-7622-469c-b7d5-03fbda7f42ad
+
+
+https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/assets/131966482/0b600127-b59e-414b-ade8-7f033fe52ea7
+
 
 
 
