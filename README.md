@@ -250,9 +250,9 @@ Feel free to explore and customize the app according to your needs. Share your f
 
 ## License
 
-This project is licensed under the MIT License, allowing for flexibility and collaboration.
+- This project is licensed under the MIT License, allowing for flexibility and collaboration.
 
-Happy coding and happy nibbling with Nibbles! 🍔🍕🍰
+- Happy coding and happy nibbling with Nibbles! 🍔🍕🍰
 
 ## Firestore.
 
