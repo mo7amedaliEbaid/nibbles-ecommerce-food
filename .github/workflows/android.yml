@@ -8,11 +8,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: set up JDK 11
       uses: actions/setup-java@v3
       with:
@@ -20,7 +20,27 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    - name: Check if Gradle Build Exists
+      run: |
+        if [ ! -f ./settings.gradle ] && [ ! -f ./settings.gradle.kts ]; then
+          echo "Gradle build files not found, initializing new Gradle project..."
+          gradle init --type basic
+        else
+          echo "Gradle build files found."
+        fi
+
+    - name: Generate Gradle Wrapper if Missing
+      run: |
+        if [ ! -f ./gradlew ]; then
+          echo "Gradle wrapper not found, generating..."
+          gradle wrapper
+        else
+          echo "Gradle wrapper found."
+        fi
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      
     - name: Build with Gradle
       run: ./gradlew build
+
