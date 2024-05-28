@@ -109,7 +109,7 @@ class _Step1State extends State<Step1> {
                   padding: Space.h!,
                   child: customElevatedButton(
                       onTap: () {
-                        if (_formKey.currentState!.validate()) {
+                   /*     if (_formKey.currentState!.validate()) {
                           context.read<AddKidsCubit>().addKid(Kid(
                               gender: _genderController.text,
                               name: _nameController.text,
@@ -119,7 +119,7 @@ class _Step1State extends State<Step1> {
                           context
                               .read<GetKidsCubit>()
                               .getKids(FirebaseAuth.instance.currentUser!.uid);
-                          Navigator.pop(context);
+                          Navigator.pop(context);*/
 
                           /*     if (state is KidsAddedSuccessfully) {
                             _genderController.clear();
@@ -128,7 +128,7 @@ class _Step1State extends State<Step1> {
                             _heightController.clear();
                             _weightController.clear();
                           }*/
-                        }
+                      //  }
                       },
                       text: (state is! AddKidsLoading)
                           ? "Next".toUpperCase()

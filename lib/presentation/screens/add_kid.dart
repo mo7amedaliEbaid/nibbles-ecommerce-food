@@ -37,9 +37,28 @@ class _AddKidScreenState extends State<AddKidScreen> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      stepStack(
-                        stepImage: AppAssets.step1Png,
-                        svgIcon: AppAssets.profile,
+                      BlocBuilder<KidsStepsCubit, KidsStepType>(
+                        builder: (context, state) {
+                          switch (state) {
+                            case KidsStepType.index0:
+                              return stepStack(
+                                stepImage: AppAssets.step1Png,
+                                svgIcon: AppAssets.profile,
+                              );
+                            case KidsStepType.index1:
+                              return stepStack(
+                                stepImage: AppAssets.step2Png,
+                                svgIcon: AppAssets.diet,
+                              );
+                            case KidsStepType.index2:
+                              return stepStack(
+                                stepImage: AppAssets.step3Png,
+                                svgIcon: AppAssets.forks,
+                              );
+                            default:
+                              return const SizedBox.shrink();
+                          }
+                        },
                       ),
                       Space.xf(),
                       BlocBuilder<KidsStepsCubit, KidsStepType>(

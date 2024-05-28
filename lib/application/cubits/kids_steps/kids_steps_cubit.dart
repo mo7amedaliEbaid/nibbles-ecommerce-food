@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/core/enums/enums.dart';
 
 class KidsStepsCubit extends Cubit<KidsStepType> {
-  KidsStepsCubit() : super(KidsStepType.index0);
+  KidsStepsCubit() : super(KidsStepType.index1);
 
   void updateIndex(int newIndex) {
     switch (newIndex) {
