@@ -20,6 +20,4 @@ class AddKidsCubit extends Cubit<AddKidsState> {
       emit(const AddKidsError(errorMessage: 'Failed to add kid'));
     }
   }
-
-
 }

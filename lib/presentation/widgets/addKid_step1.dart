@@ -131,7 +131,7 @@ class _Step1State extends State<Step1> {
                         }
                       },
                       text: (state is! AddKidsLoading)
-                          ? "Add".toUpperCase()
+                          ? "Next".toUpperCase()
                           : AppStrings.wait,
                       heightFraction: 20,
                       width: double.infinity,

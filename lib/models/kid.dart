@@ -45,3 +45,23 @@ class Kid extends Equatable {
     };
   }
 }
+
+extension KidCopyWith on Kid {
+  Kid copyWith({
+    String? name,
+    String? age,
+    String? weight,
+    String? height,
+    String? gender,
+    String? userId,
+  }) {
+    return Kid(
+      name: name ?? this.name,
+      age: age ?? this.age,
+      weight: weight ?? this.weight,
+      height: height ?? this.height,
+      gender: gender ?? this.gender,
+      userId: userId ?? this.userId,
+    );
+  }
+}
