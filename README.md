@@ -247,6 +247,9 @@ To get started with Nibbles:
 
 Feel free to explore and customize the app according to your needs. Share your feedback!
 
+## FlutterFire Configure Ex.
+
+- https://youtu.be/nHIbNa6rshs?si=v4HEozSV3v_lVVgp
 
 ## License
 
