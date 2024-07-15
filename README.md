@@ -1,3 +1,5 @@
+[![Android CI](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/android.yml/badge.svg)](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/android.yml)
+
 # Nibbles - Flutter Food App 🍔🍕🍰
 
 Nibbles is a Flutter-based food app designed to provide users with a delightful and user-friendly experience as they explore a variety of meals and food packages📦. The app utilizes the Bloc pattern and Cubits for efficient state management, integrates Firebase Firestore for real-time data storage, and incorporates various plugins to enhance its functionality.
