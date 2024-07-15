@@ -1,4 +1,4 @@
-[![Android CI](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/android.yml/badge.svg)](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/android.yml)
+[![Android CI](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/android.yml/badge.svg)](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/android.yml) [![Build Flutter APK](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/apk.yml/badge.svg)](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-food/actions/workflows/apk.yml)
 
 # Nibbles - Flutter Food App 🍔🍕🍰
 
