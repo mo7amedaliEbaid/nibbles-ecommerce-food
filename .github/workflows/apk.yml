@@ -36,8 +36,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
-        tag_name: v2.0.1  # Adjust the version tag as needed
-        release_name: Release v2.0.1  # Adjust the release name as needed
+        tag_name: v2.0.2  # Adjust the version tag as needed
+        release_name: Release v2.0.2  # Adjust the release name as needed
         draft: false
         prerelease: false
 
