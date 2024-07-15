@@ -25,24 +25,24 @@ jobs:
       run: flutter build apk --release
 
     - name: Upload APK
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: release-apk
         path: build/app/outputs/flutter-apk/app-release.apk
         
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: actions/create-release@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
-        tag_name: v1.0.0  # Adjust the version tag as needed
-        release_name: Release v1.0.0  # Adjust the release name as needed
+        tag_name: v3.0.0  # Adjust the version tag as needed
+        release_name: Release v3.0.0  # Adjust the release name as needed
         draft: false
         prerelease: false
 
     - name: Upload APK to Release
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
