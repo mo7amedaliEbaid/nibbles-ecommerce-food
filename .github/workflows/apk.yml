@@ -16,38 +16,7 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: 'name: Build Flutter APK
-
-on:
-  push:
-    branches:
-      - main  # Change to your branch name if different
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.0.0'  # Specify your Flutter version
-
-    - name: Install dependencies
-      run: flutter pub get
-
-    - name: Build APK
-      run: flutter build apk --release
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v2
-      with:
-        name: release-apk
-        path: build/app/outputs/flutter-apk/app-release.apk
-'  # Specify your Flutter version
+        flutter-version: '3.0.5'  # Specify your Flutter version
 
     - name: Install dependencies
       run: flutter pub get
