@@ -1,0 +1,70 @@
+name: nibbles_ecommerce
+description: A new Flutter project.
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.1
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  flutter_svg:
+  firebase_core:
+  cloud_firestore:
+  firebase_auth:
+  smooth_page_indicator:
+  buttons_tabbar:
+  equatable:
+  flutter_bloc:
+  carousel_slider:
+  flutter_barcode_scanner:
+  url_launcher:
+  connectivity_plus:
+  firebase_messaging:
+  flutter_local_notifications:
+  table_calendar:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+   - assets/svg/
+   - assets/png/
+   - assets/png/categories/
+   - assets/png/meals/
+   - assets/png/offers/
+   - assets/png/social/
+   - assets/png/steps/
+   - assets/png/products/
+   - assets/png/payment/
+
+
+  fonts:
+    - family: Form
+      fonts:
+        - asset: assets/fonts/Form-Medium.ttf
+          weight: 600
+        - asset: assets/fonts/Form-Light.ttf
+          weight: 200
+        - asset: assets/fonts/Form-Bold.ttf
+          weight: 900
+
