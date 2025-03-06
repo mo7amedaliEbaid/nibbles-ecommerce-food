@@ -1,11 +1,10 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:flutter/material.dart';
-import 'package:nibbles_ecommerce/presentation/widgets.dart';
-import 'package:nibbles_ecommerce/core/core.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nibbles_ecommerce/application/application.dart';
 import 'package:nibbles_ecommerce/configs/configs.dart';
+import 'package:nibbles_ecommerce/core/core.dart';
+import 'package:nibbles_ecommerce/presentation/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -20,7 +19,8 @@ class _IntroScreenState extends State<IntroScreen> {
       List.generate(4, (index) => AppAssets.introPng);
 
   int _currentIndex = 0;
-  final CarouselController _carouselController = CarouselController();
+  final slider.CarouselController _carouselController =
+      slider.CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +31,9 @@ class _IntroScreenState extends State<IntroScreen> {
           Space.yf(2),
           Padding(
             padding: EdgeInsets.only(left: AppDimensions.normalize(8)),
-            child: CarouselSlider(
+            child: slider.CarouselSlider(
               carouselController: _carouselController,
-              options: CarouselOptions(
+              options: slider.CarouselOptions(
                   padEnds: false,
                   height: AppDimensions.normalize(240),
                   enlargeCenterPage: true,
