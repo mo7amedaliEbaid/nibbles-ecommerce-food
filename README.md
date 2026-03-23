@@ -1,8 +1,54 @@
+# Nibbles - Flutter Food (Delivery) App 🍔🍕🍰
 
-
-# Nibbles - Flutter Food App 🍔🍕🍰
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter)](https://flutter.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth%20%7C%20FCM-FFCA28?logo=firebase)](https://firebase.google.com)
+[![Bloc](https://img.shields.io/badge/State%20Management-Bloc-blue)](https://bloclibrary.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Nibbles is a Flutter-based food app designed to provide users with a delightful and user-friendly experience as they explore a variety of meals and food packages📦. The app utilizes the Bloc pattern and Cubits for efficient state management, integrates Firebase Firestore for real-time data storage, and incorporates various plugins to enhance its functionality.
+
+## Screenshots
+More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots)
+
+<p float="left">
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd3.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd2.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/e3c1e25bc5f72b7abf378f1daebedd884cd757df/screenshots/categories.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c6bdac5525e7ce3fd5ab2b491d22bb0efbb693fa/screenshots/profile.jpg" width="180"/>
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/cac9447485e531c6bd9982e36a7194a39435540e/screenshots/intro.jpg" width="180"/> 
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails2.jpg" width="180"/>
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/more.jpg" width="180"/>
+ <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/contactscr.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/mealsbycat.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/signup.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/search.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/offers.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/90fa0050dfa4fe6819ca3058c4ebc6defe1b16cf/screenshots/ads.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/packages.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6442a79d60c09586d6ab9031a00458584971fb06/screenshots/searchnotfound.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/qrcode.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails1.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/login.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/favmeals.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/termsn.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/addkid1.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/nokids.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/kidProfile.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/kidPofile2.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/signupfull.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/noconnection.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/add_addressem.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/addresses.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/check1.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/chech.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/orderdetails.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/select-date.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/select-kid.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/successfulorder.jpg" width="180"/>
+  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/subscriptions.jpg" width="180"/>
+
+</p>
 
 ## Features
 
@@ -196,47 +242,6 @@ These dependencies collectively contribute to the functionality, design, and use
 - OrderDetailsScreen.
 - KidProfileScreen.
 
-More ScreenShots [Here](https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots)
-
-<p float="left">
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd3.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/homeupd2.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/e3c1e25bc5f72b7abf378f1daebedd884cd757df/screenshots/categories.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c6bdac5525e7ce3fd5ab2b491d22bb0efbb693fa/screenshots/profile.jpg" width="180"/>
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/cac9447485e531c6bd9982e36a7194a39435540e/screenshots/intro.jpg" width="180"/> 
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails2.jpg" width="180"/>
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/more.jpg" width="180"/>
- <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/contactscr.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/mealsbycat.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6fba63ae361814d9a76491e2fe5cf3eca53abd99/screenshots/signup.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/25e1b1610d13a610deb75a3f2552d4fe31db49a0/screenshots/search.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/5ce0e278b1426f8b49bc51c0f75a24bcfc441c03/screenshots/offers.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/90fa0050dfa4fe6819ca3058c4ebc6defe1b16cf/screenshots/ads.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/packages.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/6442a79d60c09586d6ab9031a00458584971fb06/screenshots/searchnotfound.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/1cde5c679967f75e26e53560a374ead1a65b6ccc/screenshots/qrcode.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/b02c61118bd41ef9a4fb08dc7ac9a98466844903/screenshots/mealdetails1.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/login.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/favmeals.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/about.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/3617d16f57339b8af23d45d15a681903c08ee88e/screenshots/termsn.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/addkid1.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/nokids.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/kidProfile.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/a91307f937eb3237703d892d3aae71d0c8244e54/screenshots/kidPofile2.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/c96ede35eee2357d28f708a89f9743b91c0d9a4c/screenshots/signupfull.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/noconnection.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/add_addressem.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/7cba9423efb343b5b86e000172cd8f5cbd6f79e5/screenshots/addresses.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/check1.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/chech.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/orderdetails.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/select-date.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/select-kid.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/successfulorder.jpg" width="180"/>
-  <img src="https://github.com/mo7amedaliEbaid/nibbles-ecommerce-complex-ui/blob/314de2ef6b9f425cee73678f3d03a96e8d35f29b/screenshots/subscriptions.jpg" width="180"/>
-
-</p>
 
 ## Getting Started
 
@@ -249,9 +254,7 @@ To get started with Nibbles:
 
 Feel free to explore and customize the app according to your needs. Share your feedback!
 
-## FlutterFire Configure Ex.
-
-- https://youtu.be/nHIbNa6rshs?si=v4HEozSV3v_lVVgp
+#### Configure Firebase using FlutterFire CLI ([guide](https://youtu.be/nHIbNa6rshs?si=v4HEozSV3v_lVVgp))
 
 ## License
 
